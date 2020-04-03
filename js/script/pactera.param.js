@@ -8,7 +8,7 @@ var tipsMap = {};
 (function ($, undefined) {
     $.param = $.param || {};
     $.ajax({
-        url: portal.bp() + '/pubApp/getPubApp?r='+Math.random(),
+        url: portal.bp() + '/json/pubApp/getPubApp.json?r='+Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

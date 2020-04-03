@@ -83,8 +83,6 @@ $(function () {
     $("#add_belongline").html("").append($.param.getSelectOptionOrder("AB0007"));
     $('#add_belongline').selectpicker('refresh');
 	orgtree();
-	//初始化主管行长
-//	initPresident();
 	//初始化所属分行
 	initSuperOrgName();
 	//Modal验证销毁重构
@@ -265,7 +263,7 @@ $(function () {
 			'orgDummyRelHistoryList':orgDummyRelHistoryList
 		};
 		$.ajax({
-			url : portal.bp() + '/org/saveOrgDummy',
+			url : portal.bp() + '/json/ok.json',
 			type: type,
 			cache:false,
 			contentType: "application/json;charset=UTF-8",
@@ -325,7 +323,7 @@ $(function () {
 			'orgName':$("#editName_orgName").val()
 		};
 		$.ajax({
-			url : portal.bp() + '/org/editName',
+			url : portal.bp() + '/json/ok.json',
 			type: "post",
 			cache:false,
 			dataType: "json",
@@ -359,7 +357,7 @@ $(function () {
 function getPresidentName(president){
 	var presidentName;
 	$.ajax({
-        url: portal.bp() + '/user/getEmpInfoByEmpNum',
+        url: portal.bp() + '/json/user/getEmpInfoByEmpNum.json',
         type: 'get',
         async: false,
         cache: false,
@@ -392,7 +390,7 @@ function userworkflowGoback(pkId){
 }
 function delMgmt(pkId){
 	$.ajax({
-        url: portal.bp() + '/org/workflow/del?r='+Math.random(),
+        url: portal.bp() + '/json/ok.json?r='+Math.random(),
         type: 'POST',
         async: false,
         data:{"pkIdList": [pkId]},
@@ -694,7 +692,7 @@ Date.prototype.Format = function(fmt){
 //获取机构树
 function orgtree(){
 	 $.ajax({
-		url : portal.bp() + '/org/allValidOrg',
+		url : portal.bp() + '/json/org/allValidOrg.json',
 		dataType:'json',
 		cache:false,
 		data:{},
@@ -710,30 +708,10 @@ function orgtree(){
 		}
 	});
 }
-function initPresident(){
-	var html  = "";
-	$.ajax({
-		url : portal.bp() + '/org/findPresident',
-		dataType:'json',
-		cache:false,
-		data:{},
-		type:'get',
-		success : function(d) {
-			if(d.code=='200'){
-				$.each(d.data,function(index,item){
-					html += "<option value='"+item.ID+"'>"+item.NAME+"</option>"
-				});
-				$("#add_president").empty().append(html);
-				$("#add_president").selectpicker('refresh');
-			}else{
-				layer.msg(d.message,{icon:2});
-			}
-		}
-	});
-}
+
 function initSuperOrgName(){
 	$.ajax({
-		url : portal.bp() + '/org/findSuperOrg',
+		url : portal.bp() + '/json/org/findSuperOrg.json',
 		dataType:'json',
 		cache:false,
 		data:{},
@@ -882,7 +860,7 @@ function del(){
 		}, function(){
 			var index;
 			$.ajax({
-				url : portal.bp() + '/org/delOrg/'+orgId,
+				url : portal.bp() + '/json/ok.json?'+orgId,
 				dataType:'json',
 				cache:false,
 				type:'delete',

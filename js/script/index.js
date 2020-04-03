@@ -14,7 +14,7 @@ $(function() {
 });
 function getTodoCount(sync){
 	$.ajax({
-		url:portal.bp() + '/todoList/count.json?m='+ Math.random(),
+		url:portal.bp() + '/json/todoList/count.json?m='+ Math.random(),
 		type:'get',
 		async:sync,
 		cache:false,
@@ -46,7 +46,7 @@ function huanyingyu(){
 function getOnlineNum(){
 	var res = 1;
 	$.ajax({
-		url:portal.bp() + '/sessions/getOnlineNum.json?m='+ Math.random(),
+		url:portal.bp() + '/json/sessions/getOnlineNum.json?m='+ Math.random(),
 		type:'get',
 		async:false,
 		cache:false,
@@ -61,7 +61,7 @@ function getOnlineNum(){
 }
 function getmenu(){
 	$.ajax({
-		url:portal.bp() + '/api/menus/user.json?callback=userJson',
+		url:portal.bp() + '/json/api/menus/user.json?callback=userJson',
 		type:'get',
 		async:false,
 		cache:false,

@@ -112,7 +112,7 @@ $(function () {
 		if(seq==undefined||seq==null||seq==''){
 			//获取sequence
 			$.ajax({
-				url : portal.bp() + '/org/getSeqOrgNum',
+				url : portal.bp() + '／json/org/getSeqOrgNum.json',
 				dataType:'json',
 				cache:false,
 				async:false,

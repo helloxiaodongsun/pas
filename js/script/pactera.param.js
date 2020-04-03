@@ -8,7 +8,7 @@ var tipsMap = {};
 (function ($, undefined) {
     $.param = $.param || {};
     $.ajax({
-        url: portal.bp() + '/json/pubApp/getPubApp.json?r='+Math.random(),
+        url: portal.bp() + './json/pubApp/getPubApp.json?r='+Math.random(),
         type: 'get',
         async: false,
         dataType: "json"
@@ -190,7 +190,7 @@ var tipsMap = {};
         getSelectOptionOrder: function (appName) {
             var html = "";
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentId?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentId.'+appName+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -210,7 +210,7 @@ var tipsMap = {};
         getSelectObject: function (appName) {
             var col;
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentId?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentId.'+appName+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -315,7 +315,7 @@ var tipsMap = {};
         getSelectOptionOrderByName: function (appName) {
             var html = "";
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentIdOrderByName?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentIdOrderByName.'+appName+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -372,7 +372,7 @@ var tipsMap = {};
         getSelectOptionFirst: function (appName) {
             var col;
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentId?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentId.'+appName+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -535,7 +535,7 @@ var tipsMap = {};
         getSelectOrgNumOrgNameRef: function (code, parentId) {
             var col;
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentIdAndCode?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentIdAndCode.'+parentId+'.'+code+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -577,7 +577,7 @@ var tipsMap = {};
         getSelectCustomsClassify: function (name, parentId) {
             var col;
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentIdAndName?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentIdAndName.'+parentId+'.'+name+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -595,7 +595,7 @@ var tipsMap = {};
         getEditableJsonByParentId: function(parentId){
         	var json = [];
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentId?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentId.'+parentId+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -616,7 +616,7 @@ var tipsMap = {};
         getEditableJsonByParentIdByType: function(parentId){
             var json = [];
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentIdByType?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentIdByType.'+parentId+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -757,7 +757,7 @@ var tipsMap = {};
         getTableParam:function (parentId) {
             var result = [];
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentId?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentId.'+parentId+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -777,7 +777,7 @@ var tipsMap = {};
         getTableOrientCd:function (parentId) {
             var result = [];
             $.ajax({
-                url: portal.bp() + '/pubApp/getParamByParentId?r='+Math.random(),
+                url: portal.bp() + './json/pubApp/getParamByParentId.'+parentId+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -1036,7 +1036,7 @@ var tipsMap = {};
             url: portal.bp() + '/relation/validOrgOfAcctAndEmpNum',
             type: 'post',
             async: false,
-            contentType: "application/json;charset=UTF-8",
+            contentType: "application./json;charset=UTF-8",
             dataType: "json",
             cache: false,
             data: JSON.stringify(queryParam),

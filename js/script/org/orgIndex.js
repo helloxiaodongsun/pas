@@ -263,7 +263,7 @@ $(function () {
 			'orgDummyRelHistoryList':orgDummyRelHistoryList
 		};
 		$.ajax({
-			url : portal.bp() + '/json/ok.json',
+			url : portal.bp() + './json/ok.json',
 			type: type,
 			cache:false,
 			contentType: "application/json;charset=UTF-8",
@@ -323,7 +323,7 @@ $(function () {
 			'orgName':$("#editName_orgName").val()
 		};
 		$.ajax({
-			url : portal.bp() + '/json/ok.json',
+			url : portal.bp() + './json/ok.json',
 			type: "post",
 			cache:false,
 			dataType: "json",
@@ -357,7 +357,7 @@ $(function () {
 function getPresidentName(president){
 	var presidentName;
 	$.ajax({
-        url: portal.bp() + '/json/user/getEmpInfoByEmpNum.json',
+        url: portal.bp() + './json/user/getEmpInfoByEmpNum.json',
         type: 'get',
         async: false,
         cache: false,
@@ -390,7 +390,7 @@ function userworkflowGoback(pkId){
 }
 function delMgmt(pkId){
 	$.ajax({
-        url: portal.bp() + '/json/ok.json?r='+Math.random(),
+        url: portal.bp() + './json/ok.json?r='+Math.random(),
         type: 'POST',
         async: false,
         data:{"pkIdList": [pkId]},
@@ -692,7 +692,7 @@ Date.prototype.Format = function(fmt){
 //获取机构树
 function orgtree(){
 	 $.ajax({
-		url : portal.bp() + '/json/org/allValidOrg.json',
+		url : portal.bp() + './json/org/allValidOrg.json',
 		dataType:'json',
 		cache:false,
 		data:{},
@@ -711,7 +711,7 @@ function orgtree(){
 
 function initSuperOrgName(){
 	$.ajax({
-		url : portal.bp() + '/json/org/findSuperOrg.json',
+		url : portal.bp() + './json/org/findSuperOrg.json',
 		dataType:'json',
 		cache:false,
 		data:{},
@@ -767,7 +767,7 @@ function edit(){
 	operaType = "edit";
 	var index;
 	$.ajax({
-		url : portal.bp() + '/org/findOrgById/'+orgId,
+		url : portal.bp() + './json/org/findOrgById/'+orgId+".json",
 		dataType:'json',
 		cache:false,
 		type:'get',
@@ -813,7 +813,7 @@ function editDummy(ipkId,iorgId){
 	operaType = "edit";
 	var index;
 	$.ajax({
-		url : portal.bp() + '/org/findDummyOrgById/'+pkId,
+		url : portal.bp() + './json/org/findDummyOrgById/'+pkId+".json",
 		dataType:'json',
 		cache:false,
 		type:'get',
@@ -860,7 +860,7 @@ function del(){
 		}, function(){
 			var index;
 			$.ajax({
-				url : portal.bp() + '/json/ok.json?'+orgId,
+				url : portal.bp() + './json/ok.json?'+orgId,
 				dataType:'json',
 				cache:false,
 				type:'delete',

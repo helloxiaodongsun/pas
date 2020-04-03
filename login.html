@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+
+    <meta charset="utf-8"/>
+    <!-- 解决部分兼容性问题，如果安装了GCF，则使用GCF来渲染页面，如果未安装GCF，则使用最高版本的IE内核进行渲染。 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!-- 页面按原比例显示 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="${sysFlag} eq 'zgc'?'中关村分行绩效考核管理系统-登录':'北京分行绩效考核管理系统-登录'"></title>
+    <!--<title>绩效考核系统 - 登录</title>-->
+    <link rel="stylesheet" media="screen" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link href="css/animate.min.css" rel="stylesheet"/>
+    <link href="css/style.min.css" rel="stylesheet"/>
+	
+	<!--[if IE 8]>
+	    <link href="/pas/css/bootstrap-ie8/bootstrap-ie8.css" rel="stylesheet"/>
+		<script src="/pas/js/plugins/IE/bootstrap-ie8/bootstrap-ie8.js"></script>
+	<![endif]-->
+	<!--[if IE 9]>
+		<link href="/pas/css/bootstrap-ie8/bootstrap-ie9.css" rel="stylesheet"/>
+		<script src="/pas/js/plugins/IE/bootstrap-ie8/bootstrap-ie9.js"></script>
+	<![endif]-->
+	
+    <!--[if lt IE 9]>
+	  <script src="/pas/js/plugins/IE/html5shiv.min.js"></script>
+	  <script src="/pas/js/plugins/IE/respond.min.js"></script>
+	  <script src="/pas/js/plugins/IE/excanvas.js"></script>
+	  <script src="/pas/js/plugins/IE/ieBetter.js"></script>
+	<![endif]-->
+	<!--[if lte IE 8]>
+	<noscript>
+		<style>.html5-wrappers{display:none!important;}</style>
+		<div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本！
+		或者<a href="/?noscript=1">继续访问</a>.
+		</div>
+	</noscript>
+	<![endif]-->
+    <script>if (window.top !== window.self) {
+        window.top.location = window.location;
+    }</script>
+    <script th:inline="javascript">
+	    /*<![CDATA[*/
+	    var sysFlag = [[${sysFlag}]];
+	    /*]]>*/
+	</script>
+</head>
+
+<body  style="overflow-y: hidden">
+
+<!--<div class="middle-box text-center loginscreen  animated fadeInDown">-->
+<!--<div>-->
+<!--<div>-->
+
+<!--<h2 class="logo-name">KPI</h2>-->
+
+<!--</div>-->
+<!--<h3>欢迎使用 绩效考核系统</h3>-->
+
+<!--<form class="m-t" role="form" method="post" th:action="@{/login}">-->
+<!--<div class="form-group">-->
+<!--<input type="text" class="form-control" placeholder="员工工号" name='userId' id='userId' required=""/>-->
+<!--</div>-->
+<!--&lt;!&ndash; <div class="form-group">-->
+<!--<input type="password" class="form-control" placeholder="密码" required=""/>-->
+<!--</div> &ndash;&gt;-->
+<!--<input type="submit" class="btn btn-primary block full-width m-b" value="登录" onclick="login"/>-->
+<!--&lt;!&ndash; <button type="submit" class="btn btn-primary block full-width m-b">登 录</button> &ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<p class="text-muted text-center"> <a href="#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>-->
+<!--</p>&ndash;&gt;-->
+
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<div id="particles-js" >
+
+    <img class="magnifier" th:src="@{${logoLogin}}" alt=""/>
+
+    <div class="login">
+        <div id="login-title"><img th:src="@{/img/new/login_title.png}" alt=""/></div>
+
+        <form class="m-t" role="form" method="post" th:action="@{/login}">
+            <div class="login-center clearfix">
+
+                <div class="login-center-input">
+                    <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                  <span class="glyphicon glyphicon-user"></span></span>
+                        <input class="form-control" type="text" name='userId' id='userId' value=""
+                               placeholder="请输入您的用户名"  required="" aria-describedby="basic-addon1"/>
+                        <!--<div class="login-center-input-text">用户名</div>-->
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="login-center clearfix">
+                <div class="login-center-input">
+                    <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon2">
+                  <span class="glyphicon glyphicon-lock"></span></span>
+                        <input class="form-control" type="password" name="password" id="password" value="" required="" placeholder="请输入您的密码"  aria-describedby="basic-addon2"/>
+                        <!--<div class="login-center-input-text">密码</div>-->
+                    </div>
+                </div>
+            </div>
+            
+            <div th:if="${showMsg}" style="width: 100%; text-align: center; color: #e60012;">
+                    <span th:text="${message}"></span>
+                    <!-- <div class="input-group">
+                    </div> -->
+            </div>
+
+            <input type="submit" class="login-btn" value="登  录" />
+        </form>
+    </div>
+
+
+    <!--	<img src="static/images/bg3.png" style="position: absolute; top: 50%; margin-top: -160px; right: 10%;" alt="">   -->
+    <div class="sk-rotating-plane"></div>
+    <div style="display: inline;position: absolute;bottom: 5%;right: 5%;">
+    	<a id="browser" style="color: #f3f3f4;">浏览器下载</a>
+    	<a id="czsc" style="color: #f3f3f4;margin-left: 10px;">操作手册</a>
+    </div>
+</div>
+
+
+<script charset="utf-8" th:src="@{/js/jquery-1.9.1.js}"></script>
+<script charset="utf-8" th:src="@{/js/jquery.placeholder.js}"></script>
+<script charset="utf-8" th:src="@{/js/bootstrap.min.js}"></script>
+<!--[if ! IE 8]>-->
+<script charset="utf-8" th:src="@{/js/script/lib/particles-js/particles.min.js}"></script>
+<script charset="utf-8" th:src="@{/js/script/lib/particles-js/app.js}"></script>
+<!--<![endif]-->
+
+<script type="text/javascript">
+$(function(){
+	var curWwwPath = window.document.location.href;
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	var localhostPaht = curWwwPath.substring(0, pos);
+	var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+	var href = localhostPaht+projectName;
+	
+	var manual ;
+	if(sysFlag=='zgc'){
+		manual ="北京银行绩效管理系统用户操作手册.docx";
+	}else{
+		manual ="附件1：北京分行绩效考核管理系统_用户操作手册.pdf";
+	}
+	$("#browser").click(function(){
+		window.open(href+'/pubApp/download');
+	})
+	//$("#browser").attr('href',href+'/pubApp/download');
+	$("#czsc").click(function(){
+		var encodeName=encodeURI(manual);
+	    window.open (href + '/pubApp/downloadFile?fileName='+encodeName);
+	});
+
+});
+
+</script>
+<!--<script type="text/javascript">-->
+<!--function hasClass(elem, cls) {-->
+<!--cls = cls || '';-->
+<!--if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false-->
+<!--return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');-->
+<!--}-->
+
+<!--function addClass(ele, cls) {-->
+<!--if (!hasClass(ele, cls)) {-->
+<!--ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;-->
+<!--}-->
+<!--}-->
+
+<!--function removeClass(ele, cls) {-->
+<!--if (hasClass(ele, cls)) {-->
+<!--var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';-->
+<!--while (newClass.indexOf(' ' + cls + ' ') >= 0) {-->
+<!--newClass = newClass.replace(' ' + cls + ' ', ' ');-->
+<!--}-->
+<!--ele.className = newClass.replace(/^\s+|\s+$/g, '');-->
+<!--}-->
+<!--}-->
+
+<!--document.querySelector(".login-button").onclick = function () {-->
+<!--addClass(document.querySelector(".login"), "active")-->
+<!--setTimeout(function () {-->
+<!--addClass(document.querySelector(".sk-rotating-plane"), "active")-->
+<!--document.querySelector(".login").style.display = "none"-->
+<!--}, 800)-->
+<!--setTimeout(function () {-->
+<!--removeClass(document.querySelector(".login"), "active")-->
+<!--removeClass(document.querySelector(".sk-rotating-plane"), "active")-->
+<!--document.querySelector(".login").style.display = "block"-->
+<!--alert("登录成功")-->
+
+<!--}, 500)-->
+<!--}-->
+<!--</script>-->
+
+</body>
+
+</html>

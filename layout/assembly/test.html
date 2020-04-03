@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title></title>
+<script th:src="@{/js/jquery-1.9.1.js}"></script>
+<script th:src="@{/js/plugins/echarts/echarts.js}"></script>
+<script type="text/javascript">
+$(function () {
+	showPieChart();
+});
+function showPieChart(){
+	// 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('pieid')); 
+    myChart.showLoading({text: "图表数据正在加载..."});
+    option = {
+    	    color: ['#3398DB'],
+    	    tooltip : {
+    	        trigger: 'axis',
+    	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+    	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    	        }
+    	    },
+    	    grid: {
+    	        left: '3%',
+    	        right: '4%',
+    	        bottom: '3%',
+    	        containLabel: true
+    	    },
+    	    xAxis : [
+    	        {
+    	            type : 'category',
+    	            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    	            axisTick: {
+    	                alignWithLabel: true
+    	            }
+    	        }
+    	    ],
+    	    yAxis : [
+    	        {
+    	            type : 'value'
+    	        }
+    	    ],
+    	    series : [
+    	        {
+    	            name:'直接访问',
+    	            type:'bar',
+    	            barWidth: '60%',
+    	            data:[10, 52, 200, 334, 390, 330, 220]
+    	        }
+    	    ]
+    	};
+    myChart.hideLoading();
+    myChart.setOption(option); 
+}
+
+</script>
+</head>
+<body>
+<div id="pieid" style="height: 300px;width: 400px;"></div>
+</body>
+</html>

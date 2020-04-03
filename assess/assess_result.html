@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8"/>
+    <title>考核方案考核结果管理</title>
+    <!-- 解决部分兼容性问题，如果安装了GCF，则使用GCF来渲染页面，如果未安装GCF，则使用最高版本的IE内核进行渲染。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 页面按原比例显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrapValidator.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/plugins/multiple-select/bootstrap-select.min.css}" rel="stylesheet"></link>
+    <link th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet"></link>
+    <link th:href="@{/css/editable/bootstrap-editable.css}" rel="stylesheet"></link>
+    <link th:href="@{/css/bootstrap-datetimepicker/datetimepicker.css}" rel="stylesheet"></link>
+    <link th:href="@{/css/style.min.css}" rel="stylesheet"></link>
+    <!--[if lt IE 9]>
+    <script src="/pas/js/html5shiv.min.js"></script>
+    <script src="/pas/js/respond.min.js"></script>
+    <script src="/pas/js/plugins/IE/ieBetter.js"></script>
+    <script src="/pas/js/plugins/IE/bootstrap-ie8/bootstrap-ie9.js"></script>
+    <![endif]-->
+    <script charset="utf-8" th:src="@{/js/jquery-1.9.1.js}"></script>
+    <script charset="utf-8" th:src="@{/js/bootstrap.min.js}"></script>
+    <script charset="utf-8" th:src="@{/js/bootstrapValidator.min.js}"></script>
+    <script th:src="@{/js/plugins/multiple-select/bootstrap-select.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/plugins/multiple-select/defaults-zh_CN.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/editable/bootstrap-editable.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/editable/jquery-ui-1.9.1.custom.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/layer/layer.js}"></script>
+    <script th:src="@{/js/script/jsUtil.js}"></script>
+    <script th:src="@{/js/script/pactera.param.js}"></script>
+    <script th:src="@{/js/script/assess/assess_result.js}" type="text/javascript"></script>
+    <!--导出-->
+    <!--[if lt IE 9]>
+    <script src="/pas/js/script/IE8.js"></script>
+    <![endif]-->
+    <style>
+       #assessResultOrderTable  .fixed-table-container{
+           overflow-y: hidden;
+       }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">考核方案考核结果管理</div>
+        <div class="panel panel-footer">
+            <form id="formSearch" class="form-horizontal">
+                <div class="form-group">
+                    <label for="assPropOrgId" class="control-label col-md-1">所属机构:</label>
+                    <div class="col-md-3">
+                        <select class="selectpicker show-tick form-control" title="请选择机构" id="assPropOrgId"
+                                data-live-search="true">
+                        </select>
+                    </div>
+                    <label for="assPropTypeCd" class="control-label col-md-1">考核方案类型:</label>
+                    <div class="col-md-3">
+                        <select class="selectpicker show-tick form-control" title="请选择考核方案类型" id="assPropTypeCd"
+                                data-live-search="true">
+                        </select>
+                    </div>
+                    <label for="assObjTypeCd" class="control-label col-md-1">考核对象类型:</label>
+                    <div class="col-md-3">
+                        <select class="selectpicker show-tick form-control" title="请选择考核对象类型" id="assObjTypeCd"
+                                data-live-search="false">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="effDt" class="control-label col-md-1">方案有效日期:</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control effDt" id="effDt" name="effDt"
+                               placeholder="请选择方案有效日期" autocomplete="off"/>
+                    </div>
+                    <label for="mon" class="control-label col-md-1"><span
+                            class="xinghao">*</span>考核月份:</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control mon" id="mon" name="MON"
+                               placeholder="请选择考核月份" autocomplete="off"/>
+                    </div>
+                    <label for="assPropId" class="control-label col-md-1"><span
+                            class="xinghao">*</span>方案编号:</label>
+                    <div class="col-md-3">
+                        <select class="selectpicker show-tick form-control" title="请选择方案编号" id="assPropId"
+                                data-live-search="true">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="assPropName" class="control-label col-md-1"><span
+                            class="xinghao">*</span>方案名称:</label>
+                    <div class="col-md-3">
+                        <!--  <input type="text" class="form-control" id="assPropName" placeholder="方案名称"/>-->
+                        <select class="selectpicker show-tick form-control" title="请选择方案名称" id="assPropName"
+                                data-live-search="true">
+                        </select>
+                    </div>
+                    <label for="assObjId" class="control-label col-md-1">考核对象编号:</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="assObjId" placeholder="考核对象编号"/>
+                    </div>
+                    <label for="isComprehensiveScore" class="control-label col-md-1">是否综合打分:</label>
+                    <div class="col-md-3">
+                        <select class="selectpicker show-tick form-control" title="请选择是否综合打分" id="isComprehensiveScore"
+                                data-live-search="false">
+                            <option value="1">是
+                            </option>
+                            <option value="0">否
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="professionTypeCd" class="control-label col-md-1">考核业务类型:</label>
+                    <div class="col-md-3">
+                        <select class="selectpicker show-tick form-control" title="请选择考核业务类型" id="professionTypeCd"
+                                data-live-search="false">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-1 col-md-push-5 ">
+                        <button onclick="query('0');" type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            查询
+                        </button>
+                    </div>
+                    <div class="col-md-1 col-md-push-5">
+                        <button onclick="resetForm();" type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                            重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a id="tab1" href="#resultDetailTable" role="tab"
+                                                          data-toggle="tab"  onclick="query('1');" >打分明细表</a></li>
+                <li role="presentation"><a id="tab2" href="#resultOrderTable"   role="tab"
+                                           data-toggle="tab" onclick="query('1');">打分排名表</a>
+                </li>
+                <li role="presentation">
+                    <a id="tab3" href="#remarkContent" role="tab" data-toggle="tab">备注</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="resultDetailTable" role="tabpanel">
+                    <div class="row">
+                        <div class="ibox float-e-margins" style="overflow-y: hidden">
+                            <div class="ibox-title">
+                                <!--<div class="per-bar">
+                                    <button id="btn_save" style="outline:none;" type="button" class="btn btn-sm btn-link"><span
+                                            class="glyphicon glyphicon-saved" aria-hidden="true"></span> <b>保存</b></button>
+                                    <button id="btn_commit" style="outline:none;" type="button" class="btn btn-sm btn-link">
+                                        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> <b>提交</b></button>
+                                </div>-->
+                            </div>
+                            <div class="ibox-content" style="padding: 0px;">
+                                <div class="table-responsive">
+                                    <table class="table" id="assessResultTable" data-mobile-responsive="true"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="resultOrderTable" role="tabpanel">
+                    <div class="row">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <!--<div class="per-bar">
+                                    <button id="btn_save" style="outline:none;" type="button" class="btn btn-sm btn-link"><span
+                                            class="glyphicon glyphicon-saved" aria-hidden="true"></span> <b>保存</b></button>
+                                    <button id="btn_commit" style="outline:none;" type="button" class="btn btn-sm btn-link">
+                                        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> <b>提交</b></button>
+                                </div>-->
+                            </div>
+                            <div class="ibox-content" style="padding: 0px;">
+                                <div class="table-responsive" style="overflow-y: hidden">
+                                    <table class="table" id="assessResultOrderTable"
+                                           data-mobile-responsive="true"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="tab-pane" id="remarkContent" role="tabpanel">
+                    <div class="row">
+                        <span>得分计算规则：A-得分（必保/力争）=实际业绩/指标值*指标分值，最高得分不超过指标分值*得分上限；必保指标和力争指标均分别计分，考核指标不设置力争加分项；</span>
+                        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>B-必保得分=实际业绩/必保指标*指标分值”,实际得分不超过指标分值；力争得分=（实际业绩-必保指标）/（力争指标-必保指标）*力争加分项”，实际得分不超过</span>
+                        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>力争加分项；总得分=必保得分*折算比例+力争得分；</span>
+                        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>D-加分指标，完成指标得分，未完成不得分；</span>
+                        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>E-定性指标，主管打分；</span>
+                        <br/>
+                        <span>排序规则：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>员工工号、序号（number1、2）、指标定位、考核类别、指标编号</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script charset="utf-8" th:src="@{/js/placeholder.js}"></script>
+<script>
+    $(function () {
+        $('input,textarea').placeholder();
+    })
+</script>
+</html>

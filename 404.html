@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>找不到资源</title>
+    <style>
+        body {
+            background-color: #fff;
+            font-family: "微软雅黑";
+            overflow-x:hidden;
+        }
+        .error-wapper{
+            display:block;
+            width:420px;
+            margin:80px auto 0px auto;
+        }
+        .error-wapper img{
+            margin:0px 0px 0px 15px;
+        }
+        .big-blue-text{
+            font-size: 30px;
+            color: #346DC7;
+            text-align:left;
+            padding:4px 0px 18px 0px;
+        }
+        .gray-text{
+            font-size: 16px;
+            color: #303133;
+            letter-spacing: 0;
+            line-height: 32px;
+        }
+        .contact-text{
+            font-size: 16px;
+            color: #346DC7;
+            letter-spacing: 0;
+            line-height: 32px;
+            padding:3px 0px 0px 0px;
+        }
+        .blue-button{
+            margin-top:30px;
+        }
+        .blue-button button{
+            font-size: 16px;
+            color: #fff;
+            background: #2D5FAD;
+            border: 1px solid #2D5FAD;
+            border-radius: 4px;
+            padding:9px 25px 9px 25px;
+            cursor:pointer;
+        }
+        .margin-top-54{
+            margin-top:34px;
+        }
+    </style>
+</head>
+<body>
+<div class="error-wapper">
+    <div>
+        <img src="/pas/img/404.png" />
+    </div>
+    <div class="big-blue-text margin-top-54">别着急，我们正在拼命恢复中…</div>
+    <div class="gray-text">尊敬的用户，您好！</div>
+    <div class="gray-text">由于系统原因给您造成不便，请联系技术支持协助解决。</div>
+    <div class="contact-text">联系电话：</div>
+    <div class="blue-button" style="display:none;">
+        <button>发送错误报告给运维人员</button>
+    </div>
+</div>
+</body>
+</html>
+  

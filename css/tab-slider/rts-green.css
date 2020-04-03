@@ -1,0 +1,100 @@
+.rts-show-navbar .navbar .brand-img {
+  width: 275px;
+  height: 80px;
+  background: url("../../imgs/logo-danger.png") 0 0 no-repeat;
+}
+.navlist-left-background {
+  background: #587f07;
+  /* Old browsers */
+  background-image: -moz-linear-gradient(#6d8d2c, #8cac4b, #92b251);
+  /* FF3.6-15 */
+  background-image: -webkit-linear-gradient(#6d8d2c, #8cac4b, #92b251);
+  /* Chrome10-25,Safari5.1-6 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d8d2c', endColorstr='#92b251',GradientType=0 );
+  /* IE6-9 */
+}
+.panel-tab-slider .panel-body {
+  padding: 0;
+  margin-bottom: 0;
+}
+.panel-tab-slider .tab-slider {
+  width: 100%;
+  height: auto;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.panel-tab-slider .title {
+  height: 30px;
+  background: #eee;
+  position: relative;
+  padding: 0 30px;
+}
+.panel-tab-slider .title .title-container {
+  width: 2000px;
+  margin-left: 0;
+}
+.panel-tab-slider .title .left-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: #476706;
+  opacity: 0.4;
+  z-index: 100;
+}
+.panel-tab-slider .title .right-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: #476706;
+  opacity: 0.4;
+  z-index: 100;
+}
+.panel-tab-slider .title .right-icon:hover,
+.panel-tab-slider .title .left-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.panel-tab-slider .title a {
+  padding: 0 30px;
+  height: 100%;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.panel-tab-slider .title a.default-color {
+  color: #000;
+}
+.panel-tab-slider .title .float {
+  padding: 0 30px;
+  height: 100%;
+  background: #476706;
+  position: absolute;
+}
+.panel-tab-slider .tab-slider-content {
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+}
+.panel-tab-slider .tab-slider-content .plane {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  left: -103%;
+  top: 0;
+}

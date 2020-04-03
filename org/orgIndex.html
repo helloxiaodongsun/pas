@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8"/>
+    <title>机构管理</title>
+    <!-- 解决部分兼容性问题，如果安装了GCF，则使用GCF来渲染页面，如果未安装GCF，则使用最高版本的IE内核进行渲染。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 页面按原比例显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrapValidator.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/plugins/multiple-select/bootstrap-select.min.css}"
+          rel="stylesheet"></link>
+    <link th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}"
+          rel="stylesheet"></link>
+    <link th:href="@{/css/style.min.css}" rel="stylesheet"></link>
+    <link rel="stylesheet" th:href="@{/css/ztree/rts-primary.css}"/>
+    <link th:href="@{/css/editable/bootstrap-editable.css}" rel="stylesheet"></link>
+    <!--[if lt IE 9]>
+	  <script src="/pas/js/html5shiv.min.js"></script>
+	  <script src="/pas/js/respond.min.js"></script>
+	  <script src="/pas/js/plugins/IE/ieBetter.js"></script>
+	  <script src="/pas/js/plugins/IE/bootstrap-ie8/bootstrap-ie9.js"></script>
+	<![endif]-->
+    <script charset="utf-8" th:src="@{/js/jquery-1.9.1.js}"></script>
+    <script charset="utf-8" th:src="@{/js/bootstrap.min.js}"></script>
+    <script charset="utf-8" th:src="@{/js/bootstrapValidator.min.js}"></script>
+    <script th:src="@{/js/plugins/multiple-select/bootstrap-select.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/multiple-select/defaults-zh_CN.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/editable/bootstrap-editable.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/editable/jquery-ui-1.9.1.custom.min.js}"
+            type="text/javascript"></script>
+    <script
+            th:src="@{/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"
+            type="text/javascript"></script>
+    <script th:src="@{/js/plugins/layer/layer.js}"></script>
+    <script th:src="@{/js/script/jsUtil.js}"></script>
+    <script th:src="@{/js/script/pactera.param.js}"></script>
+    <script th:src="@{/js/ztree/js/jquery.ztree.core-3.5.js}"></script>
+    <script th:src="@{/js/ztree/js/jquery.ztree.excheck-3.5.js}"></script>
+    <script th:src="@{/js/script/org/orgIndex.js}" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+	  <script src="/pas/js/script/IE8.js"></script>
+	<![endif]-->
+	<script type="text/javascript">
+		var hasEditPermiss = false;
+	</script>
+	<script shiro:hasPermission="4113">hasEditPermiss = true;</script>
+    <script>
+        jQuery.browser = {};
+        (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0;
+            if (navigator.userAgent.match(/MSIE ([0-9]+)./)) {
+                jQuery.browser.msie = true;
+                jQuery.browser.version = RegExp.$1;
+            }
+        })();
+    </script>
+</head>
+<body style="overflow:hidden;">
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">机构管理
+            <div style="text-align:right;float: right ">
+                <button id="btn_add" shiro:hasPermission="4111" onclick="showApproveDetail();" style="outline:none;" type="button"
+                        class="btn btn-sm btn-link">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;<b>审批详情</b>
+                </button>
+                <button id="btn_add" shiro:hasPermission="4112" onclick="add();" style="outline:none;" type="button"
+                        class="btn btn-sm btn-link">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;<b>添加</b>
+                </button>
+                <button id="btn_edit" shiro:hasPermission="4113" style="display: none;outline:none;" onclick="edit();" type="button"
+                        class="btn btn-sm btn-link">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;<b>编辑</b>
+                </button>
+                <button id="btn_del" shiro:hasPermission="4114" style="display: none;outline:none;" onclick="del();" type="button"
+                        class="btn btn-sm btn-link">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<b>删除</b>
+                </button>
+                <button id="btn_editName" shiro:hasPermission="4115" style="display: none;outline:none;" onclick="editName();" type="button"
+                        class="btn btn-sm btn-link">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;<b>修改机构名称</b>
+                </button>
+            </div>
+        </div>
+        <div class="panel panel-footer">
+            <div class="row">
+                <div class="ibox float-e-margins">
+                    <div class="col-md-4" style="padding-right: 5px;">
+                        <div class="ibox-content" style="padding: 0px;border-right:1px solid rgb(217, 219, 220);margin-top: 5%">
+                            <!--<div-->
+                                    <!--style="width: 20%; margin-left: 10px;margin-top: 5px; border: 1px solid rgb(217, 219, 220); border-radius: 5px; position: fixed;">-->
+                                <!--<input type="text" id="key" class="empty form-control"-->
+                                       <!--placeholder="搜索..."-->
+                                       <!--style="width: 68%; float: left; border: 0px none;"></input>-->
+                                <!--<div style="width: 28%; float: right;">-->
+                                    <!--<label type="text" id="resultKey" class="form-control"-->
+                                           <!--style="border: 0px none; padding: 6px 5px;">-->
+                                        <!--<div-->
+                                                <!--style="margin: -4px; line-height: 0.8; width: 30%; float: right;">-->
+                                            <!--<a id="clickUp" class="glyphicon glyphicon-menu-up"-->
+                                               <!--onclick="clickUp()"></a> <a id="clickDown"-->
+                                                                           <!--class="glyphicon glyphicon-menu-down"-->
+                                                                           <!--onclick="clickDown()"></a>-->
+                                        <!--</div>-->
+                                        <!--<label id="number"-->
+                                               <!--style="width: 70%; float: left; color: rgb(217, 219, 220)"></label>-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div-->
+                                    <!--style="width: 70px; margin-left: 21%;margin-top: 5px; height: 35px; border-radius: 5px; position: fixed;">-->
+                                <!--<button  style="margin: 2px 20px" class="btn btn-primary" type="button"-->
+                                        <!--onclick="callNumber();"><span class="glyphicon glyphicon-search"></span>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <div style="overflow: auto;;height: 550px;margin-left: 5%;">
+                                <ul id="orgtree" class="ztree"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 " style="padding-left: 0px;">
+                        <div class="ibox-content " style="margin-top: 30px;"
+                             id="orgcontent">
+                            <div
+                                    style="width: 24%; margin-left: 29%;margin-top: -23px; border: 1px solid rgb(217, 219, 220); border-radius: 5px; position: fixed;text-align: right">
+                                <input type="text" id="key" class="empty form-control"
+                                       placeholder="搜索..."
+                                       style="width: 68%; float: left; border: 0px none;"></input>
+                                <div style="width: 28%; float: right;">
+                                    <label type="text" id="resultKey" class="form-control"
+                                           style="border: 0px none; padding: 6px 5px;">
+                                        <div
+                                                style="margin: -4px; line-height: 0.8; width: 30%; float: right;">
+                                            <a id="clickUp" class="glyphicon glyphicon-menu-up"
+                                               onclick="clickUp()"></a> <a id="clickDown"
+                                                                           class="glyphicon glyphicon-menu-down"
+                                                                           onclick="clickDown()"></a>
+                                        </div>
+                                        <label id="number"
+                                               style="width: 70%; float: left; color: rgb(217, 219, 220)"></label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div
+                                    style="width: 70px; margin-left: 55%;margin-top: -23px; height: 35px; border-radius: 5px; position: fixed;">
+                                <button  style="margin-top: 2px;width: 52px;margin-left: -10px;" class="btn btn-primary" type="button"
+                                         onclick="callNumber();"><span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                            <form class="form-horizontal m-t" id="formId" style="margin-top: 6%;margin-right: -5%;">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">机构ID：</label>
+                                    <div class="col-md-8">
+                                        <input id="orgId" name="orgId" class="form-control"
+                                               type="text" disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">机构编号：</label>
+                                    <div class="col-md-8">
+                                        <input id="orgNum" name="orgNum" class="form-control"
+                                               type="text" disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">机构名称：</label>
+                                    <div class="col-md-8">
+                                        <input id="orgName" name="orgName" class="form-control"
+                                               type="text" disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display:none;">
+                                    <label class="col-md-3 control-label">机构层级：</label>
+                                    <div class="col-md-8">
+                                        <input id="orgHirchy" name="orgHirchy" class="form-control" type="text"
+                                               disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">机构层级名称：</label>
+                                    <div class="col-md-8">
+                                        <input id="orgHirchyName" name="orgHirchyName" class="form-control" type="text"
+                                               disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">上级机构ID：</label>
+                                    <div class="col-md-8">
+                                        <input id="superOrgId" name="superOrgId" class="form-control" type="text"
+                                               disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">上级机构编号：</label>
+                                    <div class="col-md-8">
+                                        <input id="superOrgNum" name="superOrgNum" class="form-control" type="text"
+                                               disabled="disabled"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">上级机构名称：</label>
+                                    <div class="col-md-8">
+                                        <input id="superOrgName" name="superOrgName" class="form-control" type="text"
+                                               disabled="disabled"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="showApproveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="showApproveModal_title">审批详情</h4>
+            </div>
+            <div class="modal-body" style="height: 500px;overflow: auto;">
+                <div class="ibox-title" >
+                    <div class="per-bar">
+	     				<button id="show_history"   style="outline:none;" type="button" class="btn btn-sm btn-link"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <b>审批历史</b></button>
+					</div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="approvetable" data-mobile-responsive="true"></table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="addModal_title">新增机构</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="addModal_Modal_Form">
+                    <div class="form-group">
+                        <label for="add_orgChar" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构性质:</label>
+                        <div class="col-md-9">
+                            <select id="add_orgChar" name="add_orgChar" title="请选择机构性质"
+                                    class="selectpicker show-tick form-control">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        <label for="add_orgId" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构ID:</label>
+                        <div class="col-md-9">
+                            <input id="add_orgId" name="add_orgId" type="text" class="form-control"
+                                   readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="add_orgNum" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构编码:</label>
+                        <div class="col-md-9">
+                            <input id="add_orgNum" name="add_orgNum" type="text" class="form-control"
+                                   readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group" id="add_president_div">
+                        <label for="add_president" class="control-label col-md-3"><span
+                                class="xinghao">*</span>主管行长工号:</label>
+                        <div class="col-md-9">
+                        	<input id="add_president" name="add_president" placeholder="主管行长工号" type="text" class="form-control"
+                                   />
+                            <!-- <select id="add_president" name="add_president" title="请选择主管行长"
+                                    class="selectpicker show-tick form-control" data-live-search="true">
+                            </select> -->
+                        </div>
+                    </div>
+                    <div class="form-group" id="add_presidentName_div">
+                        <label for="add_presidentName" class="control-label col-md-3"><span
+                                class="xinghao">*</span>主管行长姓名:</label>
+                        <div class="col-md-9">
+                            <input id="add_presidentName" name="add_presidentName"  type="text" class="form-control"
+                                   readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="add_orgName" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构名称:</label>
+                        <div class="col-md-9">
+                            <input id="add_orgName" name="add_orgName" readonly="readonly" type="text"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group" id="add_belongline_div" style="display:none;">
+                        <label for="add_belongline" class="control-label col-md-3"><span
+                                class="xinghao">*</span>所属条线:</label>
+                        <div class="col-md-9">
+                            <select id="add_belongline" name="add_belongline" title="请选择所属条线"
+                                    class="selectpicker show-tick form-control" data-live-search="true">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="add_superOrgName" class="control-label col-md-3"><span class="xinghao">*</span>所属分行:</label>
+                        <div class="col-md-9">
+                            <input id="add_superOrgName" name="add_superOrgName" type="text" class="form-control"
+                                   readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group" id="add_memOrgDiv" style="display:none;">
+                        <label for="add_memOrg" class="control-label col-md-3"></label>
+                        <div class="col-md-9">
+                            <button id="add_memOrg" name="add_memOrg" type="button" class="btn btn-primary">管理管辖行成员
+                            </button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="addSaveBtn" type="button" class="btn btn-primary">提交审核</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="memOrgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="addModal_title">设置管辖行成员</h4>
+            </div>
+            <div class="modal-body" style="height: 500px;overflow: auto;">
+                <div class="table-responsive">
+                    <table class="table" id="memOrgtable" data-mobile-responsive="true"></table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="memOrgSaveBtn" type="button" class="btn btn-primary">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editNameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="editName_title">修改机构名称</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="editNameModal_Form">
+                    <div class="form-group" style="display: none;">
+                        <label for="editName_orgId" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构ID:</label>
+                        <div class="col-md-9">
+                            <input id="editName_orgId" name="editName_orgId" type="text" class="form-control"
+                                   readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editName_orgNum" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构编码:</label>
+                        <div class="col-md-9">
+                            <input id="editName_orgNum" name="editName_orgNum" type="text" class="form-control"
+                                   readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editName_orgName" class="control-label col-md-3"><span
+                                class="xinghao">*</span>机构名称:</label>
+                        <div class="col-md-9">
+                            <input id="editName_orgName" name="editName_orgName" type="text"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="editNameSaveBtn" type="button" class="btn btn-primary">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script charset="utf-8" th:src="@{/js/placeholder.js}"></script>
+<script>
+	$(function(){
+		$('input,textarea').not("#key").placeholder();
+		$("#key").placeholder({isSpan:false});
+	})
+</script>
+</html>

@@ -1,0 +1,1226 @@
+{
+    "code": "200",
+    "message": "成功",
+    "data": [
+      {
+        "code": "1000",
+        "children": [
+          {
+            "code": "1100",
+            "name": "关联关系查询",
+            "pid": "1000",
+            "id": "1100",
+            "iconWay": null,
+            "url": "/relation/index"
+          },
+          {
+            "code": "1200",
+            "name": "关联关系新增",
+            "pid": "1000",
+            "id": "1200",
+            "iconWay": null,
+            "url": "/relation/addIndex"
+          },
+          {
+            "code": "1300",
+            "name": "关联关系批量导入",
+            "pid": "1000",
+            "id": "1300",
+            "iconWay": null,
+            "url": "/relation/importIndex"
+          },
+          {
+            "code": "1400",
+            "name": "关联关系修改",
+            "pid": "1000",
+            "id": "1400",
+            "iconWay": null,
+            "url": "/relation/editIndex"
+          },
+          {
+            "code": "1500",
+            "name": "关联关系批量修改",
+            "pid": "1000",
+            "id": "1500",
+            "iconWay": null,
+            "url": "/relation/batchEditIndex"
+          },
+          {
+            "code": "1600",
+            "name": "关联关系转移",
+            "pid": "1000",
+            "id": "1600",
+            "iconWay": null,
+            "url": "/relation/transferIndex"
+          },
+          {
+            "code": "1700",
+            "name": "关联关系审批",
+            "pid": "1000",
+            "id": "1700",
+            "iconWay": null,
+            "url": "/relation/approvalIndex"
+          }
+        ],
+        "name": "关联关系管理",
+        "pid": "",
+        "id": "1000",
+        "iconWay": null,
+        "url": null
+      },
+      {
+        "code": "2000",
+        "children": [
+          {
+            "code": "2100",
+            "name": "考核方案管理主页",
+            "pid": "2000",
+            "id": "2100",
+            "iconWay": null,
+            "url": "/assess/assess_index.html"
+          },
+          {
+            "code": "2200",
+            "name": "考核指标查询",
+            "pid": "2000",
+            "id": "2200",
+            "iconWay": null,
+            "url": "/assess/assIndexInfo.html"
+          },
+          {
+            "code": "2300",
+            "name": "新增考核方案",
+            "pid": "2000",
+            "id": "2300",
+            "iconWay": null,
+            "url": "/assess/edit_1.html?operateType=1"
+          },
+          {
+            "code": "2400",
+            "name": "审批考核方案",
+            "pid": "2000",
+            "id": "2400",
+            "iconWay": null,
+            "url": "/assess/assess_approval.html"
+          },
+          {
+            "code": "2500",
+            "name": "考核结果查询",
+            "pid": "2000",
+            "id": "2500",
+            "iconWay": null,
+            "url": "/assess/assess_result.html"
+          },
+          {
+            "code": "2800",
+            "name": "定性指标打分",
+            "pid": "2000",
+            "id": "2800",
+            "iconWay": null,
+            "url": "/assess/assess_score.html"
+          },
+          {
+            "code": "2900",
+            "name": "审批定性指标打分",
+            "pid": "2000",
+            "id": "2900",
+            "iconWay": null,
+            "url": "/assess/assess_score_approval.html"
+          }
+        ],
+        "name": "考核方案管理",
+        "pid": "",
+        "id": "2000",
+        "iconWay": null,
+        "url": null
+      },
+      {
+        "code": "3000",
+        "children": [
+          {
+            "code": "3400",
+            "children": [
+              {
+                "code": "3410",
+                "name": "GS001_公司存款时点余额增量查询",
+                "pid": "3400",
+                "id": "3410",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPST_BAL_ORG_TAB-GS001"
+              },
+              {
+                "code": "3430",
+                "name": "GS002_公司存款日均余额增量查询",
+                "pid": "3400",
+                "id": "3430",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPST_BAL_ORG_TAB-GS002"
+              },
+              {
+                "code": "3440",
+                "name": "GS003_公司存款日均任意时点查询",
+                "pid": "3400",
+                "id": "3440",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPST_BAL_ORG_TAB-GS003"
+              },
+              {
+                "code": "3450",
+                "name": "GS004_公司贷款时点余额增量查询",
+                "pid": "3400",
+                "id": "3450",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_LOAN_BAL_ORG_TAB-GS006"
+              },
+              {
+                "code": "3460",
+                "name": "GS005_公司贷款日均余额增量查询",
+                "pid": "3400",
+                "id": "3460",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_LOAN_BAL_ORG_TAB-GS007"
+              },
+              {
+                "code": "3470",
+                "name": "GS006_公司贷款日均任意时点查询",
+                "pid": "3400",
+                "id": "3470",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_LOAN_BAL_ORG_TAB-GS008"
+              },
+              {
+                "code": "3420",
+                "name": "GS007_公司理财统计表",
+                "pid": "3400",
+                "id": "3420",
+                "iconWay": null,
+                "url": "/table/T01/index/A_COB_FINANC_STAT_TAB-GS014"
+              },
+              {
+                "code": "3490",
+                "name": "GS008_公司客户产品明细",
+                "pid": "3400",
+                "id": "3490",
+                "iconWay": null,
+                "url": "/table/T01/index/A_COB_CUST_PROD_DTL-GS013"
+              },
+              {
+                "code": "34270",
+                "name": "GS009_新发放贷款利率加权水平",
+                "pid": "3400",
+                "id": "34270",
+                "iconWay": null,
+                "url": "/table/T10/index/A_COB_DISTR_LOAN_RATE_WEIGHT-GS020"
+              },
+              {
+                "code": "34280",
+                "name": "GS010_表内外融资业务情况表",
+                "pid": "3400",
+                "id": "34280",
+                "iconWay": null,
+                "url": "/table/T01/index/A_COB_IN_OFF_BAL_BIZ_SITU_TAB-GS015"
+              },
+              {
+                "code": "34110",
+                "name": "GS011_对公客户存款迁徙情况表",
+                "pid": "3400",
+                "id": "34110",
+                "iconWay": null,
+                "url": "/table/T04/index/A_COB_CUST_DPST_MOVE_ORG-GS005"
+              },
+              {
+                "code": "34150",
+                "name": "GS012_交易银行中间业务",
+                "pid": "3400",
+                "id": "34150",
+                "iconWay": null,
+                "url": "/table/GS018"
+              },
+              {
+                "code": "34140",
+                "name": "GS013_投行中间业务收入查询",
+                "pid": "3400",
+                "id": "34140",
+                "iconWay": null,
+                "url": "/table/GS033"
+              },
+              {
+                "code": "34290",
+                "name": "GS014_对公客户存款分类统计及变动情况",
+                "pid": "3400",
+                "id": "34290",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_CUST_DPST_CHANGE_ORG-GS004"
+              },
+              {
+                "code": "34010",
+                "name": "GS015_每日存款监测",
+                "pid": "3400",
+                "id": "34010",
+                "iconWay": null,
+                "url": "/table/GS010"
+              },
+              {
+                "code": "34120",
+                "name": "GS016_公司存贷比",
+                "pid": "3400",
+                "id": "34120",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPSIT_LOAN_RATIO_ORG-GS011"
+              },
+              {
+                "code": "3480",
+                "name": "GS017_分行人民币公司资金量明细",
+                "pid": "3400",
+                "id": "3480",
+                "iconWay": null,
+                "url": "/table/T01/index/A_COB_CNY_CORP_CAPT_QTTY_DTL-GS021"
+              },
+              {
+                "code": "34100",
+                "name": "GS018_小微客户经理业绩查询",
+                "pid": "3400",
+                "id": "34100",
+                "iconWay": null,
+                "url": "/table/T03/index/A_COB_MICRO_CUST_MGR_PER_TAB-GS027"
+              },
+              {
+                "code": "34230",
+                "name": "GS019_小微企业贷款业绩和户数统计表",
+                "pid": "3400",
+                "id": "34230",
+                "iconWay": null,
+                "url": "/table/T07/index/A_COB_MICRO_LOAN_NUM_STAT_TAB-GS023"
+              },
+              {
+                "code": "34260",
+                "name": "GS020_担保公司数据核对",
+                "pid": "3400",
+                "id": "34260",
+                "iconWay": null,
+                "url": "/table/T01/index/A_COB_GUAR_CORP_DATA_CHECK-GS026"
+              }
+            ],
+            "name": "公司报表",
+            "pid": "3000",
+            "id": "3400",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3400"
+          },
+          {
+            "code": "3300",
+            "children": [
+              {
+                "code": "3320",
+                "name": "LS001_资金量报表_管辖行",
+                "pid": "3300",
+                "id": "3320",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_CAPT_REP_REG_LINE-LS016"
+              },
+              {
+                "code": "3330",
+                "name": "LS002_资金量报表_支行",
+                "pid": "3300",
+                "id": "3330",
+                "iconWay": null,
+                "url": "/table/T05/index/A_REB_CAPT_REP_SUB_BRCH-LS017"
+              },
+              {
+                "code": "3340",
+                "name": "LS003_储蓄报表_管辖行",
+                "pid": "3300",
+                "id": "3340",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_DPST_REP_REG_LINE-LS018"
+              },
+              {
+                "code": "3350",
+                "name": "LS004_储蓄报表_支行",
+                "pid": "3300",
+                "id": "3350",
+                "iconWay": null,
+                "url": "/table/T05/index/A_REB_DPST_REP_SUB_BRCH-LS019"
+              },
+              {
+                "code": "3360",
+                "name": "LS005_个贷规模战报时点余额查询",
+                "pid": "3300",
+                "id": "3360",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS034"
+              },
+              {
+                "code": "3370",
+                "name": "LS006_个贷规模战报日均余额查询",
+                "pid": "3300",
+                "id": "3370",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS035"
+              },
+              {
+                "code": "3380",
+                "name": "LS007_个贷规模战报任意时点日均余额查询",
+                "pid": "3300",
+                "id": "3380",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS036"
+              },
+              {
+                "code": "33260",
+                "name": "LS008_各层级客户结构",
+                "pid": "3300",
+                "id": "33260",
+                "iconWay": null,
+                "url": "/table/T09/index/A_REB_HIRCHY_CUST_STRU-LS026"
+              },
+              {
+                "code": "3310",
+                "name": "LS009_个人理财统计表",
+                "pid": "3300",
+                "id": "3310",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_FINANC_STAT_TAB-LS048"
+              },
+              {
+                "code": "33620",
+                "name": "LS010_持有产品报表_汇总表",
+                "pid": "3300",
+                "id": "33620",
+                "iconWay": null,
+                "url": "/table/T11/index/A_REB_HOLD_PROD_SUM_REP-LS062"
+              },
+              {
+                "code": "33560",
+                "name": "LS011_持有产品报表_明细表",
+                "pid": "3300",
+                "id": "33560",
+                "iconWay": null,
+                "url": "/table/T11/index/A_REB_HOLD_PROD_DTL_REP-LS056"
+              },
+              {
+                "code": "33220",
+                "name": "LS012_代发工资客户持有产品汇总",
+                "pid": "3300",
+                "id": "33220",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_PAY_AGEN_CUST_PROD_SUM-LS004"
+              },
+              {
+                "code": "33230",
+                "name": "LS013_代发工资客户持有产品明细",
+                "pid": "3300",
+                "id": "33230",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PAYROLL_AGEN_CUST_HOLD_PROD_DTL-LS003"
+              },
+              {
+                "code": "33110",
+                "name": "LS014_定期到期",
+                "pid": "3300",
+                "id": "33110",
+                "iconWay": null,
+                "url": "/table/T07/index/A_REB_TIME_MATURE-LS010"
+              },
+              {
+                "code": "33120",
+                "name": "LS015_结构性存款到期",
+                "pid": "3300",
+                "id": "33120",
+                "iconWay": null,
+                "url": "/table/T07/index/A_REB_STDP_MATURE-LS011"
+              },
+              {
+                "code": "3390",
+                "name": "LS016_国债到期",
+                "pid": "3300",
+                "id": "3390",
+                "iconWay": null,
+                "url": "/table/T07/index/A_REB_NATION_DEBT_MATURE-LS012"
+              },
+              {
+                "code": "33130",
+                "name": "LS017_理财到期明细表（客户经理）",
+                "pid": "3300",
+                "id": "33130",
+                "iconWay": null,
+                "url": "/table/T07/index/A_REB_FIN_MATURE_DTL_TAB_MGR-LS008"
+              },
+              {
+                "code": "33150",
+                "name": "LS018_三方存管账户明细",
+                "pid": "3300",
+                "id": "33150",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_ST_ACCT_DTL-LS015"
+              },
+              {
+                "code": "33140",
+                "name": "LS019_VIP指标战报（分行）",
+                "pid": "3300",
+                "id": "33140",
+                "iconWay": null,
+                "url": "/table/T01/index/A_REB_VIP_INDEX_REP_ORG-LS025"
+              },
+              {
+                "code": "33160",
+                "name": "LS020_大额变动监测",
+                "pid": "3300",
+                "id": "33160",
+                "iconWay": null,
+                "url": "/table/LS022/index/A_REB_LARGE_CHANGE_MONITOR-LS022"
+              },
+              {
+                "code": "33270",
+                "name": "LS021_客户开卡信息明细清单",
+                "pid": "3300",
+                "id": "33270",
+                "iconWay": null,
+                "url": "/table/T17/index/A_REB_CUST_OPEN_CARD_INFO-LS027"
+              },
+              {
+                "code": "33070",
+                "name": "LS022_零售产品到期及续存情况查询",
+                "pid": "3300",
+                "id": "33070",
+                "iconWay": null,
+                "url": "/table/LS007"
+              },
+              {
+                "code": "33030",
+                "name": "LS023_经营单位零售利润构成情况统计表",
+                "pid": "3300",
+                "id": "33030",
+                "iconWay": null,
+                "url": "/table/LS030"
+              },
+              {
+                "code": "33031",
+                "name": "LS024_手机银行业绩统计表",
+                "pid": "3300",
+                "id": "33031",
+                "iconWay": null,
+                "url": "/table/LS031"
+              },
+              {
+                "code": "33320",
+                "name": "LS025_直联POS收单业务统计表",
+                "pid": "3300",
+                "id": "33320",
+                "iconWay": null,
+                "url": "/table/T07/index/A_REB_DIR_CONN_POS_RECV_STAT-LS032"
+              }
+            ],
+            "name": "零售报表",
+            "pid": "3000",
+            "id": "3300",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3300"
+          },
+          {
+            "code": "3500",
+            "children": [
+              {
+                "code": "3580",
+                "name": "SC001_公司存款时点余额增量查询",
+                "pid": "3500",
+                "id": "3580",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPST_BAL_ORG_TAB-GS001"
+              },
+              {
+                "code": "3570",
+                "name": "SC002_公司存款日均余额增量查询",
+                "pid": "3500",
+                "id": "3570",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPST_BAL_ORG_TAB-GS002"
+              },
+              {
+                "code": "3560",
+                "name": "SC003_公司存款日均任意时点查询",
+                "pid": "3500",
+                "id": "3560",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_DPST_BAL_ORG_TAB-GS003"
+              },
+              {
+                "code": "35100",
+                "name": "SC004_公司贷款时点余额增量查询",
+                "pid": "3500",
+                "id": "35100",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_LOAN_BAL_ORG_TAB-GS006"
+              },
+              {
+                "code": "35101",
+                "name": "SC005_公司贷款日均余额增量查询",
+                "pid": "3500",
+                "id": "35101",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_LOAN_BAL_ORG_TAB-GS007"
+              },
+              {
+                "code": "35102",
+                "name": "SC006_公司贷款日均任意时点查询",
+                "pid": "3500",
+                "id": "35102",
+                "iconWay": null,
+                "url": "/table/T02/index/A_COB_LOAN_BAL_ORG_TAB-GS008"
+              },
+              {
+                "code": "35110",
+                "name": "SC007_表内外融资业务情况表",
+                "pid": "3500",
+                "id": "35110",
+                "iconWay": null,
+                "url": "/table/T01/index/A_COB_IN_OFF_BAL_BIZ_SITU_TAB-GS015"
+              },
+              {
+                "code": "35130",
+                "name": "SC008_国际中间业务收入",
+                "pid": "3500",
+                "id": "35130",
+                "iconWay": null,
+                "url": "/table/SC001"
+              },
+              {
+                "code": "35120",
+                "name": "SC009_保函业务查询",
+                "pid": "3500",
+                "id": "35120",
+                "iconWay": null,
+                "url": "/table/T14/index/A_MKB_GUAR_BIZ_QRY_ORG-SC004"
+              },
+              {
+                "code": "35150",
+                "name": "SC010_同业中收业绩",
+                "pid": "3500",
+                "id": "35150",
+                "iconWay": null,
+                "url": "/table/SC020"
+              },
+              {
+                "code": "3530",
+                "name": "SC011_同业存款查询",
+                "pid": "3500",
+                "id": "3530",
+                "iconWay": null,
+                "url": "/table/T14/index/A_MKB_IBANK_DPST_QRY-SC002"
+              },
+              {
+                "code": "3540",
+                "name": "SC012_同业活期存款任意时点日均查询",
+                "pid": "3500",
+                "id": "3540",
+                "iconWay": null,
+                "url": "/table/T01/index/A_MKB_IBANK_IBDPSTD_INL_DAILY-SC026"
+              },
+              {
+                "code": "3550",
+                "name": "SC013_同业活期存款任意时间段对账单查询",
+                "pid": "3500",
+                "id": "3550",
+                "iconWay": null,
+                "url": "/table/T01/index/A_MKB_IBANK_IBDPSTD_INL_DAILY-SC029"
+              },
+              {
+                "code": "3520",
+                "name": "SC014_同业存款付息测算",
+                "pid": "3500",
+                "id": "3520",
+                "iconWay": null,
+                "url": "/table/T01/index/A_MKB_IBANK_DPST_PAY_INT_CAL-SC027"
+              },
+              {
+                "code": "3510",
+                "name": "SC015_同业贷款结息测算",
+                "pid": "3500",
+                "id": "3510",
+                "iconWay": null,
+                "url": "/table/T01/index/A_MKB_IBANK_LOAN_INT_SET_CAL-SC025"
+              },
+              {
+                "code": "35140",
+                "name": "SC016_同业金融部业绩查询",
+                "pid": "3500",
+                "id": "35140",
+                "iconWay": null,
+                "url": "/table/SC017"
+              },
+              {
+                "code": "35180",
+                "name": "SC017_国际结算量查询",
+                "pid": "3500",
+                "id": "35180",
+                "iconWay": null,
+                "url": "/table/T16/index/A_MKB_INTER_STL_QTTY_ORG-SC003"
+              }
+            ],
+            "name": "市场报表",
+            "pid": "3000",
+            "id": "3500",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3500"
+          },
+          {
+            "code": "3600",
+            "children": [
+              {
+                "code": "3610",
+                "name": "JC001_客户存款时点余额及增量情况一览表",
+                "pid": "3600",
+                "id": "3610",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_DPSIT_TAB-JC001"
+              },
+              {
+                "code": "3620",
+                "name": "JC002_客户存款日均余额及增量情况一览表",
+                "pid": "3600",
+                "id": "3620",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_DPSIT_TAB-JC002"
+              },
+              {
+                "code": "3630",
+                "name": "JC003_客户存款任意时点日均余额情况一览表",
+                "pid": "3600",
+                "id": "3630",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_DPSIT_TAB-JC003"
+              },
+              {
+                "code": "3640",
+                "name": "JC004_客户贷款时点余额及增量情况一览表",
+                "pid": "3600",
+                "id": "3640",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_LOAN_TAB-JC004"
+              },
+              {
+                "code": "3650",
+                "name": "JC005_客户贷款日均余额及增量情况一览表",
+                "pid": "3600",
+                "id": "3650",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_LOAN_TAB-JC005"
+              },
+              {
+                "code": "3660",
+                "name": "JC006_客户贷款任意时点日均余额情况一览表",
+                "pid": "3600",
+                "id": "3660",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_LOAN_TAB-JC006"
+              },
+              {
+                "code": "3670",
+                "name": "JC007_客户资金量时点余额及增量情况一览表",
+                "pid": "3600",
+                "id": "3670",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_CUST_AMT_FUND_TAB-JC007"
+              },
+              {
+                "code": "3690",
+                "name": "JC008_各经营单位纯公司口径非息收入情况一览表",
+                "pid": "3600",
+                "id": "3690",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_OPRR_PURE_CORP_MDL_BIZ_INCOM-JC011"
+              },
+              {
+                "code": "36100",
+                "name": "JC009_各经营单位全公司口径非息收入情况一览表",
+                "pid": "3600",
+                "id": "36100",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_OPRR_ALL_CORP_MDL_BIZ_INCOM-JC012"
+              },
+              {
+                "code": "3680",
+                "name": "JC010_各经营单位中收双计业务情况一览表",
+                "pid": "3600",
+                "id": "3680",
+                "iconWay": null,
+                "url": "/table/T01/index/A_PLF_OPRR_MDL_BIZ_TWO_ACCM_INCOM-JC013"
+              }
+            ],
+            "name": "计财报表",
+            "pid": "3000",
+            "id": "3600",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3600"
+          },
+          {
+            "code": "3700",
+            "name": "中收报表配置",
+            "pid": "3000",
+            "id": "3700",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3700"
+          },
+          {
+            "code": "3800",
+            "children": [
+              {
+                "code": "3810",
+                "name": "ZH001_机构业绩综合统计表",
+                "pid": "3800",
+                "id": "3810",
+                "iconWay": null,
+                "url": "/table/zhTable/ZH001"
+              },
+              {
+                "code": "3820",
+                "name": "ZH002_员工业绩综合统计表",
+                "pid": "3800",
+                "id": "3820",
+                "iconWay": null,
+                "url": "/table/zhTable/ZH002"
+              },
+              {
+                "code": "3830",
+                "name": "ZH003_团队业绩综合统计表",
+                "pid": "3800",
+                "id": "3830",
+                "iconWay": null,
+                "url": "/table/zhTable/ZH003"
+              },
+              {
+                "code": "3840",
+                "name": "ZH004_零售客户业绩综合统计表",
+                "pid": "3800",
+                "id": "3840",
+                "iconWay": null,
+                "url": "/table/zhTable/ZH004"
+              },
+              {
+                "code": "3850",
+                "name": "ZH005_公司客户业绩综合统计表",
+                "pid": "3800",
+                "id": "3850",
+                "iconWay": null,
+                "url": "/table/zhTable/ZH005"
+              },
+              {
+                "code": "3860",
+                "name": "ZH006_当年新增零售客户业绩一览表",
+                "pid": "3800",
+                "id": "3860",
+                "iconWay": null,
+                "url": "/table/T01/index/A_INS_Y_NEW_REB_CUST_PER_TAB-ZH006"
+              },
+              {
+                "code": "3870",
+                "name": "ZH007_当年新增公司客户业绩一览表",
+                "pid": "3800",
+                "id": "3870",
+                "iconWay": null,
+                "url": "/table/T01/index/A_INS_Y_NEW_COB_CUST_PER_TAB-ZH007"
+              },
+              {
+                "code": "3880",
+                "name": "ZH008_零售客户业绩一览表",
+                "pid": "3800",
+                "id": "3880",
+                "iconWay": null,
+                "url": "/table/T01/index/A_INS_ORG_REB_CUST_PER_TAB-ZH008"
+              },
+              {
+                "code": "3890",
+                "name": "ZH009_公司客户业绩一览表",
+                "pid": "3800",
+                "id": "3890",
+                "iconWay": null,
+                "url": "/table/T01/index/A_INS_ORG_COB_CUST_PER_TAB-ZH009"
+              },
+              {
+                "code": "38100",
+                "name": "ZH010_员工对公客户业绩一览表",
+                "pid": "3800",
+                "id": "38100",
+                "iconWay": null,
+                "url": "/table/ZH010/index/A_INS_EMP_CORP_PER_TAB_CUST-ZH010"
+              },
+              {
+                "code": "38110",
+                "name": "ZH011_机构业绩排名表",
+                "pid": "3800",
+                "id": "38110",
+                "iconWay": null,
+                "url": "/table/ZH011/index/A_ORG_PER_RK_TAB-ZH011"
+              },
+              {
+                "code": "38120",
+                "name": "ZH012_客户经理公司业务业绩排名表",
+                "pid": "3800",
+                "id": "38120",
+                "iconWay": null,
+                "url": "/table/ZH011/index/A_COB_CUST_MGR_PER_RK_TAB-ZH012"
+              },
+              {
+                "code": "38130",
+                "name": "ZH013_客户经理零售业务业绩排名表",
+                "pid": "3800",
+                "id": "38130",
+                "iconWay": null,
+                "url": "/table/ZH011/index/A_REB_CUST_MGR_PER_RK_TAB-ZH013"
+              },
+              {
+                "code": "38140",
+                "name": "ZH014_团队公司业务业绩排名表",
+                "pid": "3800",
+                "id": "38140",
+                "iconWay": null,
+                "url": "/table/ZH011/index/A_COB_TEM_PER_RK_TAB-ZH014"
+              },
+              {
+                "code": "38150",
+                "name": "ZH015_零售客户贡献度排名表",
+                "pid": "3800",
+                "id": "38150",
+                "iconWay": null,
+                "url": "/table/ZH011/index/A_REB_CUST_CONTR_RK_TAB-ZH015"
+              },
+              {
+                "code": "38160",
+                "name": "ZH016_公司客户贡献度排名表",
+                "pid": "3800",
+                "id": "38160",
+                "iconWay": null,
+                "url": "/table/ZH011/index/A_COB_CUST_CONTR_RK_TAB-ZH016"
+              }
+            ],
+            "name": "综合报表",
+            "pid": "3000",
+            "id": "3800",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3800"
+          },
+          {
+            "code": "3900",
+            "children": [
+              {
+                "code": "34130",
+                "name": "GS_BL_001内部资源转移_补录",
+                "pid": "3900",
+                "id": "34130",
+                "iconWay": null,
+                "url": "/table/GS012"
+              },
+              {
+                "code": "34160",
+                "name": "GS_BL_002交易银行中间业务补录信息",
+                "pid": "3900",
+                "id": "34160",
+                "iconWay": null,
+                "url": "/table/GS018_BL"
+              },
+              {
+                "code": "34170",
+                "name": "GS_BL_003小微企业类型补录表",
+                "pid": "3900",
+                "id": "34170",
+                "iconWay": null,
+                "url": "/table/GS023_BL"
+              },
+              {
+                "code": "34180",
+                "name": "GS_BL_004政策性担保公司补录表",
+                "pid": "3900",
+                "id": "34180",
+                "iconWay": null,
+                "url": "/table/GS026_BL"
+              },
+              {
+                "code": "34190",
+                "name": "GS_BL_005投行资源转移补录信息",
+                "pid": "3900",
+                "id": "34190",
+                "iconWay": null,
+                "url": "/table/GS036"
+              },
+              {
+                "code": "3331",
+                "name": "LS_BL_001资金量报表_支行_补录",
+                "pid": "3900",
+                "id": "3331",
+                "iconWay": null,
+                "url": "/table/LS017_1"
+              },
+              {
+                "code": "3351",
+                "name": "LS_BL_002储蓄报表_支行_补录",
+                "pid": "3900",
+                "id": "3351",
+                "iconWay": null,
+                "url": "/table/LS019_1"
+              },
+              {
+                "code": "33210",
+                "name": "LS_BL_003零售贷款资金转移补录",
+                "pid": "3900",
+                "id": "33210",
+                "iconWay": null,
+                "url": "/table/LS061"
+              },
+              {
+                "code": "33280",
+                "name": "LS_BL_004借记卡支出补录表",
+                "pid": "3900",
+                "id": "33280",
+                "iconWay": null,
+                "url": "/table/LSBL004"
+              },
+              {
+                "code": "33290",
+                "name": "LS_BL_005借记卡收入补录表",
+                "pid": "3900",
+                "id": "33290",
+                "iconWay": null,
+                "url": "/table/LSBL005"
+              },
+              {
+                "code": "33300",
+                "name": "LS_BL_006零售中收补录表",
+                "pid": "3900",
+                "id": "33300",
+                "iconWay": null,
+                "url": "/table/LSBL006"
+              },
+              {
+                "code": "35030",
+                "name": "SC_BL_001同业业务转移表",
+                "pid": "3900",
+                "id": "35030",
+                "iconWay": null,
+                "url": "/table/SC030_BL"
+              },
+              {
+                "code": "3590",
+                "name": "SC_BL_002同业存款类定期补录",
+                "pid": "3900",
+                "id": "3590",
+                "iconWay": null,
+                "url": "/table/SC028"
+              },
+              {
+                "code": "35160",
+                "name": "SC_BL_003国际中间业务收入查询补录信息",
+                "pid": "3900",
+                "id": "35160",
+                "iconWay": null,
+                "url": "/table/SC001_BL\r\n"
+              },
+              {
+                "code": "35040",
+                "name": "SC_BL_004当月代销总行划拨补录信息",
+                "pid": "3900",
+                "id": "35040",
+                "iconWay": null,
+                "url": "/table/SC031"
+              },
+              {
+                "code": "35170",
+                "name": "SC_BL_005国际结算量查询补录",
+                "pid": "3900",
+                "id": "35170",
+                "iconWay": null,
+                "url": "/table/SC003_BL\r\n"
+              },
+              {
+                "code": "35190",
+                "name": "SC_BL_006同业FTP补录表",
+                "pid": "3900",
+                "id": "35190",
+                "iconWay": null,
+                "url": "/table/SC006_BL"
+              },
+              {
+                "code": "3681",
+                "name": "JC_BL_001国际个人中间业务收入补录信息",
+                "pid": "3900",
+                "id": "3681",
+                "iconWay": null,
+                "url": "/table/JC013"
+              },
+              {
+                "code": "3811",
+                "name": "ZH_BL_001机构考核利润补录",
+                "pid": "3900",
+                "id": "3811",
+                "iconWay": null,
+                "url": "/table/ZH001_1"
+              },
+              {
+                "code": "3812",
+                "name": "ZH_BL_002机构中收补录",
+                "pid": "3900",
+                "id": "3812",
+                "iconWay": null,
+                "url": "/table/ZH001_2"
+              },
+              {
+                "code": "3831",
+                "name": "ZH_BL_003团队考核利润补录",
+                "pid": "3900",
+                "id": "3831",
+                "iconWay": null,
+                "url": "/table/ZH003_1"
+              },
+              {
+                "code": "3814",
+                "name": "ZH_BL_004机构减值准备补录",
+                "pid": "3900",
+                "id": "3814",
+                "iconWay": null,
+                "url": "/table/ZH_BL_004"
+              }
+            ],
+            "name": "补录报表",
+            "pid": "3000",
+            "id": "3900",
+            "iconWay": null,
+            "url": "/system/menu/menu_table.html?menuId=3900"
+          }
+        ],
+        "name": "报表查询",
+        "pid": "",
+        "id": "3000",
+        "iconWay": null,
+        "url": null
+      },
+      {
+        "code": "4000",
+        "children": [
+          {
+            "code": "4100",
+            "children": [
+              {
+                "code": "4110",
+                "name": "机构管理主页",
+                "pid": "4100",
+                "id": "4110",
+                "iconWay": null,
+                "url": "/org/orgIndex.html"
+              },
+              {
+                "code": "4120",
+                "name": "审批机构",
+                "pid": "4100",
+                "id": "4120",
+                "iconWay": null,
+                "url": "/org/orgWorkFlow.html"
+              }
+            ],
+            "name": "机构管理",
+            "pid": "4000",
+            "id": "4100",
+            "iconWay": null,
+            "url": null
+          },
+          {
+            "code": "4200",
+            "children": [
+              {
+                "code": "4210",
+                "name": "员工管理主页",
+                "pid": "4200",
+                "id": "4210",
+                "iconWay": null,
+                "url": "/user/index.html"
+              },
+              {
+                "code": "4220",
+                "name": "审批员工",
+                "pid": "4200",
+                "id": "4220",
+                "iconWay": null,
+                "url": "/user/userWorkflow.html"
+              },
+              {
+                "code": "4230",
+                "name": "权限审批",
+                "pid": "4200",
+                "id": "4230",
+                "iconWay": null,
+                "url": "/user/emproleindex.html"
+              }
+            ],
+            "name": "员工管理",
+            "pid": "4000",
+            "id": "4200",
+            "iconWay": null,
+            "url": null
+          },
+          {
+            "code": "4300",
+            "children": [
+              {
+                "code": "4310",
+                "name": "团队管理主页",
+                "pid": "4300",
+                "id": "4310",
+                "iconWay": null,
+                "url": "/team/index"
+              },
+              {
+                "code": "4320",
+                "name": "审批团队",
+                "pid": "4300",
+                "id": "4320",
+                "iconWay": null,
+                "url": "/team/approval"
+              }
+            ],
+            "name": "团队管理",
+            "pid": "4000",
+            "id": "4300",
+            "iconWay": null,
+            "url": null
+          },
+          {
+            "code": "4400",
+            "children": [
+              {
+                "code": "4410",
+                "name": "角色管理",
+                "pid": "4400",
+                "id": "4410",
+                "iconWay": null,
+                "url": "/role/index"
+              }
+            ],
+            "name": "权限管理",
+            "pid": "4000",
+            "id": "4400",
+            "iconWay": null,
+            "url": null
+          },
+          {
+            "code": "4600",
+            "name": "日志管理",
+            "pid": "4000",
+            "id": "4600",
+            "iconWay": null,
+            "url": "/system/log/logManager.html"
+          },
+          {
+            "code": "4700",
+            "name": "设置窗口期",
+            "pid": "4000",
+            "id": "4700",
+            "iconWay": null,
+            "url": "/ckq.html"
+          }
+        ],
+        "name": "综合管理",
+        "pid": "",
+        "id": "4000",
+        "iconWay": null,
+        "url": null
+      }
+    ]
+  }

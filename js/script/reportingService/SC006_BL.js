@@ -1,0 +1,803 @@
+//删除id数组
+var deleteIds = [];
+$(function(){
+	$("#dataDt").datetimepicker({
+		language:"zh-CN",
+		format:"yyyy-mm-dd",
+		minView:2,
+		autoclose:true,
+		todayBtn:true,
+		clearBtn:false,
+	});
+	$("#dataDt").val(date);
+	//初始化报表说明(备注)
+    $.ajax({
+           url: portal.bp() + '/table/queryNote',
+           type: "get",
+           async: false, // 同步 为全局变量赋值
+           data: {
+               'tableName': 'R_IBANK_FTP_ADDT_RCRD-SC_BL_006'
+           },
+           cache: false,
+           success: function (data) {
+           	var s = data.data;
+           	if(s.length == 0){
+           		var trHtml = "<tr><td>暂无报表说明!</td></tr>";
+	            	$("#noteList").append(trHtml);
+           	}else{
+	            	for(var i = 0;i<s.length;i++){
+		            	//console.log(s[i].table_NOTE);
+		            	var trHtml = "<tr><td align='left' class='note' style='white-space:pre;'>"+s[i].table_NOTE+"</td></tr>";
+		            	$("#noteList").append(trHtml);
+	            	}
+	            	$("#noteList .no-records-found").hide();
+           	}
+           	
+           	
+           	
+              
+           }
+   });
+	
+    //新增行
+	//alert(empNum+"-"+date);
+    $("#btn_add").click(function(){
+    	var length = $("#table1").bootstrapTable("getData").length;
+        var addtRcrdTm = getSystemDate("yyyy-MM-dd HH:mm:ss");
+    	$("#table1").bootstrapTable("insertRow",{
+            index:length,
+            row:{
+            	isAdd : true,
+            	acct	:'',
+            	custName	:'',
+            	orgCode	:'',
+            	belongOrgName	:'',
+            	belongOrgNum	:'',
+            	stIntDt	:'',
+            	matDt	:'',
+            	bizType	:'',
+            	dataDt	:'',
+            	recLateFtpPrice	:'',
+            	taxBefTotalCost	:'',
+            	accessFee	:'',
+            	trustFee	:'',
+            	ibankMdlBizIncom	:'',
+            	addtRcrdTm	:addtRcrdTm,
+            	addtRcrdPersonEmpno	:empNum,           	
+            }
+        });
+    	//更新表中修改过字段的颜色
+    	updateCellDataClass($("#table1"));
+    });
+    //删除行
+	$("#btn_del").click(function(){
+        var length = $("#table1").bootstrapTable("getData").length;
+        var checklist = $('#table1').bootstrapTable('getSelections');
+		var ids=[];
+		var dflag = false;
+		$.each(checklist,function(index,item){
+			if(item.addtRcrdId!=undefined&&item.addtRcrdId!=null&&item.addtRcrdId!=''){
+				if(stringToDate(item.dataDt)>stringToDate(endDate)||stringToDate(item.dataDt)<stringToDate(startDate)){
+					dflag = true;
+					layer.msg(item.acct+"不在窗口期内，不可删除",{icon:2})
+					return false;
+				}
+			}
+		});
+		if(dflag){
+			return;
+		}
+		$.each(checklist,function(index,item){
+			ids.push(item.number);
+			if(item.addtRcrdId!=undefined&&item.addtRcrdId!=null&&item.addtRcrdId!=''){
+				deleteIds.push(item.addtRcrdId);
+			}
+		});
+        $("#table1").bootstrapTable("remove",{
+            field:'number',
+            values:ids
+        });
+      //更新表中修改过字段的颜色
+        updateCellDataClass($("#table1"));		       	
+
+	});
+	//保存
+	$("#btn_save").click(function(){
+		//bootstrapTable 编辑列表校验
+		var validateError = validateBootStrapTableEdit($("#table1"));
+		if(validateError!=null){
+			layer.msg(validateError,{icon:2});
+			return;
+		}
+		var addData = [];
+		var updateData = [];
+		var deleteData = deleteIds;
+		var tableData = $("#table1").bootstrapTable("getData");
+		var nflag = false;
+		$.each(tableData,function(index,item){
+			if(item.bizTypeCd!=undefined && item.bizTypeCd!=null
+					&&(item.bizTypeCd=='93'||item.bizTypeCd=='1'||item.bizTypeCd=='2'||item.bizTypeCd=='3'||item.bizTypeCd=='5')){
+				if((item.taxBefTotalCost==null||item.taxBefTotalCost=='')
+						||(item.accessFee==null||item.accessFee=='')
+						||(item.trustFee==null||item.trustFee=='')
+						||(item.ibankMdlBizIncom==null||item.ibankMdlBizIncom=='')
+						){
+					nflag = true;
+					layer.msg("第"+(index+1)+"行，业务类型为同业直投时，税前总成本、通道费、托管费、同业中收为必填",{icon:2});
+					return false;
+				}
+			}
+			if(item.addtRcrdId!=undefined&&item.addtRcrdId!=null&&item.addtRcrdId!=''){
+				//修改数据
+				if(item.updateCell&&Object.keys(item.updateCell).length>0){
+					updateData.push(item)
+				}
+			}else{
+				//新增数据
+				addData.push(item);
+			}
+		});
+		if(nflag){
+			return;
+		}
+		if(addData.length==0&&updateData.length==0&&deleteData==0){
+			layer.msg("没有任何修改，无需保存",{icon:3});
+			return;
+		}
+		
+		var data = {
+  				"addData":addData,
+				"updateData":updateData,
+				"deleteData":deleteData
+  		};
+		var index;
+  		$.ajax({
+  			url:portal.bp() + '/table/addRecord/SC006_BLsaveAll',  			
+  			type:'post',
+  			cache:false,
+            contentType: "application/json;charset=UTF-8",
+  			dataType: "json",
+            data:JSON.stringify(data),
+  			success:function(o){
+  				var code = o.code;
+  				if(code == 200){
+  					layer.msg("提交成功", {icon: 1});
+  				    query();
+  				}else{
+  					layer.msg(o.message, {icon: 2});
+  				}
+  			},
+			beforeSend:function(XMLHttpRequest){
+				index = layerLoad();
+			},
+			complete:function(XMLHttpRequest){
+				layerClose(index);
+			} 
+  		});
+		
+		
+	});
+	query();
+});
+//查询
+function query() {
+	deleteIds = [];
+	$('#table1').bootstrapTable('destroy');	
+    TableObjPage.table1();
+    $('#table2').bootstrapTable('destroy');
+    TableObjPageHistory.table2();
+}
+function resetForm() {
+    $('#formSearch')[0].reset();
+    $("#dataDt").val(date);
+}
+function queryAll(){
+	$('#table2').bootstrapTable('destroy');
+    TableObjPageHistory.table2();
+}
+function getAccInfo(acc){
+	var accInfo;
+	$.ajax({
+		url: portal.bp() + '/table/getAccInfo_SC006BL?r='+Math.random(),
+		type: 'get',
+		async: false,
+		data: {
+			"acc": acc,
+		},
+		dataType: "json"
+	}).done(function (data) {
+		if (data.code == '200') {
+			accInfo = data.data;                    
+		}
+	});
+	return accInfo;
+}
+var oldTable;
+var TableObjPage = {
+		table1: function () {
+	        var columns = 
+	              [
+	               {
+	            	   field:'check',
+	            	   checkbox:true,
+	               },
+					{
+						  field:'number',
+						  title:'序号',
+						  align: "center",
+						  valign: "middle",
+						  formatter: function (value, row, index) {
+							  row.number = index + 1;
+							  return index + 1;
+					      }
+					 },
+					 {
+						 field:'acct',
+						 title:'账号',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+			                    type:'text',
+			                    title:'账号',
+			                    placement:'top',
+			                    emptytext:"空",
+			                    validate: function (v) {
+		                            $el = $(this)[0]['$element'] === undefined?$(this):$(this)[0]['$element'];
+		                            if (v==null||v==''){
+		                                return '账号为必输项';
+		                            }else{
+		                                var accInfo = getAccInfo(v);
+		                                if(accInfo==null||accInfo.length==0){
+		                                    return '账号不存在';
+		                                }else{
+		                                    var rowIndex = $el.parent().parent().prevAll().length;
+		                                    var tableData = $("#table1").bootstrapTable("getData");
+		                                    tableData[rowIndex].belongOrgId = accInfo.mgmt_org_id;
+		                                    tableData[rowIndex].bizTypeCd = accInfo.business_type_cd;
+		                                    tableData[rowIndex].execRate = accInfo.exec_rate;
+		                                    tableData[rowIndex].crntBalCny = accInfo.crnt_bal_cny;
+		                                    tableData[rowIndex].intTypeCd = accInfo.int_type_cd;
+		                                    disableSiblingsAndSetValue($el,"custName",accInfo.cust_name);
+		                                    disableSiblingsAndSetValue($el,"orgCode",accInfo.org_code);
+		                                    disableSiblingsAndSetValue($el,"belongOrgName",accInfo.org_name);
+		                                    disableSiblingsAndSetValue($el,"belongOrgNum",accInfo.org_num);
+		                                    disableSiblingsAndSetValue($el,"stIntDt",accInfo.st_int_dt);
+		                                    disableSiblingsAndSetValue($el,"matDt",accInfo.mat_dt);
+		                                    disableSiblingsAndSetValue($el,"bizType",accInfo.encode_val_desc);
+
+		                                }
+		                            }
+		                        }
+			                }
+					 },
+					 {
+						 field:'custName',
+						 title:'客户名称',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'客户名称',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+							 validate: function (v) {
+			                    	$el = $(this)[0]['$element'] === undefined?$(this):$(this)[0]['$element'];
+			                    	var rowIndex = $el.parent().parent().prevAll().length;
+	                    			var tableData = $("#table1").bootstrapTable("getData");
+	                    			if(tableData[rowIndex].addtRcrdId!=undefined&&tableData[rowIndex].addtRcrdId!=null&&tableData[rowIndex].addtRcrdId!=''){
+	                    				//账号、数据日期不可修改
+	                    				disableSiblings($el,"acct");
+	                    				disableSiblings($el,"dataDt");
+	                    			}
+			                    }
+						 }
+					 },
+					 {
+						 field:'orgCode',
+						 title:'组织机构代码',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'组织机构代码',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+						 }
+					 },
+					 {
+						 field:'belongOrgName',
+						 title:'所属机构名称',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'所属机构名称',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+						 }
+					 },
+					 {
+						 field:'belongOrgNum',
+						 title:'所属机构号',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'所属机构号',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+						 }
+					 },
+					 {
+						 field:'stIntDt',
+						 title:'起息日期',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'起息日期',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+						 }
+					 },
+					 {
+						 field:'matDt',
+						 title:'到期日期',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'到期日期',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+						 }
+					 },
+					 {
+						 field:'bizType',
+						 title:'业务类型',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'text',
+							 title:'业务类型',
+							 placement:'top',
+							 emptytext:"空",
+							 disabled: true,
+						 }
+					 },
+					 {
+						 field:'dataDt',
+						 title:'数据日期',
+						 align: "center",
+						 valign: "middle",
+						 editable:{
+							 type:'date',
+							 title:'数据日期',
+							 format:'yyyy-mm-dd',
+							 placement:'left',
+							 emptytext:"空",
+							 datepicker:{
+								 startDate:startDate,
+							     endDate:endDate,
+							 },
+							 validate: function (v) {
+			                    	if (v==null||v=='') return '数据日期为必输项';
+			                    }
+							 
+						 }
+					 },
+					 {
+						 field:'recLateFtpPrice',
+						 title:'FTP价格（%）',
+						 align: "center",
+						 valign: "middle",
+						 formatter:function(value,row,index){
+							 if(value){
+								 return value;
+							 } else{
+								 return '';
+							 }
+						 },
+						 editable:{
+							 type:'text',
+							 title:'FTP价格（%）',
+							 placement:'top',
+							 emptytext:"空",
+							 validate: function (v) {
+								 if (v==null||v=='') return 'FTP价格（%）是必输项';
+								 if (!checkYuan(v)) return 'FTP价格（%）必须是保留两位的数字';
+							 }
+						 }
+					 },
+					 {
+						 field:'taxBefTotalCost',
+						 title:'税前总成本（%）',
+						 align: "center",
+						 valign: "middle",
+						 formatter:function(value,row,index){
+							 if(value){
+								 return value;
+							 } else{
+								 return '';
+							 }
+						 },
+						 editable:{
+							 type:'text',
+							 title:'税前总成本（%）',
+							 placement:'top',
+							 emptytext:"空",
+							 validate: function (v) {
+								 //if (v==null||v=='') return '必输项';
+								 if (!checkYuan(v)) return '税前总成本（%）必须是保留两位的数字';
+							 }
+						 }
+					 },
+					 {
+						 field:'accessFee',
+						 title:'通道费（%）',
+						 align: "center",
+						 valign: "middle",
+						 formatter:function(value,row,index){
+							 if(value){
+								 return value;
+							 } else{
+								 return '';
+							 }
+						 },
+						 editable:{
+							 type:'text',
+							 title:'通道费（%）',
+							 placement:'top',
+							 emptytext:"空",
+							 validate: function (v) {
+								 //if (v==null||v=='') return '必输项';
+								 if (!checkYuan(v)) return '通道费（%）必须是保留两位的数字';
+							 }
+						 }
+					 },
+					 {
+						 field:'trustFee',
+						 title:'托管费（%）',
+						 align: "center",
+						 valign: "middle",
+						 formatter:function(value,row,index){
+							 if(value){
+								 return value;
+							 } else{
+								 return '';
+							 }
+						 },
+						 editable:{
+							 type:'text',
+							 title:'托管费（%）',
+							 placement:'top',
+							 emptytext:"空",
+							 validate: function (v) {
+								 //if (v==null||v=='') return '必输项';
+								 if (!checkYuan(v)) return '托管费（%）必须是保留两位的数字';
+							 }
+						 }
+					 },
+					 {
+						 field:'ibankMdlBizIncom',
+						 title:'同业中收（%）',
+						 align: "center",
+						 valign: "middle",
+						 formatter:function(value,row,index){
+							 if(value){
+								 return value;
+							 } else{
+								 return '';
+							 }
+						 },
+						 editable:{
+							 type:'text',
+							 title:'同业中收（%）',
+							 placement:'top',
+							 emptytext:"空",
+							 validate: function (v) {
+								 //if (v==null||v=='') return '必输项';
+								 if (!checkYuan(v)) return '同业中收（%）必须是保留两位的数字';
+							 }
+						 }
+					 },
+					 {
+						 field:'addtRcrdTm',
+						 title:'补录时间',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'addtRcrdPersonEmpno',
+						 title:'补录人员工号',
+						 align: "center",
+						 valign: "middle",
+					 },
+	                
+	        ];
+	        $('#table1').bootstrapTable('destroy').bootstrapTable({
+	            url: portal.bp() + '/table/addRecord/SC006_BLquery',
+	            method: 'get',      //请求方式（*）
+	            striped: true,      //是否显示行间隔色
+	            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+	            pagination: true,     //是否显示分页（*）
+	            sortStable: true,      //是否启用排序
+	            sortOrder: "desc",     //排序方式
+	            singleSelect: false,    //是否单选，true时没有全选按钮
+	            "queryParamsType": "limit",
+	            contentType: "application/x-www-form-urlencoded",
+	            queryParams: function (params) {
+	                return {
+	                	'pageSize': params.limit,
+	                    'pageNum': (params.offset / params.limit) + 1,
+	                    'custName':$("#custName").val(),
+	                    'acc':$("#acc").val(),
+	                    'dataDt':$("#dataDt").val(),
+	                };
+	            },
+	            sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+	            pageNum: 1,      //初始化加载第一页，默认第一页
+	            pageSize: 100,      //每页的记录行数（*）
+	            pageList: [50,100],  //可供选择的每页的行数（*）
+	            clickToSelect: true,    //是否启用点击选中行
+	            resizable:true,			//是否可调整列宽度
+	            //height:getTableHeight(document), //表格固定高度
+	            responseHandler: function (res) { //服务端返回数据
+	                if (res.code == '200') {
+	                	oldTable = JSON.parse(JSON.stringify(res.data));
+	                    return res.data;
+	                } else {
+	                    layer.msg(res.message, {icon: 2});
+	                    return {};
+	                }
+	            },
+	            rowStyle:function(row,index){
+	            	if(row.isAdd){
+	            		//新增行样式
+	            		/*['active','success','info','warning','danger']*/
+	            		/*return {
+	            				css:{
+	            					'color':'green'
+	            				}
+	            		}*/
+	            		return {classes:'info'};
+	            	}else{
+	            		return {};
+	            	}
+	            },
+	            onLoadSuccess: function (data) {
+	            	initBootStrapTablevalidateEdit($("#table1"));
+	            	resizeTables();
+	            },
+	            onEditableSave:function(field,row,oldValue,$el){
+	            	$("#table1").bootstrapTable("resetView");
+			    	if(row.addtRcrdId!=null&&row.addtRcrdId!=''){
+			    		//修改
+						$.each(oldTable.rows,function(index,item){
+							if(item.addtRcrdId===row.addtRcrdId){
+								if(eval("item."+field)===eval("row."+field)){
+									$el.removeClass('update-cell-data');
+									//修改标志
+									if(row.updateCell==undefined||row.updateCell==null){
+										row.updateCell = {};
+									}
+									delete row.updateCell[field];
+								}else{
+									$el.addClass('update-cell-data');
+									//修改标志
+									if(row.updateCell==undefined||row.updateCell==null){
+										row.updateCell = {};
+									}
+									row.updateCell[field] = '1';
+								}
+							}
+						});
+					}
+					
+				},
+	            columns: columns,
+	        });
+	    }
+
+}
+
+var TableObjPageHistory = {
+		table2: function () {
+		    var columns = 
+		          [		           
+					{
+						  field:'number',
+						  title:'序号',
+						  align: "center",
+						  valign: "middle",
+						  formatter: function (value, row, index) {
+							  row.number = index + 1;
+							  return index + 1;
+					      }
+					 },
+					 {
+						 field:'acct',
+						 title:'账号',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'custName',
+						 title:'客户名称',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'orgCode',
+						 title:'组织机构代码',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'belongOrgName',
+						 title:'所属机构名称',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'belongOrgNum',
+						 title:'所属机构号',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'stIntDt',
+						 title:'起息日期',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'matDt',
+						 title:'到期日期',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'bizType',
+						 title:'业务类型',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'dataDt',
+						 title:'数据日期',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'recLateFtpPrice',
+						 title:'FTP价格（%）',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'taxBefTotalCost',
+						 title:'税前总成本（%）',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'accessFee',
+						 title:'通道费（%）',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'trustFee',
+						 title:'托管费（%）',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'ibankMdlBizIncom',
+						 title:'同业中收（%）',
+						 align: "center",
+						 valign: "middle",
+					 },			 
+					 {
+						 field:'addtRcrdTm',
+						 title:'补录时间',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'addtRcrdPersonEmpno',
+						 title:'补录人员工号',
+						 align: "center",
+						 valign: "middle",
+					 },
+					 {
+						 field:'opeTypeCd',
+						 title:'操作类型',
+						 align: "center",
+						 valign: "middle",
+					 },
+		            
+		    ];
+		    $('#table2').bootstrapTable('destroy').bootstrapTable({
+		        url: portal.bp() + '/table/addRecord/SC006_BLqueryAll',
+		        method: 'get',      //请求方式（*）
+		        striped: true,      //是否显示行间隔色
+		        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+		        pagination: true,     //是否显示分页（*）
+		        sortStable: true,      //是否启用排序
+		        sortOrder: "desc",     //排序方式
+		        singleSelect: false,    //是否单选，true时没有全选按钮
+		        "queryParamsType": "limit",
+		        contentType: "application/x-www-form-urlencoded",
+		        queryParams: function (params) {
+		            return {
+		            	'pageSize': params.limit,
+		                'pageNum': (params.offset / params.limit) + 1,	
+		                'custName':$("#custName").val(),
+	                    'acc':$("#acc").val(),
+	                    'dataDt':$("#dataDt").val(),
+		            };
+		        },
+		        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+		        pageNum: 1,      //初始化加载第一页，默认第一页
+		        pageSize: 100,      //每页的记录行数（*）
+		        pageList: [50,100],  //可供选择的每页的行数（*）
+		        clickToSelect: true,    //是否启用点击选中行
+		        resizable:true,			//是否可调整列宽度
+		       // height:getTableHeight(document), //表格固定高度
+		        responseHandler: function (res) { //服务端返回数据
+		            if (res.code == '200') {
+		            	//oldTable = JSON.parse(JSON.stringify(res.data));
+		                return res.data;
+		            } else {
+		                layer.msg(res.message, {icon: 2});
+		                return {};
+		            }
+		        },
+		        rowStyle:function(row,index){
+		        	if(row.isAdd){
+		        		//新增行样式
+		        		/*['active','success','info','warning','danger']*/
+		        		/*return {
+		        				css:{
+		        					'color':'green'
+		        				}
+		        		}*/
+		        		return {classes:'info'};
+		        	}else{
+		        		return {};
+		        	}
+		        },
+		        onLoadSuccess: function (data) {
+		        	resizeTables();
+		        },
+		       
+		        columns: columns
+		        });
+		}
+}
+/**
+ * 保留四位小数
+ */
+var pattern3 = /^(([1-9][0-9]{0,})|0)(\.\d{1,2})?$/;
+function checkYuan(v){
+	if(v=='') return true;
+	return pattern3.test(v);
+}
+function formatAmt(v){
+	var res;
+	if(v==undefined||v==null||v==''){
+		res = 0;
+	}else{
+		res = v;
+	}
+	return parseFloat(res);
+}
+		

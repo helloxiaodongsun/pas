@@ -283,10 +283,10 @@ $(function () {
 				}
 			},
 			beforeSend:function(XMLHttpRequest){
-				index = layerLoad();
+				//index = layerLoad();
 			},
 			complete:function(XMLHttpRequest){
-				layerClose(index);
+				//layerClose(index);
 			}
 		});
 		
@@ -338,10 +338,10 @@ $(function () {
 				}
 			},
 			beforeSend:function(XMLHttpRequest){
-				index = layerLoad();
+				//index = layerLoad();
 			},
 			complete:function(XMLHttpRequest){
-				layerClose(index);
+				//layerClose(index);
 			}
 		});
     });
@@ -517,7 +517,7 @@ var showApproveModal = {
 	            ];
 	        $('#approvetable').bootstrapTable("destroy");
 	        $('#approvetable').bootstrapTable({
-	            url: portal.bp() + '/org/workflow/mypageList',
+	            url: portal.bp() + './json/org/workflow/mypageList.json',
 	            method: 'get',      //请求方式（*）
 	            striped: true,      //是否显示行间隔色
 	            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -559,7 +559,7 @@ function initMemOrg(){
 		org = orgId;
 	}
 	$('#memOrgtable').bootstrapTable({
-		url: portal.bp() + '/org/findMemOrg',
+		url: portal.bp() + './json/org/findMemOrg.json',
 	    method: 'get',      //请求方式（*）
 	    striped: true,      //是否显示行间隔色
 	    cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -793,10 +793,10 @@ function edit(){
 			}
 		},
 		beforeSend:function(XMLHttpRequest){
-			index = layerLoad();
+			//index = layerLoad();
 		},
 		complete:function(XMLHttpRequest){
-			layerClose(index);
+			//layerClose(index);
 		}
 	});
 	
@@ -839,10 +839,10 @@ function editDummy(ipkId,iorgId){
 			}
 		},
 		beforeSend:function(XMLHttpRequest){
-			index = layerLoad();
+			//index = layerLoad();
 		},
 		complete:function(XMLHttpRequest){
-			layerClose(index);
+			//layerClose(index);
 		}
 	});
 	
@@ -872,10 +872,10 @@ function del(){
 					}
 				},
 				beforeSend:function(XMLHttpRequest){
-					index = layerLoad();
+					//index = layerLoad();
 				},
 				complete:function(XMLHttpRequest){
-					layerClose(index);
+					//layerClose(index);
 				}
 			});
 		}, function(){

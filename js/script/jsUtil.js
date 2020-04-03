@@ -438,9 +438,9 @@ function findAuthOrgHirchy(eleId,isCheck,mid){
 	})
 
    $(document).on('pre-body.bs.table', function () {
-         layer.load(2,{
-             shade:[0.3,'#fff'],
-         });
+        //  layer.load(2,{
+        //      shade:[0.3,'#fff'],
+        //  });
      })
 
     //数据加载成功后关闭
@@ -484,12 +484,12 @@ function resetTableView(document){
 	$('table').bootstrapTable('resetView',{ height:getTableHeight(document) });
 }
 function layerLoad(){
-	return layer.load(2,{
-        shade:[0.3,'#fff'],
-    });
+	// return layer.load(2,{
+    //     shade:[0.3,'#fff'],
+    // });
 }
 function layerClose(index){
-	layer.close(index);
+	// layer.close(index);
 }
 function getTableHeight(document,index){
 	var windowHeight = $(document).height();
@@ -710,7 +710,7 @@ function downloadByFileName(fileName){
 function getAuthLine() {
     var res;
     $.ajax({
-        url: portal.bp() + '/user/getAuthLine?r='+Math.random(),
+        url: portal.bp() + './json/user/getAuthLine.json?r='+Math.random(),
         type: 'get',
         async: false,
         dataType: "json"
@@ -733,7 +733,7 @@ function rowStyle(row,index){
 function workflowGoback(pkId){
 	var res = false;
 	$.ajax({
-        url: portal.bp() + '/workflow/goback?r='+Math.random(),
+        url: portal.bp() + './json/workflow/goback.json?r='+Math.random(),
         type: 'POST',
         async: false,
         data:{"pkIdList": [pkId]},
@@ -755,7 +755,7 @@ function showWorkFlowHistory(pkId){
 		shadeClose:true,
 		shade:0.8,
 		area:['700px','520px'],
-		content:portal.bp() + "/workflow/history/index?pkId="+pkId
+		content:portal.bp() + "./workflow/workflow_history.html?pkId="+pkId
 	});
 }
 function role_show_permisstion(roleId,empNum){

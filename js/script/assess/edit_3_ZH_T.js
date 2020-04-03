@@ -236,12 +236,12 @@ function importfuc() {
 				});
 			}
 		},
-		beforeSend: function (XMLHttpRequest) {
-			layer.load(1);
-		},
-		complete: function (XMLHttpRequest) {
-			layer.closeAll('loading');
-		}
+		// beforeSend: function (XMLHttpRequest) {
+		// 	layer.load(1);
+		// },
+		// complete: function (XMLHttpRequest) {
+		// 	layer.closeAll('loading');
+		// }
 	});
 }
 

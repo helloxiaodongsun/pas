@@ -85,8 +85,8 @@ $(function () {
         $("#endTime").datetimepicker('hide');
     });
 
-    opeStatus_Q = $.param.getSelectOptionOrder("RESULT_CODE");
-    opeType_Q = $.param.getSelectOptionOrder("SYSTEM_OPRTYPE");
+    opeStatus_Q = $.param.getSelectOptionOrderThreeLayersDeep("RESULT_CODE");
+    opeType_Q = $.param.getSelectOptionOrderThreeLayersDeep("SYSTEM_OPRTYPE");
     $("#opeStatus").html("").append(opeStatus_Q).selectpicker("refresh");
     $("#opeType").html("").append(opeType_Q).selectpicker("refresh");
 
@@ -98,7 +98,7 @@ $(function () {
 var TableObj = {
     'logMangerTable': function () {
         $('#logMangerTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/log/getLogInfoByPage',
+            url: portal.bp() + './../json/log/getLogInfoByPage.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

@@ -3,7 +3,7 @@ $(function() {
 	getTodoCount(true);
 	//每间隔5分钟刷新一次
 	window.setInterval(huanyingyu,5*60*1000);
-	
+
 	getmenu();
     sideBarCss();
     $("#ckq").attr("data-url",portal.bp() + "/ckq/show?mid=ckqmid").attr('data-index','ckqmid');

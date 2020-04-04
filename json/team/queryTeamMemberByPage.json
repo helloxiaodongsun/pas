@@ -1,0 +1,1 @@
+{"code":"200","message":"成功","data":{"pageSize":10,"rows":[{"MEMBERNAME":"admin","MEMBEROFCAPTAIN":"1","MEMBERID":"admin","MEMBEROFORG":"信息技术部","ROW_ID":1}],"total":1,"pageCount":0,"pageNo":1,"hasPrevious":false,"hasNext":false,"result":[{"MEMBERNAME":"admin","MEMBEROFCAPTAIN":"1","MEMBERID":"admin","MEMBEROFORG":"信息技术部","ROW_ID":1}],"startOfPage":0}}

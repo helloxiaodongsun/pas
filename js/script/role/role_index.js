@@ -147,7 +147,7 @@ $(function () {
                 };
                 var index;
                 $.ajax({
-                    url: portal.bp() + '/role/todo_del',
+                    url: portal.bp() + './json/ok.json',
                     type: 'get',
                     async: true,
                     cache: false,
@@ -199,7 +199,7 @@ $(function () {
         };
         var index;
         $.ajax({
-            url: portal.bp() + '/role/todo',
+            url: portal.bp() + './json/ok.json',
             type: type,
             async: true,
             cache: false,
@@ -287,7 +287,7 @@ var TableObj = {
             }
         ];
         $('#roletable').bootstrapTable({
-            url: portal.bp() + '/role/pageList',
+            url: portal.bp() + './json/role/pageList.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

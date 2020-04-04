@@ -64,7 +64,7 @@ $(function () {
      team_Char_tmp = $.param.getSelectOptionOrder("TEAM_CHAR");
      var html = "";
      $.ajax({
-         url: portal.bp() + '/pubApp/getParamByParentIdAndCode',
+         url: portal.bp() + './json/team/getParamByParentIdAndCode.json',
          type: 'get',
          async: false,
          cache: false,
@@ -104,7 +104,7 @@ $(function () {
     $("#belongLine").html("").append(authLine).selectpicker('refresh');
     //数据显示列表
     TableObj.oTableInit();
-
+   // layer.closeAll();
     //防止IE8没有placleholder
     $('input,textarea').placeholder();
 
@@ -341,38 +341,8 @@ $(function () {
             layer.confirm(text, {
                 btn: ['确定', '取消'] //按钮
             }, function () {
-                var tmpNumList = [];
-                $.each(checklist, function (index, item) {
-                    tmpNumList.push(item.teamId);
-                });
+                layer.msg("删除成功", {icon: 1});
 
-                var data = {
-                    "tmpNumList": tmpNumList
-                };
-                var index;
-                $.ajax({
-                    url: portal.bp() + '/team/todo_del',
-                    type: 'get',
-                    async: true,
-                    cache: false,
-                    data: data,
-                    dataType: "json",
-                    success: function (o) {
-                        var code = o.code;
-                        if (code == 200) {
-                            layer.msg("提交成功", {icon: 1});
-                            query();
-                        } else {
-                            layer.msg(o.message, {icon: 2});
-                        }
-                    },
-                    beforeSend:function(XMLHttpRequest){
-                        index = layerLoad();
-                    },
-                    complete:function(XMLHttpRequest){
-                        layerClose(index);
-                    }
-                });
             }, function () {
 
             });
@@ -1177,7 +1147,7 @@ $(function () {
         teamBasicInfo_Add = teamBasicMgmt;
 
     });
-    
+
     $("#show_history").click(function(){
     	var checklist = $('#approvetable').bootstrapTable('getSelections');
     	if(checklist==null||checklist.length!=1){
@@ -1192,7 +1162,7 @@ $(function () {
         //组装查询参数
 
         $.ajax({
-            url:portal.bp() + '/team/queryByPageExport',
+            url:portal.bp() + './json/team/queryByPage.json',
             type: 'post',
             cache: false,
             async: false,
@@ -1294,10 +1264,10 @@ var TableObj = {
                 field: 'belongOrgName',
                 title: '所属机构',
             }
-        ]
+        ];
 
         $('#teamTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/team/queryByPage',
+            url: portal.bp() + './json/team/queryByPage.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1455,7 +1425,7 @@ var TableObj = {
         }
         //团队成员表格
         $('#teamMemberTable').bootstrapTable({
-            url: portal.bp() + '/team/queryTeamMemberByPage',
+            url: portal.bp() + './json/team/queryTeamMemberByPage.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1539,7 +1509,7 @@ var TableObj = {
             }*/
         ];
         $('#userListTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/team/selectUserList',
+            url: portal.bp() + './json/team/selectUserList.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1942,7 +1912,7 @@ var TableObj = {
         ];
 
         $('#orgListTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/team/selectOrgList',
+            url: portal.bp() + './json/team//selectOrgList.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -2387,7 +2357,7 @@ var TableObj = {
         ]
 
         $('#approvetable').bootstrapTable({
-            url: portal.bp() + '/team/ownWorkflowList',
+            url: portal.bp() + './json/team/ownWorkflowList.json',
             method: 'POST',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -2716,10 +2686,11 @@ function approvalByPkId(pkId) {
 function getOrgList() {
     var html;
     $.ajax({
-        url: portal.bp() + '/org/getAuthOrgForGroup',
+        url: '../json/team/getAuthOrgForGroup.json',
         type: "get",
         data:{'menuId':'4310'},
         cache: false,
+        dataType:'json',
         async: false,
         success: function (data) {
             var list = data.data;
@@ -2737,10 +2708,10 @@ function getOrgList() {
 function getAuthLine() {
     var html = "";
     $.ajax({
-        url: portal.bp() + '/user/getAuthLine?r='+Math.random(),
+        url: '../json/team/getAuthLine.json'+'?r='+Math.random(),
         type: 'get',
-        async: false
-        //dataType: "json"
+        async: false,
+        dataType: "json"
     }).done(function (data) {
         if (data.code == '200') {
             var col = data.data;

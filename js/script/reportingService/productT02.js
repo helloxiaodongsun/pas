@@ -25,7 +25,7 @@ var gedai999999Arr = ['A_REB_LOAN_SIZE_SITU_TAB-LS034','A_REB_LOAN_SIZE_SITU_TAB
                       ,'A_COB_DPST_BAL_ORG_TAB-GS001','A_COB_DPST_BAL_ORG_TAB-GS002','A_COB_DPST_BAL_ORG_TAB-GS003'
                       ,'A_COB_LOAN_BAL_ORG_TAB-GS006','A_COB_LOAN_BAL_ORG_TAB-GS007','A_COB_LOAN_BAL_ORG_TAB-GS008'
                       ,'A_COB_DPSIT_LOAN_RATIO_ORG-GS011'];
-var date = $.param.getEtlDate();
+var date = new Date();
 //菜单id
 var mid = getUrlParam('mid');
 var levelorgcount=-1;

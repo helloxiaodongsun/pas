@@ -58,7 +58,7 @@ var TableObj={
                             dataurl = 'reportingService/GS010.html';
                           }else if(menuId=='3300'){
                             //零售报表
-                            dataurl = 'reportingService/LS022.html';
+                            dataurl = 'reportingService/LS007.html';
                           }else if(menuId=='3800'){
                             //综合报表
                             dataurl = 'reportingService/ZH001.html';

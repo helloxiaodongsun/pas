@@ -1,4 +1,4 @@
-var date = $.param.getEtlDate();
+var date = new Date().Format("yyyy-MM-dd");
 var mid = getUrlParam('mid');
 var lastQueryParams = {};
 
@@ -24,7 +24,7 @@ $(function(){
             //必选
             document.getElementById("ORG_NUM").options.selectedIndex = b;
             $("#ORG_NUM").selectpicker('refresh');
-            layer.msg("机构必选",{icon:3});
+            // layer.msg("机构必选",{icon:3});
         }
     });
 
@@ -88,14 +88,14 @@ $(function(){
 function query() {
 	if($("#ORG_NUM").length>0){
 		if($("#ORG_NUM").val()==undefined||$("#ORG_NUM").val()==null||$("#ORG_NUM").val()==""){
-			layer.msg("机构必选",{icon:3});
-			return;
+			// layer.msg("机构必选",{icon:3});
+			// return;
 		}
 	}
 	if($("#SUPER_ORG_NUM").length>0){
 		if($("#SUPER_ORG_NUM").val()==undefined||$("#SUPER_ORG_NUM").val()==null||$("#SUPER_ORG_NUM").val()==""){
-			layer.msg("机构必选",{icon:3});
-			return;
+			// layer.msg("机构必选",{icon:3});
+			// return;
 		}
 	}
     TableObjPage.table1();

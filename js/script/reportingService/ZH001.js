@@ -1,4 +1,4 @@
-var date = $.param.getEtlDate();
+var date = new Date().Format("yyyy-MM-dd");
 var mid = getUrlParam('mid');
 var result;
 var lastQueryParams = {};
@@ -112,8 +112,8 @@ $(function(){
     $("#query").click(function(){
     	var orgNum = $("#ORG_NUM").val();
     	if(orgNum==""||orgNum==null){
-    		layer.msg("机构必选",{icon:3});
-    		return;
+    		// layer.msg("机构必选",{icon:3});
+    		// return;
     	}
     	query();
     });
@@ -274,14 +274,14 @@ function exportAllDataExcel(){
 function query() {
 	if($("#ORG_NUM").length>0){
 		if($("#ORG_NUM").val()==undefined||$("#ORG_NUM").val()==null||$("#ORG_NUM").val()==null){
-			layer.msg("机构必选",{icon:3});
-			return;
+			// layer.msg("机构必选",{icon:3});
+			// return;
 		}
 	}
 	if($("#SUPER_ORG_NUM").length>0){
 		if($("#SUPER_ORG_NUM").val()==undefined||$("#SUPER_ORG_NUM").val()==null||$("#SUPER_ORG_NUM").val()==null){
-			layer.msg("机构必选",{icon:3});
-			return;
+			// layer.msg("机构必选",{icon:3});
+			// return;
 		}
 	}
 	TableObjNotPage.table1();

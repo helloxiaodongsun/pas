@@ -962,7 +962,7 @@ var tipsMap = {};
         getOrgByLevels:function(level,mid){
         	var result;
             $.ajax({
-                url: portal.bp() + '/org/findOrgByLevel?r='+Math.random(),
+                url: portal.bp() + './json/org/findOrgByLevel.json?r='+Math.random(),
                 type: 'post',
                 async: false,
                 data: {

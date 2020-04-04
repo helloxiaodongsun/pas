@@ -1,0 +1,33 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": {
+    "rows": [
+      {
+        "cellStyleMap": {},
+        "key": "10000014559000023660749::05",
+        "acctId": "c2000000001",
+        "custId": "c2000000001",
+        "custName": "PAS_TEST_CNAME",
+        "orgId": "BR_0001",
+        "orgNum": 0,
+        "orgName": "测试支行",
+        "relaStatus": "02",
+        "relaStatusDesc": "关联已保存",
+        "oprType": "1",
+        "bizTypeCd": "05",
+        "taskNum": "1000002142",
+        "cerNum": "c2000000001",
+        "empId": "admin",
+        "empName": "admin",
+        "relaRoleId": "007",
+        "relaRoleDesc": "签批人",
+        "relaRatio": 0.02,
+        "relaRatioDesc": "   2",
+        "bizType": "公司贷款",
+        "cerTypeCd": "10",
+        "cerTypeDesc": "组织机构代码证"
+      }
+    ]
+  }
+}

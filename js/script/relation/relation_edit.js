@@ -299,7 +299,7 @@ var TableObj = {
                 editable: {
                     type: 'select',
                     title: '关联角色',
-                    source: $.param.getEditableJsonByParentIdByType(roleTypeCode),
+                    source: $.param.getEditableJsonByParentIdByType('AB0006'),
                     //mode: 'inline',
                     placement: 'top',
                     emptytext: "空",

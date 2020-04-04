@@ -215,7 +215,7 @@ $(function () {
             'relaStatus':acctData.relaStatus
         };
         $.ajax({
-            url: portal.bp() + '/relation/todo',
+            url: portal.bp() + './json/ok.json',
             type: 'post',
             cache: false,
             contentType: "application/json;charset=UTF-8",
@@ -465,7 +465,7 @@ var TableObj = {
 
 
         $('#relationTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/selectByPage',
+            url: portal.bp() + './json/relation/relation_index/selectByPage.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -597,7 +597,7 @@ var TableObj = {
                 editable: {
                     type: 'select',
                     title: '关联角色',
-                    source: $.param.getEditableJsonByParentIdByType(roleTypeCode),
+                    source: $.param.getEditableJsonByParentIdByType('AB0006'),
                     // mode: 'inline',
                     placement: 'top',
                     emptytext: "空",
@@ -738,7 +738,7 @@ var TableObj = {
             }
         ];
         $('#relationMarkTableInIndex').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/selectAllAcctInfo',
+            url: portal.bp() + './json/relation/relation_index/selectAllAcctInfo.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -818,7 +818,7 @@ window.operateEvents = {
             return;
         }
         $.ajax({
-            url: portal.bp() + '/relation/selectRoleCusType',
+            url: portal.bp() + './json/relation/relation_index/selectRoleCusType.json',
             type: 'post',
             async: false,
             cache: false,
@@ -864,7 +864,7 @@ window.operateEvents = {
                 'approvalFlag': '0'
             };
             $.ajax({
-                url: portal.bp() + '/relation/todo_del',
+                url: portal.bp() + './json/ok.json',
                 type: 'post',
                 cache: false,
                 contentType: "application/json;charset=UTF-8",
@@ -969,7 +969,7 @@ function resetForm() {
 //获取机构列表
 function getOrgList() {
     $.ajax({
-        url: portal.bp() + '/org/validOrgNotFFBSForGroup',
+        url: portal.bp() + './json/relation/relation_index/validOrgNotFFBSForGroup.json',
         type: "get",
         data: {'menuId': '1100'},
         cache: false,
@@ -991,7 +991,7 @@ function getOrgList() {
 function getBizTypeCd() {
     var bizTypeList = "";
     $.ajax({
-        url: portal.bp() + '/relation/getBizTypeCd?r=' + Math.random(),
+        url: portal.bp() + './json/relation/relation_index/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"
@@ -1015,7 +1015,7 @@ function showRelationWorkFlowHistory(data) {
             shadeClose:true,
             shade:0.8,
             area:['700px','520px'],
-            content:portal.bp() + "/relation/approvalHistory?acctId="+acctId+"&"+
+            content:portal.bp() + "./relation/approval_History.html?acctId="+acctId+"&"+
                 "bizTypeCd="+bizTypeCd+'&'+"relaStatus="+relaStatusTmp+"&"+"taskNum="+taskNum+"&oprType="+oprType
         });
 };

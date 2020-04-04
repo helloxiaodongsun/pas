@@ -754,14 +754,6 @@
             "url": "/system/menu/menu_table.html?menuId=3600"
           },
           {
-            "code": "3700",
-            "name": "中收报表配置",
-            "pid": "3000",
-            "id": "3700",
-            "iconWay": null,
-            "url": "/system/menu/menu_table.html?menuId=3700"
-          },
-          {
             "code": "3800",
             "children": [
               {

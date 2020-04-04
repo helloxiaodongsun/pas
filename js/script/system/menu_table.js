@@ -1,6 +1,7 @@
 var url_suffix=portal.bp();
 var menuDesc = '';
 var selectFromFavorites='02';
+var menuId = getUrlParam("menuId");
 $(function(){
 	document.onkeydown=kewDownSearch;
 	
@@ -77,7 +78,7 @@ var TableObj={
       ];
 
       $('#menuTable').bootstrapTable('destroy').bootstrapTable({
-          url: portal.bp() + '/api/menus/getMenuInfo',
+          url: portal.bp() + './../json/api/menus/getMenuInfo.'+menuId+'.json',
           method: 'post',      //请求方式（*）
           striped: true,      //是否显示行间隔色
           cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -159,7 +160,7 @@ function add_favorites() {
         menuIdArray.push(value['menuId']);
     });
     $.ajax({
-        url: portal.bp() + '/api/menus/operationUserTableFavorites',
+        url: portal.bp() + './../json/api/menus/operationUserTableFavorites.json',
         type: 'post',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -194,7 +195,7 @@ function remove_favorites() {
         menuIdArray.push(value['menuId']);
     });
     $.ajax({
-        url: portal.bp() + '/api/menus/operationUserTableFavorites',
+        url: portal.bp() + './../json/api/menus/operationUserTableFavorites.json',
         type: 'post',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -217,7 +218,7 @@ function addFav(menuId){
 	 var menuIdArray = new Array();
 	 menuIdArray.push(menuId);
     $.ajax({
-        url: portal.bp() + '/api/menus/operationUserTableFavorites',
+        url: portal.bp() + './../json/api/menus/operationUserTableFavorites.json',
         type: 'post',
         cache: false,
         contentType: "application/x-www-form-urlencoded",
@@ -239,7 +240,7 @@ function removeFav(menuId){
 	var menuIdArray = new Array();
         menuIdArray.push(menuId);
     $.ajax({
-        url: portal.bp() + '/api/menus/operationUserTableFavorites',
+        url: portal.bp() + './../json/api/menus/operationUserTableFavorites.json',
         type: 'post',
         cache: false,
         contentType: "application/x-www-form-urlencoded",

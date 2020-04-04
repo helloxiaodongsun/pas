@@ -1,1 +1,1 @@
-{"code":"401","message":"该机构存在审核流程中的数据，暂不能修改"}
+{"code":"200","message":"成功","data":{"orgId":"BRCH_IOODSZ4000348_7","orgNum":2317,"orgName":"公司银行部","orgHirchy":"LV3","orgHirchyName":"公司条线","superOrgId":"IOODSZ4000348_01","superOrgNum":231,"superOrgName":"公司条线","orgChar":"0"}}

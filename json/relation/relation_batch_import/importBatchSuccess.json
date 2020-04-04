@@ -1,0 +1,106 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": {
+    "sameArray": [
+      2
+    ],
+    "pageFinder": {
+      "pageSize": 20,
+      "rows": [
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109236032::06",
+          "acctId": "c2000000001",
+          "custId": "c200000000134",
+          "custName": "c200000000134",
+          "orgId": "BR_0001",
+          "orgName": "测试机构_1003",
+          "relaStatus": "02",
+          "bizTypeCd": "06",
+          "cerNum": "2000000001",
+          "number": "1",
+          "empId": "110001",
+          "empName": "测试用户_110001",
+          "relaRoleId": "001",
+          "relaRoleDesc": "营销人",
+          "relaRatio": "30",
+          "bizType": "公司存款",
+          "cerTypeCd": "10",
+          "cerTypeDesc": "组织机构代码证"
+        },
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109236032::06",
+          "acctId": "c2000000001",
+          "custId": "c200000000134",
+          "custName": "c200000000134",
+          "orgId": "BR_0001",
+          "orgName": "测试机构_1003",
+          "relaStatus": "02",
+          "bizTypeCd": "06",
+          "cerNum": "2000000001",
+          "number": "1",
+          "empId": "110002",
+          "empName": "测试用户_110002",
+          "relaRoleId": "002",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "20",
+          "bizType": "公司存款",
+          "cerTypeCd": "10",
+          "cerTypeDesc": "组织机构代码证"
+        }
+      ],
+      "total": 2,
+      "pageCount": 0,
+      "pageNo": 1,
+      "hasPrevious": false,
+      "hasNext": false,
+      "result": [
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109236032::06",
+          "acctId": "c2000000001",
+          "custId": "c200000000134",
+          "custName": "c200000000134",
+          "orgId": "BR_0001",
+          "orgName": "测试机构_1003",
+          "relaStatus": "02",
+          "bizTypeCd": "06",
+          "cerNum": "2000000001",
+          "number": "1",
+          "empId": "110001",
+          "empName": "测试用户_110001",
+          "relaRoleId": "001",
+          "relaRoleDesc": "营销人",
+          "relaRatio": "30",
+          "bizType": "公司存款",
+          "cerTypeCd": "10",
+          "cerTypeDesc": "组织机构代码证"
+        },
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109236032::06",
+          "acctId": "c2000000001",
+          "custId": "c200000000134",
+          "custName": "c200000000134",
+          "orgId": "BR_0001",
+          "orgName": "测试机构_1003",
+          "relaStatus": "02",
+          "bizTypeCd": "06",
+          "cerNum": "2000000001",
+          "number": "1",
+          "empId": "110002",
+          "empName": "测试用户_110002",
+          "relaRoleId": "002",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "20",
+          "bizType": "公司存款",
+          "cerTypeCd": "10",
+          "cerTypeDesc": "组织机构代码证"
+        }
+      ],
+      "startOfPage": 0
+    }
+  }
+}

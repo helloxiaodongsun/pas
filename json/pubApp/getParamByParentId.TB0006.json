@@ -1,0 +1,111 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "encode": "01",
+      "parentId": "TB0006",
+      "name": "分行",
+      "isStartUse": "1",
+      "orderNo": 1
+    },
+    {
+      "encode": "02",
+      "parentId": "TB0006",
+      "name": "管辖行",
+      "isStartUse": "1",
+      "orderNo": 2
+    },
+    {
+      "encode": "03",
+      "parentId": "TB0006",
+      "name": "支行",
+      "isStartUse": "1",
+      "orderNo": 3
+    },
+    {
+      "encode": "04",
+      "parentId": "TB0006",
+      "name": "团队",
+      "isStartUse": "1",
+      "orderNo": 4
+    },
+    {
+      "encode": "05",
+      "parentId": "TB0006",
+      "name": "领导班子",
+      "isStartUse": "1",
+      "orderNo": 5
+    },
+    {
+      "encode": "06",
+      "parentId": "TB0006",
+      "name": "分行部室员工",
+      "isStartUse": "1",
+      "orderNo": 6
+    },
+    {
+      "encode": "07",
+      "parentId": "TB0006",
+      "name": "片区负责人",
+      "isStartUse": "1",
+      "orderNo": 7
+    },
+    {
+      "encode": "08",
+      "parentId": "TB0006",
+      "name": "管辖行一把手",
+      "isStartUse": "1",
+      "orderNo": 8
+    },
+    {
+      "encode": "09",
+      "parentId": "TB0006",
+      "name": "公司业务主管",
+      "isStartUse": "1",
+      "orderNo": 9
+    },
+    {
+      "encode": "10",
+      "parentId": "TB0006",
+      "name": "公司业务协管",
+      "isStartUse": "1",
+      "orderNo": 10
+    },
+    {
+      "encode": "11",
+      "parentId": "TB0006",
+      "name": "零售业务主管",
+      "isStartUse": "1",
+      "orderNo": 11
+    },
+    {
+      "encode": "12",
+      "parentId": "TB0006",
+      "name": "零售业务协管",
+      "isStartUse": "1",
+      "orderNo": 12
+    },
+    {
+      "encode": "13",
+      "parentId": "TB0006",
+      "name": "行长助理",
+      "isStartUse": "1",
+      "orderNo": 13
+    },
+    {
+      "encode": "14",
+      "parentId": "TB0006",
+      "name": "网点负责人",
+      "isStartUse": "1",
+      "orderNo": 14
+    },
+    {
+      "encode": "15",
+      "parentId": "TB0006",
+      "name": "员工",
+      "isStartUse": "1",
+      "orderNo": 15
+    }
+  ]
+}

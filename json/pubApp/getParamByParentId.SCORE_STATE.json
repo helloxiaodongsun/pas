@@ -1,0 +1,41 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "encode": "05",
+      "parentId": "SCORE_STATE",
+      "name": "未打分",
+      "isStartUse": "1",
+      "orderNo": 1
+    },
+    {
+      "encode": "01",
+      "parentId": "SCORE_STATE",
+      "name": "审批中",
+      "isStartUse": "1",
+      "orderNo": 2
+    },
+    {
+      "encode": "02",
+      "parentId": "SCORE_STATE",
+      "name": "审批通过",
+      "isStartUse": "1",
+      "orderNo": 3
+    },
+    {
+      "encode": "03",
+      "parentId": "SCORE_STATE",
+      "name": "待提交审批",
+      "isStartUse": "1",
+      "orderNo": 4
+    },
+    {
+      "encode": "04",
+      "parentId": "SCORE_STATE",
+      "name": "拒绝",
+      "isStartUse": "1",
+      "orderNo": 5
+    }
+  ]
+}

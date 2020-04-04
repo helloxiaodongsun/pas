@@ -1,0 +1,177 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": {
+    "pageSize": 10,
+    "rows": [
+      {
+        "assObjId": "100000010",
+        "assObjName": "100000010_30",
+        "indexName": "index_59800006",
+        "score": "30",
+        "det": "测试1001",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000011",
+        "assObjName": "100000011_31",
+        "indexName": "index_59800007",
+        "score": "31",
+        "det": "测试1002",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000012",
+        "assObjName": "100000012_32",
+        "indexName": "index_59800008",
+        "score": "32",
+        "det": "测试1003",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000013",
+        "assObjName": "100000013_33",
+        "indexName": "index_59800009",
+        "score": "33",
+        "det": "测试1004",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000014",
+        "assObjName": "100000014_34",
+        "indexName": "index_59800010",
+        "score": "34",
+        "det": "测试1005",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000015",
+        "assObjName": "100000015_35",
+        "indexName": "index_59800011",
+        "score": "35",
+        "det": "测试1006",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000016",
+        "assObjName": "100000016_36",
+        "indexName": "index_59800012",
+        "score": "36",
+        "det": "测试1007",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000017",
+        "assObjName": "100000017_37",
+        "indexName": "index_59800013",
+        "score": "37",
+        "det": "测试1008",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000018",
+        "assObjName": "100000018_38",
+        "indexName": "index_59800014",
+        "score": "38",
+        "det": "测试1009",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000019",
+        "assObjName": "100000019_39",
+        "indexName": "index_59800015",
+        "score": "39",
+        "det": "测试1010",
+        "assMon": "2019-03-06"
+      }
+    ],
+    "total": 10,
+    "pageCount": 0,
+    "pageNo": 1,
+    "hasPrevious": false,
+    "hasNext": false,
+    "result": [
+      {
+        "assObjId": "100000010",
+        "assObjName": "100000010_30",
+        "indexName": "index_59800006",
+        "score": "30",
+        "det": "测试1001",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000011",
+        "assObjName": "100000011_31",
+        "indexName": "index_59800007",
+        "score": "31",
+        "det": "测试1002",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000012",
+        "assObjName": "100000012_32",
+        "indexName": "index_59800008",
+        "score": "32",
+        "det": "测试1003",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000013",
+        "assObjName": "100000013_33",
+        "indexName": "index_59800009",
+        "score": "33",
+        "det": "测试1004",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000014",
+        "assObjName": "100000014_34",
+        "indexName": "index_59800010",
+        "score": "34",
+        "det": "测试1005",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000015",
+        "assObjName": "100000015_35",
+        "indexName": "index_59800011",
+        "score": "35",
+        "det": "测试1006",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000016",
+        "assObjName": "100000016_36",
+        "indexName": "index_59800012",
+        "score": "36",
+        "det": "测试1007",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000017",
+        "assObjName": "100000017_37",
+        "indexName": "index_59800013",
+        "score": "37",
+        "det": "测试1008",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000018",
+        "assObjName": "100000018_38",
+        "indexName": "index_59800014",
+        "score": "38",
+        "det": "测试1009",
+        "assMon": "2019-03-06"
+      },
+      {
+        "assObjId": "100000019",
+        "assObjName": "100000019_39",
+        "indexName": "index_59800015",
+        "score": "39",
+        "det": "测试1010",
+        "assMon": "2019-03-06"
+      }
+    ],
+    "startOfPage": 0
+  }
+}

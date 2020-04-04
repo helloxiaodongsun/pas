@@ -1,0 +1,66 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": {
+    "sameArray": [
+      2
+    ],
+    "pageFinder": {
+      "pageSize": 20,
+      "rows": [
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109352644::01090321000120109352644",
+          "acctId": "2000000001",
+          "number": "1",
+          "empId": "110001",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "32",
+          "bizType": "公司存款",
+          "importRstDesc": "必须包含营销人角色;"
+        },
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109352644::01090321000120109352644",
+          "acctId": "2000000001",
+          "number": "1",
+          "empId": "110002",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "26",
+          "bizType": "公司存款",
+          "importRstDesc": "必须包含营销人角色;"
+        }
+      ],
+      "total": 2,
+      "pageCount": 0,
+      "pageNo": 1,
+      "hasPrevious": false,
+      "hasNext": false,
+      "result": [
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109352644::01090321000120109352644",
+          "acctId": "2000000001",
+          "number": "1",
+          "empId": "110001",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "32",
+          "bizType": "公司存款",
+          "importRstDesc": "必须包含营销人角色;"
+        },
+        {
+          "cellStyleMap": {},
+          "key": "01090321000120109352644::01090321000120109352644",
+          "acctId": "2000000001",
+          "number": "1",
+          "empId": "110002",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "26",
+          "bizType": "公司存款",
+          "importRstDesc": "必须包含营销人角色;"
+        }
+      ],
+      "startOfPage": 0
+    }
+  }
+}

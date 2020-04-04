@@ -48,7 +48,7 @@ $(function () {
 				data: JSON.stringify(object),
 				success: function (data) {
 					if (data.code == '200') {
-						layer.msg("提交审批成功", {icon: 1});
+						layer.msg("提交审批成功", {icon: 1,time:1000});
 						TableObj.importSuccessTableFactory();
 					} else {
 						layer.msg(data.message, {icon: 2});
@@ -200,7 +200,7 @@ var TableObj = {
 		];
 
 		$('#importSuccessTable').bootstrapTable('destroy').bootstrapTable({
-			url: portal.bp() + '/relation/importBatchSuccess',
+			url: portal.bp() + './json/relation/relation_batch_import/importBatchSuccess.json',
 			method: 'post',      //请求方式（*）
 			striped: false,      //是否显示行间隔色
 			cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -305,7 +305,7 @@ var TableObj = {
 		];
 
 		$('#importFailedTable').bootstrapTable('destroy').bootstrapTable({
-			url: portal.bp() + '/relation/importBatchFailed',
+			url: portal.bp() + './json/relation/relation_batch_import/importBatchFailed.json',
 			method: 'post',      //请求方式（*）
 			striped: false,      //是否显示行间隔色
 			cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

@@ -52,7 +52,7 @@ $(function () {
             object['acctData'] = array;
             var index;
             $.ajax({
-                url: portal.bp() + '/relation/workflowPass',
+                url: portal.bp() + './json/ok.json',
                 type: 'post',
                 cache: false,
                 contentType: "application/json;charset=UTF-8",
@@ -60,7 +60,7 @@ $(function () {
                 data: JSON.stringify(object),
                 success: function (data) {
                     if (data.code == '200') {
-                        layer.msg("提交审批成功", {icon: 1});
+                        layer.msg("提交审批成功", {icon: 1,time:1000});
                         TableObj.importSuccessTableEditFactory();
                     } else {
                         layer.msg(data.message, {icon: 2});
@@ -227,7 +227,7 @@ var TableObj = {
         ];
 
         $('#importSuccessEditTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/importBatchSuccess',
+            url: portal.bp() + './json/relation/relation_batch_edit/importBatchSuccess.json',
             method: 'post',      //请求方式（*）
             striped: false,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -328,7 +328,7 @@ var TableObj = {
         ];
 
         $('#importFailedTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/importBatchFailed',
+            url: portal.bp() + './json/relation/relation_batch_edit/importBatchFailed.json',
             method: 'post',      //请求方式（*）
             striped: false,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -371,11 +371,11 @@ var TableObj = {
         });
     },
     relationBatchEditFactory: function (flag) {
-        var url = portal.bp() + './json/relation/relation_transfer/selectAcctInfoFromRealInfo';
+        var url = portal.bp() + './json/relation/relation_transfer/selectAcctInfoFromRealInfo.json';
 
-        if (flag) {
+       /* if (flag) {
             url = undefined;
-        }
+        }*/
 
         var columns = [
              {

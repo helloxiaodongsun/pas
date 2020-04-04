@@ -22,7 +22,7 @@ $(function () {
 
 var TabObj = {
     aQlyvIndexScoreApprovalTable: function () {
-        var url = portal.bp() + '/assess/score/approvalPage';
+        var url = portal.bp() + './json/assess/assess_score/getAQlyvIndexScore.json';
         var columns = [
             {
                 field: 'check',
@@ -158,7 +158,7 @@ function btn_pass(){
             };
             var index;
             $.ajax({
-                url: portal.bp() + '/assess/score/workflowPass',
+                url: portal.bp() + './json/ok.json',
                 type: 'get',
                 async: false,
                 cache: false,
@@ -167,7 +167,7 @@ function btn_pass(){
                 success: function (o) {
                     var code = o.code;
                     if (code == 200) {
-                        layer.msg("提交成功", {icon: 1});
+                        layer.msg("提交成功", {icon: 1,time:1000});
                         TabObj.aQlyvIndexScoreApprovalTable();
                     } else {
                         layer.msg(o.message, {icon: 2});
@@ -203,7 +203,7 @@ function toReject(){
     var data = {'pkIdList[]': checkedKey, 'rejectDesc': rejectDesc};
     var index;
     $.ajax({
-        url: portal.bp() + '/assess/score/workflowReject',
+        url: portal.bp() + './json/ok.json',
         type: 'get',
         async: false,
         cache: false,
@@ -212,7 +212,7 @@ function toReject(){
         success: function (o) {
             var code = o.code;
             if (code == 200) {
-                layer.msg("提交成功", {icon: 1});
+                layer.msg("提交成功", {icon: 1,time:1000});
                 $("#rejectModel").modal("hide");
                 TabObj.aQlyvIndexScoreApprovalTable();
             } else {

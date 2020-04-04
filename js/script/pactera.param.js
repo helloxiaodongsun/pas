@@ -138,7 +138,7 @@ var tipsMap = {};
             $.ajax({
                 url: portal.bp() + '/pubApp/getCorpType?r='+Math.random(),
                 type: 'get',
-                async: false,               
+                async: false,
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
@@ -151,14 +151,14 @@ var tipsMap = {};
             });
             return json;
 
-            
+
         },
         getAcctCate: function () {
             var html = "<option value='0'>所有</option>";;
             $.ajax({
                 url: portal.bp() + '/pubApp/getAcctCate?r='+Math.random(),
                 type: 'get',
-                async: false,              
+                async: false,
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
@@ -175,7 +175,7 @@ var tipsMap = {};
             $.ajax({
                 url: portal.bp() + '/pubApp/getCardName?r='+Math.random(),
                 type: 'get',
-                async: false,                
+                async: false,
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
@@ -191,6 +191,26 @@ var tipsMap = {};
             var html = "";
             $.ajax({
                 url: portal.bp() + './json/pubApp/getParamByParentId.'+appName+'.json?r='+Math.random(),
+                type: 'get',
+                async: false,
+                data: {
+                    "parentId": appName
+                },
+                dataType: "json"
+            }).done(function (data) {
+                if (data.code == '200') {
+                    var col = data.data;
+                    $.each(col, function (index, item) {
+                        html += "<option value='" + item.encode + "'>" + item.name + "</option>"
+                    });
+                }
+            });
+            return html;
+        },
+        getSelectOptionOrderThreeLayersDeep: function (appName) {
+            var html = "";
+            $.ajax({
+                url: portal.bp() + './../json/pubApp/getParamByParentId.'+appName+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -224,12 +244,28 @@ var tipsMap = {};
             });
             return col;
         },
+        getSelectObjectRelativePath: function (appName) {
+            var col;
+            $.ajax({
+                url: appName+'?r='+Math.random(),
+                type: 'get',
+                async: false,
+                data: {
+                },
+                dataType: "json"
+            }).done(function (data) {
+                if (data.code == '200') {
+                    col = data.data;
+                }
+            });
+            return col;
+        },
         getSelectOptionOrderCerType: function () {
             var html = "";
             $.ajax({
                 url: portal.bp() + '/pubApp/getCerType?r='+Math.random(),
                 type: 'get',
-                async: false,              
+                async: false,
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
@@ -246,13 +282,13 @@ var tipsMap = {};
             $.ajax({
                 url: portal.bp() + '/pubApp/getOrgCode?r='+Math.random(),
                 type: 'get',
-                async: false, 
+                async: false,
                 data: {
                     "custName": custName
                 },
                 dataType: "json"
             }).done(function (data) {
-                if (data.code == '200') {                	
+                if (data.code == '200') {
                 	result = data.data;
                 }
             });
@@ -263,14 +299,14 @@ var tipsMap = {};
             $.ajax({
                 url: portal.bp() + '/pubApp/getCustName?r='+Math.random(),
                 type: 'get',
-                async: false,  
+                async: false,
                 data: {
                     "orgCode": orgCode
-                },            
+                },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                 
+                	result = data.data;
                 }
             });
             return result;
@@ -280,16 +316,16 @@ var tipsMap = {};
             $.ajax({
                 url: portal.bp() + '/pubApp/getBranchNames?r='+Math.random(),
                 type: 'get',
-                async: false,  
+                async: false,
                 data: {
                     "custName": custName,
                     "cerType":cerType,
                     "cerNum":cerNum
-                },            
+                },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                 
+                	result = data.data;
                 }
             });
             return result;
@@ -307,7 +343,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	custName = data.data;                    
+                	custName = data.data;
                 }
             });
         	return custName;
@@ -331,7 +367,7 @@ var tipsMap = {};
                 }
             });
             return html;
-        },       
+        },
         getRelationStatus: function () {
             var html = "";
             $.ajax({
@@ -401,7 +437,7 @@ var tipsMap = {};
                     columns = data.data;
                     $.each(columns, function (index, item) {
                         $.each(item, function (subIndex, subItem) {
-                            
+
                             if (subItem.subTableName != undefined && subItem.subTableName != null) {
                                 var increaseIndex = function index(value, row, index) {
                                     var html = '';
@@ -412,7 +448,7 @@ var tipsMap = {};
                                 subItem.events = operateEvents;
                                 subItem.formatter = increaseIndex;
                             }
-                            
+
                             if (subItem.title === '序号') {
                                 var increaseIndex = function index(value, row, index) {
                                     return index + 1;
@@ -487,7 +523,7 @@ var tipsMap = {};
                     columns = data.data;
                     $.each(columns, function (index, item) {
                         $.each(item, function (subIndex, subItem) {
-                            
+
                             if (subItem.subTableName != undefined && subItem.subTableName != null) {
                                 var increaseIndex = function index(value, row, index) {
                                     var html = '';
@@ -498,7 +534,7 @@ var tipsMap = {};
                                 subItem.events = operateEvents;
                                 subItem.formatter = increaseIndex;
                             }
-                            
+
                             if (subItem.title === '序号') {
                                 var increaseIndex = function index(value, row, index) {
                                     return index + 1;
@@ -647,7 +683,7 @@ var tipsMap = {};
                 }
             });
             return date;
-        },  
+        },
         getAcctNum:function(acctNum,belongBrchNum){
         	var isExist = "0";
         	$.ajax({
@@ -661,11 +697,11 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	isExist = data.data;                    
+                	isExist = data.data;
                 }
             });
         	return isExist;
-        },   
+        },
 
         getAgtInfo:function(trdSeq){
         	var AgtInfo;
@@ -679,11 +715,11 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	AgtInfo = data.data;                    
+                	AgtInfo = data.data;
                 }
             });
         	return AgtInfo;
-        },   
+        },
         queryBelongBrchNum:function(belongOrgNum){
         	var belongBrchNum = "";
         	$.ajax({
@@ -696,11 +732,11 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	belongBrchNum = data.data;                    
+                	belongBrchNum = data.data;
                 }
             });
         	return belongBrchNum;
-        },  
+        },
         getBranchName:function(branchNum,flag){
         	var branchName ="";
         	$.ajax({
@@ -714,7 +750,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	branchName = data.data;                    
+                	branchName = data.data;
                 }
             });
         	return branchName;
@@ -731,7 +767,7 @@ var tipsMap = {};
         		dataType: "json"
         	}).done(function (data) {
         		if (data.code == '200') {
-        			branchInfo = data.data;                    
+        			branchInfo = data.data;
         		}
         	});
         	return branchInfo;
@@ -748,7 +784,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	regLineName = data.data;                    
+                	regLineName = data.data;
                 }
             });
         	return regLineName;
@@ -809,7 +845,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	num = data.data;                    
+                	num = data.data;
                 }
             });
         	return num;
@@ -826,7 +862,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	num = data.data;                    
+                	num = data.data;
                 }
             });
         	return num;
@@ -844,7 +880,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	num = data.data;                    
+                	num = data.data;
                 }
             });
         	return num;
@@ -861,7 +897,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	datas = data.data;                    
+                	datas = data.data;
                 }
             });
         	return datas;
@@ -878,7 +914,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	datas = data.data;                    
+                	datas = data.data;
                 }
             });
         	return datas;
@@ -889,12 +925,12 @@ var tipsMap = {};
                 url: portal.bp() + '/pubApp/getWindowPhase?r='+Math.random(),
                 type: 'get',
                 async: false,
-                data: {              
+                data: {
                 },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	flag = data.data;                    
+                	flag = data.data;
                 }
             });
         	return flag;
@@ -921,7 +957,7 @@ var tipsMap = {};
                 }
             });
             return html;
-        	
+
         },
         getOrgByLevels:function(level,mid){
         	var result;
@@ -940,7 +976,7 @@ var tipsMap = {};
                 }
             });
             return result;
-        	
+
         },
         getCustInfo:function(custId,cerType,cerNum){
         	var result;
@@ -956,7 +992,7 @@ var tipsMap = {};
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                    
+                	result = data.data;
                 }
             });
         	return result;
@@ -967,13 +1003,13 @@ var tipsMap = {};
                 url: portal.bp() + '/pubApp/getEmpInfo?r='+Math.random(),
                 type: 'get',
                 async: false,
-                data: {                  
+                data: {
                     "empNum": empNum
                 },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                    
+                	result = data.data;
                 }
             });
         	return result;
@@ -984,14 +1020,14 @@ var tipsMap = {};
                 url: portal.bp() + '/pubApp/getEmpRole?r='+Math.random(),
                 type: 'get',
                 async: false,
-                data: {                  
+                data: {
                     "empNum": empNum,
                     "mid":mid
                 },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                    
+                	result = data.data;
                 }
             });
         	return result;
@@ -1002,13 +1038,13 @@ var tipsMap = {};
                 url: portal.bp() + '/pubApp/findExistOrgCode?r='+Math.random(),
                 type: 'get',
                 async: false,
-                data: {                  
+                data: {
                     "orgCode": orgCode
                 },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                    
+                	result = data.data;
                 }
             });
         	return result;
@@ -1019,13 +1055,13 @@ var tipsMap = {};
                 url: portal.bp() + '/pubApp/findExistOrgCode_SC003?r='+Math.random(),
                 type: 'get',
                 async: false,
-                data: {                  
+                data: {
                     "orgCode": orgCode
                 },
                 dataType: "json"
             }).done(function (data) {
                 if (data.code == '200') {
-                	result = data.data;                    
+                	result = data.data;
                 }
             });
         	return result;

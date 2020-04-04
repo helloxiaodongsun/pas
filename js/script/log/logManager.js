@@ -85,8 +85,9 @@ $(function () {
         $("#endTime").datetimepicker('hide');
     });
 
-    opeStatus_Q = getSelectOptionOrder("RESULT_CODE");
-    opeType_Q = getSelectOptionOrder("SYSTEM_OPRTYPE");
+
+    opeStatus_Q = $.param.getSelectOptionOrderThreeLayersDeep("RESULT_CODE");
+    opeType_Q = $.param.getSelectOptionOrderThreeLayersDeep("SYSTEM_OPRTYPE");
     $("#opeStatus").html("").append(opeStatus_Q).selectpicker("refresh");
     $("#opeType").html("").append(opeType_Q).selectpicker("refresh");
 

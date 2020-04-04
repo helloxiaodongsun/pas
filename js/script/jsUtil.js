@@ -400,7 +400,7 @@ function findAuthOrgHirchy(eleId,isCheck,mid){
 		// return (localhostPaht+projectName);
 		return ".";
 	};
-	
+
 	getUrlParam = function(name){
 		var reg = new RegExp("(^|\\?|&)"+name+"=([^&]*)(\\s|&|$)","i");
 		if(reg.test(window.location.href)){
@@ -447,11 +447,11 @@ function findAuthOrgHirchy(eleId,isCheck,mid){
     $(document).on('load-success.bs.table', function () {
         layer.closeAll('loading');
     });
-    
+
 	$(document).on("click","#shoufang",function(){
 		$(this).parent().prev().slideToggle(300),$(this).toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-up");
 		setTimeout("resetTableView(document)",301);
-		
+
 		/*if($(this).hasClass('glyphicon-chevron-up')){
 			$(this).parent().prev().hide();
     		$('table').bootstrapTable('resetView',{ height:getTableHeight(document) });
@@ -556,7 +556,7 @@ function countFormat() {
 //通用报表字段脱敏方法
 function remSensitive(item){
 	var res ="";
-	
+
 	if(item.remSensitiveType=='01'){
 		//手机号中间4位
 		res += ",REPLACE("+item.field+"#SUBSTR("+item.field+"#4#4)#'****') as "+item.field;
@@ -646,7 +646,7 @@ function tableNeedCopy(columns,flag,needBasicInfo){
                 	}else{
                 		values = value;
                 	}
-                	
+
                     v2[key] = values;
                 }
             })
@@ -674,7 +674,7 @@ function tableNeedCopyZh(columns,flag,title,DW,currCd,dateDt){
                 	}else{
                 		values = value;
                 	}
-                	
+
                     v2[key] = values;
                 }
             })
@@ -759,7 +759,7 @@ function showWorkFlowHistory(pkId){
 	});
 }
 function role_show_permisstion(roleId,empNum){
-	var url = portal.bp() + "/role/showpermission?roleId="+roleId;
+	var url = portal.bp() + "./role/role_permission_show.html?roleId="+roleId;
 	if(empNum){
 		url += "&empNum="+empNum;
 	}
@@ -774,7 +774,7 @@ function role_show_permisstion(roleId,empNum){
 }
 
 function role_show_check(roleId,roleTypeCd){
-	var url = portal.bp() + "/role/showpermission/check?roleId="+roleId+'&roleTypeCd='+roleTypeCd;
+	var url = portal.bp() + "./role/role_permission_check.html?roleId="+roleId+'&roleTypeCd='+roleTypeCd;
 	layer.open({
 		id:'prvCheck',
 		type:2,
@@ -846,8 +846,8 @@ function getSubTitle(columns,flag,needBasicInfo){
     	}else{
     		subTitle = "统计日期:"+ dateStr +"     币种:"+ cur+"     单位:"+ dw +"     是否包含不良:"+ isCntnNp;
     	}
-    	
-    	
+
+
     }else{
     	if(cur=='无' && dw=='无'){
     		subTitle = "统计日期:"+ dateStr;
@@ -861,14 +861,14 @@ function getSubTitle(columns,flag,needBasicInfo){
     }
 
     res.push([{title: tableName, rowNumber: 1, colNumber: 1, rowspan: 1, colspan:colSum,field: null}]);
-    
+
     if(needBasicInfo!=undefined&&needBasicInfo!=null&&needBasicInfo==true){
     	var basicInfo = $(".ul-basicinfo li span").text();
     	if(basicInfo!=undefined&&basicInfo!=null){
     		res.push([{title: basicInfo, rowNumber: 1, colNumber: 1, rowspan: 1, colspan:colSum,field: null}]);
     	}
     }
-    
+
     res.push([{title: subTitle, rowNumber: 2, colNumber: 1, rowspan: 1, colspan: colSum,field: null}]);
     return res;
 }
@@ -894,11 +894,11 @@ function getSubTitleZh(columns,flag,title,DW,currCd,dataDt){
     for(var i= 0;i < column1.length;i++){
         colSum += column1[i].colspan;
     }
-    
+
     if(flag=='2'){
     	dateStr=dataDt;
     }
-    
+
     if(flag=='2'){
     	if(currCd=='01'){
 	        cur = '人民币';
@@ -955,7 +955,7 @@ function getSubTitleZh(columns,flag,title,DW,currCd,dataDt){
     	}
     }
 
-    
+
     res.push([{title: tableName, rowNumber: 1, colNumber: 1, rowspan: 1, colspan:colSum,field: null}]);
     res.push([{title: subTitle, rowNumber: 2, colNumber: 1, rowspan: 1, colspan: colSum,field: null}]);
     return res;

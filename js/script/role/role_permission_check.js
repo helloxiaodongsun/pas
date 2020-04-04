@@ -56,7 +56,7 @@ $(function(){
             }
         }
     };
-	    
+
 	$.fn.zTree.destroy($('#menu_tree'));
     $.fn.zTree.destroy($('#org_tree'));
     //所有菜单节点，初始化菜单树
@@ -256,7 +256,7 @@ function savePrvInfo(roleId, menuIds, orgIds) {
         'orgIds': orgIds
     };
     $.ajax({
-        url: portal.bp() + '/role/savePrvInfo',
+        url: portal.bp() + './json/ok.json',
         type: 'post',
         async: true,
         contentType: "application/json;charset=UTF-8",

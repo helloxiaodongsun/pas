@@ -973,6 +973,7 @@ function getOrgList() {
         type: "get",
         data: {'menuId': '1100'},
         cache: false,
+        dataType:'json',
         success: function (data) {
             var html;
             var list = data.data;

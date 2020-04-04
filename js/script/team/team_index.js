@@ -2686,7 +2686,7 @@ function approvalByPkId(pkId) {
 function getOrgList() {
     var html;
     $.ajax({
-        url: '../json/team/getAuthOrgForGroup.json',
+        url: portal.bp() + './json/org/getAuthOrgForGroup.json',
         type: "get",
         data:{'menuId':'4310'},
         cache: false,

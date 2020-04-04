@@ -682,6 +682,7 @@ function getOrgList() {
     $.ajax({
         url: portal.bp() + './json/relation/relation_index/validOrgNotFFBSForGroup.json',
         type: "get",
+        dataType:"json",
         data:{'menuId':'1200'},
         cache: false,
         success: function (data) {

@@ -116,7 +116,7 @@ $(function () {
                 };
                 var index;
                 $.ajax({
-                    url: portal.bp() + '/user/todo_del',
+                    url: portal.bp() + './json/user/todo_del.json',
                     type: 'get',
                     async: true,
                     cache: false,
@@ -163,7 +163,7 @@ $(function () {
         }
         var index;
         $.ajax({
-            url: portal.bp() + '/user/todo',
+            url: portal.bp() + './json/user/todo.json',
             type: type,
             async: true,
             cache: false,
@@ -225,7 +225,7 @@ function editMgmt(empNum,empName,belongOrgId,belongPostCd,belongLine){
 }
 function delMgmt(pkId){
 	$.ajax({
-        url: portal.bp() + '/user/workflow/del?r='+Math.random(),
+        url: portal.bp() + './json/user/workflow/del.json?r='+Math.random(),
         type: 'POST',
         async: false,
         data:{"pkIdList": [pkId]},
@@ -344,7 +344,7 @@ var showApproveModal = {
 	            ];
 	        $('#approvetable').bootstrapTable("destroy");
 	        $('#approvetable').bootstrapTable({
-	            url: portal.bp() + '/user/workflow/mypageList',
+	            url: portal.bp() + './json/user/workflow/mypageList.json',
 	            method: 'get',      //请求方式（*）
 	            striped: true,      //是否显示行间隔色
 	            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -386,7 +386,7 @@ function emproleWorkflowGoback(pkId){
 }
 function emproleDelMgmt(pkId){
 	$.ajax({
-        url: portal.bp() + '/user/emprole/workflow/del?r='+Math.random(),
+        url: portal.bp() + './json/user/emprole/workflow/del.json?r='+Math.random(),
         type: 'POST',
         async: false,
         data:{"pkIdList": [pkId]},
@@ -511,7 +511,7 @@ var showEmpRoleApproveModal = {
 			           ];
 			$('#approvetable').bootstrapTable("destroy");
 			$('#approvetable').bootstrapTable({
-				url: portal.bp() + '/user/emprole/workflow/mypageList',
+				url: portal.bp() + './json/user/emprole/workflow/mypageList.json',
 				method: 'get',      //请求方式（*）
 				striped: true,      //是否显示行间隔色
 				cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -627,7 +627,7 @@ var TableObj = {
             ]
         }
         $('#usertable').bootstrapTable({
-            url: portal.bp() + '/user/pageList',
+            url: portal.bp() + './json/user/pageList.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -752,11 +752,12 @@ function showDoubleBox(empNum){
     addRoleEmpNum = empNum;
     var nonSelectedList;
     $.ajax({
-        url: portal.bp() + '/user/getRolesByEmpNum',
+        url: portal.bp() + './json/user/getRolesByEmpNum.json',
         type: "get",
         async: false, // 同步 为全局变量赋值
         data: {'empNum': empNum},
         cache: false,
+        dataType: "json",
         success: function (data) {
             selectedList = data.data.selectedRoles; //由于返回本来就是Json对象无需进行转换
             nonSelectedList = data.data.noselectedRoles;
@@ -797,11 +798,12 @@ window.operateEvents = {
 
     "click #tododel_btn,#todoupdate_btn,#todoadd_btn": function (e, value, row, index) {
         $.ajax({
-            url: portal.bp() + '/user/getUserTodoShow',
+            url: portal.bp() + './json/user/getUserTodoShow.json',
             type: "get",
             async: false, // 同步 为全局变量赋值
             data: {'empNum': row.empNum},
             cache: false,
+            dataType: "json",
             success: function (data) {
                 if (data.code == '200') {
                     $("#show_empNum").val(data.data.empNum);
@@ -857,11 +859,12 @@ function saveRolesSub() {
     var data = {'addRoles[]': addRoles,'delRoles[]':delRoles, 'empNum': addRoleEmpNum};
     var index;
     $.ajax({
-        url: portal.bp() + '/user/saveUserRoles',
+        url: portal.bp() + './json/user/saveUserRoles.json',
         type: "post",
         async: false, // 同步 为全局变量赋值
         data: data,
         cache: false,
+        dataType: "json",
         success: function (data) {
             if (data.code == "200") {
                 layer.msg("提交成功！", {icon: 1});
@@ -950,10 +953,11 @@ function addModalValidator() {
 //初始化机构选择列表
 function getOrgList() {
     $.ajax({
-        url: portal.bp() + '/org/getAuthOrgForGroup',
+        url: portal.bp() + './json/org/getAuthOrgForGroup.json',
         type: "get",
         data:{'menuId':mid},
         cache: false,
+        dataType: "json",
         success: function (data) {
             var html;
             var list = data.data;
@@ -973,11 +977,12 @@ function getOrgList() {
 }
 function getAuthPost(orgId){
 	$.ajax({
-        url: portal.bp() + '/user/getAuthPost',
+        url: portal.bp() + './json/user/getAuthPost.json',
         type: "get",
         async:false,
         data:{'orgId':orgId},
         cache: false,
+        dataType: "json",
         success: function (data) {
             var html;
             var list = data.data;
@@ -991,10 +996,11 @@ function getAuthPost(orgId){
 }
 function getLineByOrgIdAndPostId(orgId,postId){
 	$.ajax({
-        url: portal.bp() + '/user/getLineByOrgIdAndPostId',
+        url: portal.bp() + './json/user/getLineByOrgIdAndPostId.json',
         type: "get",
         data:{'orgId':orgId,'postId':postId},
         cache: false,
+        dataType: "json",
         success: function (data) {
             var res = data.data;
             $('#add_belongLine').selectpicker('val',res);

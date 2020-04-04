@@ -1,6 +1,6 @@
 var ckqdays = [];
 $(function(){
-	$("#showckq").attr("data-url",portal.bp() + "/ckq/show?mid=ckqmid").attr('data-index','ckqmid');
+	$("#showckq").attr("data-url",portal.bp() + "/showckq.html?mid=ckqmid").attr('data-index','ckqmid');
 	
 	$("#m1").datepicker({
 		multidate:false,
@@ -157,7 +157,7 @@ $(function(){
 });
 function init(){
 	$.ajax({
-        url: portal.bp() + '/ckq/getckq?r='+Math.random(),
+        url: portal.bp() + '/json/ckq/getckq.json?r='+Math.random(),
         type: 'get',
         async: false,
         dataType: "json"
@@ -380,7 +380,7 @@ function update_btn(){
     	'days':days,
     };
     $.ajax({
-        url: portal.bp() + '/ckq/updateckq?r='+Math.random(),
+        url: portal.bp() + '/json/ckq/updateckq.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:data,
@@ -395,7 +395,7 @@ function update_btn(){
     });
 }
 function goback(){
-	window.location.href = portal.bp() + "/ckq/show";
+	window.location.href = portal.bp() +  "/showckq.html";
 }
 function addValidator() {
     //表单校验

@@ -1,7 +1,7 @@
 var ckqdays = [];
 var days = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 $(function(){
-	$("#urla").attr("href",portal.bp() + "/ckq/index");
+	$("#urla").attr("href",portal.bp() + "/ckq.html");
 	$("#m1").datepicker({
 		multidate:true,
 		autoclose:true,
@@ -79,7 +79,7 @@ $(function(){
 });
 function init(){
 	$.ajax({
-        url: portal.bp() + '/ckq/getckq?r='+Math.random(),
+        url: portal.bp() + '/json/ckq/getckq.json?r='+Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

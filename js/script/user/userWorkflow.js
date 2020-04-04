@@ -31,7 +31,7 @@ $(function () {
                 };
                 var index;
                 $.ajax({
-                    url: portal.bp() + '/user/workflowPass',
+                    url: portal.bp() + './json/user/workflowPass.json',
                     type: 'get',
                     async: true,
                     cache: false,
@@ -86,7 +86,7 @@ $(function () {
         };
         var index;
         $.ajax({
-            url: portal.bp() + '/user/workflowReject',
+            url: portal.bp() + './json/user/workflowReject.json',
             type: 'get',
             async: true,
             cache: false,
@@ -179,7 +179,7 @@ var TableObj = {
         ]
         $('#usertable').bootstrapTable('destroy');
         $('#usertable').bootstrapTable({
-            url: portal.bp() + '/user/workflowPageList',
+            url: portal.bp() + './json/user/workflowPageList.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

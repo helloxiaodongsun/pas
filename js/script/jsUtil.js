@@ -329,7 +329,7 @@ function updateCellDataClass($el){
 function getSystemDate(format){
 	var res = '';
 	$.ajax({
-		url : portal.bp() + '/pubApp/getSystemDate?r='+Math.random(),
+		url : portal.bp() + './json/pubApp/getSystemDate.json?r='+Math.random(),
 		type:'get',
 		cache:false,
 		async:false,

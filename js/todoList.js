@@ -2,7 +2,7 @@ var url_suffix=portal.bp();
 var lastPageNum;
 $(function(){
 	document.onkeydown=kewDownSearch;
-	$("#menu").empty().append($.param.getSelectOptionOrder("todo_menu"));
+	$("#menu").empty().append(getSelectOptionOrder("todo_menu"));
     TableObj.menuTable();
 });
 function kewDownSearch(e){
@@ -100,7 +100,7 @@ var TableObj={
       ];
 
       $('#menuTable').bootstrapTable('destroy').bootstrapTable({
-          url: portal.bp() + '/todoList/find',
+          url: portal.bp() + '/json/todoList/find.json',
           method: 'post',      //请求方式（*）
           striped: true,      //是否显示行间隔色
           cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -161,7 +161,7 @@ function addFav(pkId){
 	 var pkIdArray = new Array();
 	 pkIdArray.push(pkId);
     $.ajax({
-        url: portal.bp() + '/todoList/operationUserTableFavorites',
+        url: portal.bp() + '/json/todoList/operationUserTableFavorites.json',
         type: 'post',
         async:false,
         cache: false,
@@ -184,7 +184,7 @@ function removeFav(pkId){
 	var pkIdArray = new Array();
         pkIdArray.push(pkId);
     $.ajax({
-        url: portal.bp() + '/todoList/operationUserTableFavorites',
+        url: portal.bp() + '/json/todoList/operationUserTableFavorites.json',
         type: 'post',
         async:false,
         cache: false,
@@ -208,4 +208,25 @@ function getTableHeight(document){
     var topHeight = $(document).find(".ibox-content").offset().top;
     var tableHeight = windowHeight - topHeight;
     return tableHeight;
+}
+
+function getSelectOptionOrder(appName) {
+    var html = "";
+    $.ajax({
+        url: portal.bp() + '/json/pubApp/getParamByParentId.'+appName+'.json?r='+Math.random(),
+        type: 'get',
+        async: false,
+        data: {
+            "parentId": appName
+        },
+        dataType: "json"
+    }).done(function (data) {
+        if (data.code == '200') {
+            var col = data.data;
+            $.each(col, function (index, item) {
+                html += "<option value='" + item.encode + "'>" + item.name + "</option>"
+            });
+        }
+    });
+    return html;
 }

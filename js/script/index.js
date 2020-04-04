@@ -6,8 +6,8 @@ $(function() {
 	
 	getmenu();
     sideBarCss();
-    $("#ckq").attr("data-url",portal.bp() + "/ckq/show?mid=ckqmid").attr('data-index','ckqmid');
-    $("#todoBtn").attr("data-url",portal.bp() + "/todoList/index?mid=todomid").attr('data-index','todomid');
+    $("#ckq").attr("data-url",portal.bp() + "/showckq.html?mid=ckqmid").attr('data-index','ckqmid');
+    $("#todoBtn").attr("data-url",portal.bp() + "/todoList.html?mid=todomid").attr('data-index','todomid');
     /*$("#ckq").click(function(){
     	window.open(portal.bp()+"/ckq/show");
     })*/

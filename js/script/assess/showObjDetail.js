@@ -36,7 +36,7 @@ function query(){
 }
 function getObjType(){
 	$.ajax({
-        url: portal.bp() + '/assess/getBasicInfoMgmt?r='+Math.random(),
+        url: portal.bp() + './json/assess/getBasicInfoMgmt.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{'assPropNum':assPropNum,'isValid':flag},
@@ -80,7 +80,7 @@ var TableObj_jg = {
                 }, 
             ];
         $('#datatableExist').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_exist_obj_list_jg',
+            url: portal.bp() + './json/assess/show_exist_obj_list_jg.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -159,7 +159,7 @@ var TableObj_yg = {
                 },
             ];
         $('#datatableExist').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_exist_obj_list_yg',
+            url: portal.bp() + './json/assess/show_exist_obj_list_yg.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -224,7 +224,7 @@ function teamDetailaClick(pkId, teamTypeCd, teamId, validTag, operType,teamName)
         shadeClose:true,
         shade:0.8,
         area:['700px','520px'],
-        content:portal.bp() + '/assess/showTeamDetail?pkId='+pkId+'&teamTypeCd='+teamTypeCd
+        content:portal.bp() + '/teamDetail.html?pkId='+pkId+'&teamTypeCd='+teamTypeCd
         						+'&teamId='+teamId+'&validTag='+validTag+'&operType='+operType
     });
 };
@@ -278,7 +278,7 @@ var TableObj_td = {
                 }
             ];
         $('#datatableExist').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_exist_obj_list_td',
+            url: portal.bp() + './json/assess/show_exist_obj_list_td.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

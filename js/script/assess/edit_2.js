@@ -120,7 +120,7 @@ $(function(){
     	}
     	
     	$.ajax({
-            url: portal.bp() + '/assess/add_obj_index_rel?r='+Math.random(),
+            url: portal.bp() + './json/assess/add_obj_index_rel.json?r='+Math.random(),
             type: 'post',
             async: false,
             data:data,
@@ -161,7 +161,7 @@ $(function(){
     	data.assObjNum = assObjNums;
     	
     	$.ajax({
-            url: portal.bp() + '/assess/del_obj_index_rel?r='+Math.random(),
+            url: portal.bp() + './json/assess/del_obj_index_rel.json?r='+Math.random(),
             type: 'post',
             async: false,
             data:data,
@@ -181,10 +181,10 @@ function next(){
 		layer.msg("至少选择一项考核对象",{icon:3});
 		return;
 	}
-	window.location.href=portal.bp()+"/assess/edit_3?assPropNum="+assPropNum+"&operateType="+operateType;
+	window.location.href=portal.bp()+"/edit_3.html?assPropNum="+assPropNum+"&operateType="+operateType;
 }
 function prev(){
-	window.location.href=portal.bp()+"/assess/edit_1?assPropNum="+assPropNum+"&operateType="+operateType;
+	window.location.href=portal.bp()+"/edit_1.html?assPropNum="+assPropNum+"&operateType="+operateType;
 }
 function query(){
 	if(assObjType=='03'){
@@ -214,7 +214,7 @@ function resetForm() {
 function initBelongOrgId(){
 	var html = "";
 	$.ajax({
-        url: portal.bp() + '/assess/objorg?r='+Math.random(),
+        url: portal.bp() + './json/assess/objorg.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{'assPropNum':assPropNum},
@@ -260,7 +260,7 @@ function initBelongOrgId(){
 function initPostList(){
 	var html = "";
 	$.ajax({
-        url: portal.bp() + '/assess/assess_post_list?r='+Math.random(),
+        url: portal.bp() + './json/assess/assess_post_list.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{'assPropType':assPropType,'assObjType':objType},
@@ -280,7 +280,7 @@ function initPostList(){
 }
 function getObjType(){
 	$.ajax({
-        url: portal.bp() + '/assess/getBasicInfoMgmt?r='+Math.random(),
+        url: portal.bp() + './json/assess/getBasicInfoMgmt.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{'assPropNum':assPropNum},
@@ -325,7 +325,7 @@ var TableObj_jg = {
                 }, 
             ];
         $('#datatable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_obj_list_jg',
+            url: portal.bp() + './json/assess/show_obj_list_jg.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -393,7 +393,7 @@ var TableObj_jg = {
                 }, 
             ];
         $('#datatableExist').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_exist_obj_list_jg',
+            url: portal.bp() + './json/assess/show_exist_obj_list_jg.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -468,7 +468,7 @@ var TableObj_yg = {
                 },
             ];
         $('#datatable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_obj_list_yg',
+            url: portal.bp() + './json/assess/show_obj_list_yg.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -540,7 +540,7 @@ var TableObj_yg = {
                 },
             ];
         $('#datatableExist').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_exist_obj_list_yg',
+            url: portal.bp() + './json/assess/show_exist_obj_list_yg.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -597,7 +597,7 @@ function teamDetailaClick(pkId, teamTypeCd, teamId, validTag, operType) {
         shadeClose:true,
         shade:0.8,
         area:['800px','620px'],
-        content:portal.bp() + '/assess/showTeamDetail?pkId='+pkId+'&teamTypeCd='+teamTypeCd
+        content:portal.bp() + '/teamDetail.html?pkId='+pkId+'&teamTypeCd='+teamTypeCd
         						+'&teamId='+teamId+'&validTag='+validTag+'&operType='+operType
     });
 };
@@ -651,7 +651,7 @@ var TableObj_td = {
                 }
             ];
         $('#datatable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_obj_list_td',
+            url: portal.bp() + './json/assess/show_obj_list_td.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -739,7 +739,7 @@ var TableObj_td = {
                 }
             ];
         $('#datatableExist').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/show_exist_obj_list_td',
+            url: portal.bp() + './json/assess/show_exist_obj_list_td.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

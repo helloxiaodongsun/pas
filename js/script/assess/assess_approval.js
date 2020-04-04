@@ -31,7 +31,7 @@ $(function () {
                 };
                 var index;
                 $.ajax({
-                    url: portal.bp() + '/assess/workflowPass',
+                    url: portal.bp() + './json/ok.json',
                     type: 'get',
                     async: true,
                     cache: false,
@@ -86,7 +86,7 @@ $(function () {
         };
         var index;
         $.ajax({
-            url: portal.bp() + '/assess/workflowReject',
+            url: portal.bp() + './json/assess/workflowReject.json',
             type: 'get',
             async: true,
             cache: false,
@@ -256,7 +256,7 @@ var TableObj = {
         ];
         $('#usertable').bootstrapTable('destroy');
         $('#usertable').bootstrapTable({
-            url: portal.bp() + '/assess/workflowPageList',
+            url: portal.bp() + './json/assess/workflowPageList.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -357,7 +357,7 @@ function showIndexFPDetail(currentAssPropName,currentAssPropNum,flag){
         shadeClose:true,
         shade:0.8,
         area:['800px','620px'],
-        content:portal.bp() + '/assess/showIndexFPDetail?assPropNum='+currentAssPropNum+'&flag='+flag
+        content:portal.bp() + '/indexFPDetail.html?assPropNum='+currentAssPropNum+'&flag='+flag
     });
 }
 //指标详情
@@ -368,7 +368,7 @@ function showIndexDetail(currentAssPropName,currentAssPropNum,flag){
 		shadeClose:true,
 		shade:0.8,
 		area:['800px','620px'],
-		content:portal.bp() + '/assess/showIndexDetail?assPropNum='+currentAssPropNum+'&flag='+flag
+		content:portal.bp() + '/showIndexDetail.html?assPropNum='+currentAssPropNum+'&flag='+flag
 	});
 }
 //占比详情
@@ -379,7 +379,7 @@ function showZHDFDetail(currentAssPropName,currentAssPropNum,currentPkId,flag){
 		shadeClose:true,
 		shade:0.8,
 		area:['800px','620px'],
-		content:portal.bp() + '/assess/showZHDFDetail?assPropNum='+currentAssPropNum+'&basicInfoId='+currentPkId+'&flag='+flag
+		content:portal.bp() + '/showZHDFDetail.html?assPropNum='+currentAssPropNum+'&basicInfoId='+currentPkId+'&flag='+flag
 	});
 }
 //添加团队详情
@@ -390,6 +390,6 @@ function objDetailClick(currentAssPropName,currentAssPropNum,flag) {
         shadeClose:true,
         shade:0.8,
         area:['800px','620px'],
-        content:portal.bp() + '/assess/showObjDetail?assPropNum='+currentAssPropNum+'&flag='+flag
+        content:portal.bp() + '/showObjDetail.html?assPropNum='+currentAssPropNum+'&flag='+flag
     });
 };

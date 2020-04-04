@@ -138,7 +138,7 @@ $(function () {
 function checkObjAndProfessionType(professionType){
 	var res = null;
 	$.ajax({
-        url: portal.bp() + '/assess/profession/checkObjAndProfessionType?r=' + Math.random(),
+        url: portal.bp() + './json/assess/profession/checkObjAndProfessionType.json?r=' + Math.random(),
         type: 'post',
         cache: false,
         async:false,
@@ -168,7 +168,7 @@ function save(){
     //bootstrapTable 编辑列表校验
     var validateError = validateBootStrapTableEdit($("#datatable"));
     if(validateError!=null){
-        layer.msg(validateError,{icon:2});
+        // layer.msg(validateError,{icon:2});
         return;
     }
     var tableData = $("#datatable").bootstrapTable("getData");
@@ -179,7 +179,7 @@ function save(){
     }
 
     $.ajax({
-        url: portal.bp() + '/assess/profession/saveNotTSH?r=' + Math.random(),
+        url: portal.bp() + './json/assess/profession/saveNotTSH.json?r=' + Math.random(),
         type: 'post',
         cache: false,
         async:false,
@@ -217,7 +217,7 @@ function todo() {
     }
 
     $.ajax({
-        url: portal.bp() + '/assess/profession/saveNotTSH?r=' + Math.random(),
+        url: portal.bp() + './json/assess/profession/saveNotTSH.json?r=' + Math.random(),
         type: 'post',
         cache: false,
         async:false,
@@ -241,7 +241,7 @@ function todo() {
 }
 function todo_2(){
 	$.ajax({
-        url : portal.bp() + '/assess/assessTodo?r='+Math.random(),
+        url : portal.bp() + './json/assess/assessTodo.json?r='+Math.random(),
         type:'post',
         cache:false,
         dataType: "json",
@@ -251,9 +251,9 @@ function todo_2(){
             	layer.msg('提交成功',{icon:1});
             	if(operateType=='2'){
             		//修改
-            		window.location.href=portal.bp()+ "/assess/index?mid=2100";
+            		window.location.href=portal.bp()+ "/assess_index.html?mid=2100";
             	}else{
-            		window.location.href=portal.bp()+ "/assess/edit_1?operateType=1";
+            		window.location.href=portal.bp()+ "/edit_1.html?operateType=1";
             	}
             }else{
                 layer.msg(data.message, {icon: 2});
@@ -262,7 +262,7 @@ function todo_2(){
     });
 }
 function prev() {
-    window.location.href = portal.bp() + "/assess/edit_2?assPropNum=" + assPropNum + "&operateType=" + operateType;
+    window.location.href = portal.bp() + "/edit_2.html?assPropNum=" + assPropNum + "&operateType=" + operateType;
 }
 
 var columns = [
@@ -322,7 +322,7 @@ var columns = [
 function table_query() {
     $("#datatable").bootstrapTable('destroy');
     $('#datatable').bootstrapTable({
-        url: portal.bp() + '/assess/profession/queryNotTSH?r=' + Math.random(),
+        url: portal.bp() + './json/assess/profession/queryNotTSH.json?r=' + Math.random(),
         method: 'post',      //请求方式（*）
         striped: true,      //是否显示行间隔色
         cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

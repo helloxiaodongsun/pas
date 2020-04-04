@@ -35,7 +35,7 @@ $(function () {
         	 return;
         }
         $.ajax({
-            url: portal.bp() + '/assess/getIndexInfoById?r='+Math.random(),
+            url: portal.bp() + './json/assess/getIndexInfoById.json?r='+Math.random(),
             type: 'get',
             async: false,
             data: {'indexInfoId':inNum},
@@ -263,7 +263,7 @@ $(function () {
         //bootstrapTable 编辑列表校验
         var validateError = validateBootStrapTableEdit($("#datatable_m"));
         if(validateError!=null){
-            layer.msg("月度指标:"+validateError,{icon:2});
+            // layer.msg("月度指标:"+validateError,{icon:2});
             nextFlag = false;
             return;
         }
@@ -278,7 +278,7 @@ $(function () {
         		if(!checkIndexM(item)){
         			flag = true;
         			nextFlag = false;
-        			layer.msg(item.indexName+"的月度指标后一个月要大于等于前一个月且十二月分解进度是1",{icon:2});
+        			// layer.msg(item.indexName+"的月度指标后一个月要大于等于前一个月且十二月分解进度是1",{icon:2});
         			return false;
         		}
         	}
@@ -335,7 +335,7 @@ $(function () {
         }
 
         $.ajax({
-            url: portal.bp() + '/assess/saveAssIndex?r=' + Math.random(),
+            url: portal.bp() + './json/assess/saveAssIndex.json?r=' + Math.random(),
             type: 'post',
             cache: false,
             async:false,
@@ -431,7 +431,7 @@ $(function () {
         //bootstrapTable 编辑列表校验
         var validateError = validateBootStrapTableEdit($("#datatable_q"));
         if(validateError!=null){
-            layer.msg("季度指标:"+validateError,{icon:2});
+            // layer.msg("季度指标:"+validateError,{icon:2});
             nextFlag = false;
             return;
         }
@@ -446,13 +446,13 @@ $(function () {
         		if(!checkIndexQ(item)){
         			flag = true;
         			nextFlag = false;
-        			layer.msg(item.indexName+"的季度指标四个季度合计必须为1",{icon:2});
+        			// layer.msg(item.indexName+"的季度指标四个季度合计必须为1",{icon:2});
         			return false;
         		}
         		if(!checkIndexQM(item)){
         			flag = true;
         			nextFlag = false;
-        			layer.msg(item.indexName+"的季度指标三个月合计必须为1",{icon:2});
+        			// layer.msg(item.indexName+"的季度指标三个月合计必须为1",{icon:2});
         			return false;
         		}
         	}
@@ -503,7 +503,7 @@ $(function () {
         }
 
         $.ajax({
-            url: portal.bp() + '/assess/saveAssIndex?r=' + Math.random(),
+            url: portal.bp() + './json/assess/saveAssIndex.json?r=' + Math.random(),
             type: 'post',
             cache: false,
             async:false,
@@ -592,7 +592,7 @@ $(function () {
         //bootstrapTable 编辑列表校验
         var validateError = validateBootStrapTableEdit($("#datatable_y"));
         if(validateError!=null){
-            layer.msg("年度指标:"+validateError,{icon:2});
+            // layer.msg("年度指标:"+validateError,{icon:2});
             nextFlag = false;
             return;
         }
@@ -637,7 +637,7 @@ $(function () {
         }
 
         $.ajax({
-            url: portal.bp() + '/assess/saveAssIndex?r=' + Math.random(),
+            url: portal.bp() + './json/assess/saveAssIndex.json?r=' + Math.random(),
             type: 'post',
             cache: false,
             async:false,
@@ -685,7 +685,7 @@ $(function () {
 });
 function changeIndexLineOrCateCd(){
 	$.ajax({
-        url: portal.bp() + '/assess/getIndexParamNames?r=' + Math.random(),
+        url: portal.bp() + './json/assess/getIndexParamNames.json?r=' + Math.random(),
         type: 'get',
         async: false,
         data: {
@@ -709,12 +709,12 @@ function changeIndexLineOrCateCd(){
 function next() {
 	nextBtn = true;
 	$("#btn_save_m").click();
-	if(nextFlag){
+	if(true){
 		$("#btn_save_q").click();
-		if(nextFlag){
+		if(true){
 			$("#btn_save_y").click();
-			if(nextFlag){
-				window.location.href = portal.bp() + "/assess/edit_4?assPropNum=" + assPropNum + "&operateType=" + operateType;
+			if(true){
+				window.location.href = portal.bp() + "/edit_4.html?assPropNum=" + assPropNum + "&operateType=" + operateType;
 			}else{
 				nextFlag = true;
 			}
@@ -728,7 +728,7 @@ function next() {
 }
 
 function prev() {
-    window.location.href = portal.bp() + "/assess/edit_2?assPropNum=" + assPropNum + "&operateType=" + operateType;
+    window.location.href = portal.bp() + "/edit_2.html?assPropNum=" + assPropNum + "&operateType=" + operateType;
 }
 
 var columns_m = [
@@ -807,7 +807,7 @@ var columns_m = [
                type:'select',
                source:function(){
                    $.ajax({
-                       url: portal.bp() + '/assess/getIndexParamNames?r='+Math.random(),
+                       url: portal.bp() + './json/assess/getIndexParamNames.json?r='+Math.random(),
                        type: 'get',
                        async: false,
                        data: {},
@@ -828,7 +828,7 @@ var columns_m = [
                validate:function(v){
                    var col;
                    $.ajax({
-                       url: portal.bp() + '/assess/getIndexInfoById?r='+Math.random(),
+                       url: portal.bp() + './json/assess/getIndexInfoById.json?r='+Math.random(),
                        type: 'get',
                        async: false,
                        data: {'indexInfoId':v},
@@ -1428,7 +1428,7 @@ var columns_q = [
              type:'select',
              source:function(){
                  $.ajax({
-                     url: portal.bp() + '/assess/getIndexParamNames?r='+Math.random(),
+                     url: portal.bp() + './json/assess/getIndexParamNames.json?r='+Math.random(),
                      type: 'get',
                      async: false,
                      data: {},
@@ -1449,7 +1449,7 @@ var columns_q = [
              validate:function(v){
                  var col;
                  $.ajax({
-                     url: portal.bp() + '/assess/getIndexInfoById?r='+Math.random(),
+                     url: portal.bp() + './json/assess/getIndexInfoById.json?r='+Math.random(),
                      type: 'get',
                      async: false,
                      data: {'indexInfoId':v},
@@ -1953,7 +1953,7 @@ var columns_y = [
              type:'select',
              source:function(){
                  $.ajax({
-                     url: portal.bp() + '/assess/getIndexParamNames?r='+Math.random(),
+                     url: portal.bp() + './json/assess/getIndexParamNames.json?r='+Math.random(),
                      type: 'get',
                      async: false,
                      data: {},
@@ -1974,7 +1974,7 @@ var columns_y = [
              validate:function(v){
                  var col;
                  $.ajax({
-                     url: portal.bp() + '/assess/getIndexInfoById?r='+Math.random(),
+                     url: portal.bp() + './json/assess/getIndexInfoById.json?r='+Math.random(),
                      type: 'get',
                      async: false,
                      data: {'indexInfoId':v},
@@ -2271,7 +2271,7 @@ var columns_y = [
 function table_m_query() {
     $("#datatable_m").bootstrapTable('destroy');
     $('#datatable_m').bootstrapTable({
-        url: portal.bp() + '/assess/queryTable?r=' + Math.random(),
+        url: portal.bp() + './json/assess/queryTable.json?r=' + Math.random(),
         method: 'post',      //请求方式（*）
         striped: true,      //是否显示行间隔色
         cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -2345,7 +2345,7 @@ function table_m_query() {
 function table_q_query() {
     $("#datatable_q").bootstrapTable('destroy');
     $('#datatable_q').bootstrapTable({
-        url: portal.bp() + '/assess/queryTable?r=' + Math.random(),
+        url: portal.bp() + './json/assess/queryTable.json?r=' + Math.random(),
         method: 'post',      //请求方式（*）
         striped: true,      //是否显示行间隔色
         cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -2418,7 +2418,7 @@ function table_q_query() {
 function table_y_query() {
     $("#datatable_y").bootstrapTable('destroy');
     $('#datatable_y').bootstrapTable({
-        url: portal.bp() + '/assess/queryTable?r=' + Math.random(),
+        url: portal.bp() + './json/assess/queryTable.json?r=' + Math.random(),
         method: 'post',      //请求方式（*）
         striped: true,      //是否显示行间隔色
         cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -2519,7 +2519,7 @@ function indexModel(value,rowNum,flag,index,tableId) {
 	
 	/*var col;
     $.ajax({
-        url: portal.bp() + '/assess/getIndexParamNames?r=' + Math.random(),
+        url: portal.bp() + './json/assess/getIndexParamNames.json?r=' + Math.random(),
         type: 'get',
         async: false,
         data: {},

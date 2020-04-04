@@ -27,7 +27,7 @@ $(function(){
 
  function table_query() {
 	 $('#datatable').bootstrapTable('destroy').bootstrapTable({
-			url: portal.bp() + '/assess/queryZHDFDetail',
+			url: portal.bp() + './json/assess/queryZHDFDetail.json',
 			method: 'get',      //请求方式（*）
 			striped: false,      //是否显示行间隔色
 			cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

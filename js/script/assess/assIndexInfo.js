@@ -82,7 +82,7 @@ $(function () {
 var TableObj = {
     'assIndexDetTable': function () {
         $('#assIndexDetTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/assIndex/selectByPage',
+            url: portal.bp() + './json/assess/assIndex/selectByPage.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -193,7 +193,7 @@ function resetForm() {
 //导出
 function exportAssIndexDet() {
     $.ajax({
-        url:portal.bp() + '/assess/assIndex/queryAndExport',
+        url:portal.bp() + './json/assess/assIndex/queryAndExport.json',
         type: 'post',
         cache: false,
         async: false,

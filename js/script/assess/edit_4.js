@@ -63,7 +63,7 @@ function importfuc() {
 	}
 
 	$("#formSearch").ajaxSubmit({
-		url: portal.bp() + '/assess/importExcel',
+		url: portal.bp() + './json/assess/importExcel.json',
 		async: true,
 		type: 'post',
 		contentType: false,
@@ -73,6 +73,7 @@ function importfuc() {
 			'assPropNum': assPropNum
 		},
 		success: function (data) {
+			data = {"code":"200","data":{"success":10,"failed":2}};
 			if (data.code == "200") {
 				var res = data.data;
 				var resStr = '成功' + res.success + '条,' + '失败' + res.failed + '条'
@@ -316,7 +317,7 @@ var TableObj = {
 		}
 		
 		$('#importSuccessTable').bootstrapTable('destroy').bootstrapTable({
-			url: portal.bp() + '/assess/importBatchSuccess',
+			url: portal.bp() + './json/assess/importBatchSuccess.json',
 			method: 'get',      //请求方式（*）
 			striped: false,      //是否显示行间隔色
 			cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -598,7 +599,7 @@ var TableObj = {
 		}
 
 		$('#importFailedTable').bootstrapTable('destroy').bootstrapTable({
-			url: portal.bp() + '/assess/importBatchFailed',
+			url: portal.bp() + './json/assess/importBatchFailed.json',
 			method: 'get',      //请求方式（*）
 			striped: false,      //是否显示行间隔色
 			cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -653,7 +654,7 @@ var TableObj = {
 
 function queryDemoType(){
 	 $.ajax({
-         url : portal.bp() + '/assess/queryDemoType?r='+Math.random(),
+         url : portal.bp() + './json/assess/queryDemoType.json?r='+Math.random(),
          type:'get',
          cache:false,
          dataType: "json",
@@ -672,7 +673,7 @@ function queryDemoType(){
 //提交审核
 function successTable_save(){
 	$.ajax({
-        url : portal.bp() + '/assess/assessTodo?r='+Math.random(),
+        url : portal.bp() + './json/assess/assessTodo.json?r='+Math.random(),
         type:'post',
         cache:false,
         dataType: "json",
@@ -682,9 +683,9 @@ function successTable_save(){
             	layer.msg('提交成功',{icon:1});
             	if(operateType=='2'){
             		//修改
-            		window.location.href=portal.bp()+ "/assess/index?mid=2100";
+            		window.location.href=portal.bp()+ "/assess_index.html?mid=2100";
             	}else{
-            		window.location.href=portal.bp()+ "/assess/edit_1?operateType=1";
+            		window.location.href=portal.bp()+ "/edit_1.html?operateType=1";
             	}
             }else{
                 layer.msg(data.message, {icon: 2});
@@ -694,15 +695,15 @@ function successTable_save(){
 }
 //导出excel
 function exportfnc() {
-	window.open(portal.bp() + '/assess/downloadAssessExcel?assPropNum='+assPropNum)
+	window.open(portal.bp() + './json/assess/downloadAssessExcel.json?assPropNum='+assPropNum)
 }
 //导出 导入失败的excel
 function errorTable_export() { 
-	window.open(portal.bp() + '/assess/downloadAssessExcel_error?assPropNum='+assPropNum+'&basicInfoId='+basicInfoId)
+	window.open(portal.bp() + './json/assess/downloadAssessExcel_error.json?assPropNum='+assPropNum+'&basicInfoId='+basicInfoId)
 }
 
 function prev(){
-	window.location.href=portal.bp()+"/assess/edit_3?assPropNum="+assPropNum+"&operateType="+operateType;
+	window.location.href=portal.bp()+"/edit_3.html?assPropNum="+assPropNum+"&operateType="+operateType;
 }
 //文件上传
 $(document).on('ready',function () {

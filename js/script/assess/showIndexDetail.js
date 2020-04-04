@@ -1603,7 +1603,7 @@ $(function(){
  function table_m_query() {
      $("#datatable_m").bootstrapTable('destroy');
      $('#datatable_m').bootstrapTable({
-         url: portal.bp() + '/assess/queryTable?r=' + Math.random(),
+         url: portal.bp() + './json/assess/queryTable.json?r=' + Math.random(),
          method: 'post',      //请求方式（*）
          striped: true,      //是否显示行间隔色
          cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1650,7 +1650,7 @@ $(function(){
  function table_q_query() {
      $("#datatable_q").bootstrapTable('destroy');
      $('#datatable_q').bootstrapTable({
-         url: portal.bp() + '/assess/queryTable?r=' + Math.random(),
+         url: portal.bp() + './json/assess/queryTable.json?r=' + Math.random(),
          method: 'post',      //请求方式（*）
          striped: true,      //是否显示行间隔色
          cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1696,7 +1696,7 @@ $(function(){
  function table_y_query() {
      $("#datatable_y").bootstrapTable('destroy');
      $('#datatable_y').bootstrapTable({
-         url: portal.bp() + '/assess/queryTable?r=' + Math.random(),
+         url: portal.bp() + './json/assess/queryTable.json?r=' + Math.random(),
          method: 'post',      //请求方式（*）
          striped: true,      //是否显示行间隔色
          cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

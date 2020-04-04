@@ -67,7 +67,7 @@ $(function(){
     });
     //新增按钮
     $("#btn_add").click(function(){
-    	window.location.href=portal.bp() + '/assess/edit_1';
+    	window.location.href=portal.bp() + '/edit_1.html';
     });
     $("#btn_upd").click(function(){
     	var checklist = $('#datatable').bootstrapTable("getSelections");
@@ -80,7 +80,7 @@ $(function(){
     		return;
     	}
     	$.ajax({
-            url: portal.bp() + '/assess/queryBasicInfoMgmt?r='+Math.random(),
+            url: portal.bp() + './json/assess/queryBasicInfoMgmt.json?r='+Math.random(),
             type: 'get',
             async: false,
             data:{'assPropNum':checklist[0].assPropNum},
@@ -90,7 +90,7 @@ $(function(){
             	if(data.data!=null&&data.data.opeType=='0'){
             		layer.msg("该考核方案的删除已在审批流程中，不可修改",{icon:2});
             	}else{
-            		window.location.href=portal.bp() + '/assess/edit_1?assPropNum='+checklist[0].assPropNum+'&operateType=2&isValid='+isValid;
+            		window.location.href=portal.bp() + '/edit_1.html?assPropNum='+checklist[0].assPropNum+'&operateType=2&isValid='+isValid;
             	}
             }else{
             	layer.msg(data.message,{icon:2});
@@ -113,7 +113,7 @@ $(function(){
     		}, function(){
     			var index;
     			$.ajax({
-    				url : portal.bp() + '/assess/delAssess',
+    				url : portal.bp() + './json/assess/delAssess.json',
     				dataType:'json',
     				cache:false,
     				data:{
@@ -148,8 +148,9 @@ $(function(){
     	var exportColumns = tableNeedCopy(columns);
     	var tableHeader = JSON.stringify(exportColumns);
     	$.ajax({
-            url:portal.bp() + '/assess/showNotGFXYGExport',
-            type: 'post',
+            url:portal.bp() + './json/assess/showNotGFXYGExport.json',
+			type: 'post',
+			dataType:'json',
             cache: false,
             contentType: "application/x-www-form-urlencoded",
             data: {
@@ -187,7 +188,7 @@ $(function(){
     		}, function(){
     			var index;
     			$.ajax({
-    		        url : portal.bp() + '/assess/assessTodo?r='+Math.random(),
+    		        url : portal.bp() + './json/assess/assessTodo.json?r='+Math.random(),
     		        type:'post',
     		        cache:false,
     		        dataType: "json",
@@ -229,7 +230,7 @@ $(function(){
 function initBelongOrgId(){
 	var html = "";
 	$.ajax({
-        url: portal.bp() + '/assess/belongorg?r='+Math.random(),
+        url: portal.bp() + './json/assess/belongorg.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{},
@@ -260,11 +261,12 @@ function initBelongOrgId(){
 }
 function initAuthOrgList(){
 	$.ajax({
-        url: portal.bp() + '/org/findAuthValidOrg234',
+        url: portal.bp() + './json/org/findAuthValidOrg234.json',
         type: "get",
         data:{'menuId':mid},
         async: false,
-        cache: false,
+		cache: false,
+		dataType:'json',
         success: function (data) {
             var html;
             var list = data.data;
@@ -315,10 +317,11 @@ function GFXYG_resetForm(){
 //初始化未被纳入规范性考核员工信息的机构选择列表
 function getGFXYG_belongOrgList() {
     $.ajax({
-        url: portal.bp() + '/org/getAuthOrgForGroup',
+        url: portal.bp() + './json/org/getAuthOrgForGroup.json',
         type: "get",
         data:{'menuId':mid},
-        cache: false,
+		cache: false,
+		dataType:'json',
         success: function (data) {
             var html;
             var list = data.data;
@@ -338,7 +341,7 @@ function getGFXYG_belongOrgList() {
 function initPostList(){
 	var html = "";
 	$.ajax({
-        url: portal.bp() + '/assess/assess_post_list_auth?r='+Math.random(),
+        url: portal.bp() + './json/assess/assess_post_list_auth.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{},
@@ -390,7 +393,7 @@ var TableObj_yg = {
                 },
             ];
         $('#GFXYG_datatable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/assess/showNotGFXYG',
+            url: portal.bp() + './json/assess/showNotGFXYG.json',
             method: 'get',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -476,7 +479,7 @@ var TableObj_yg = {
 function initprop_obj_list(){
 	var oldValue = $('#assPropTypeCd').val();
 	$.ajax({
-        url: portal.bp() + '/assess/obj_prop_post_list?r='+Math.random(),
+        url: portal.bp() + './json/assess/obj_prop_post_list.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{},
@@ -500,7 +503,7 @@ function initprop_obj_list(){
 function changeProp(prop){
 	var oldValue = $("#assObjTypeCd").val();
 	$.ajax({
-        url: portal.bp() + '/assess/findAllByProp?r='+Math.random(),
+        url: portal.bp() + './json/assess/findAllByProp.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{'prop':prop},
@@ -655,7 +658,7 @@ var TableObj = {
 	                },
 	            ];
 	        $('#datatable').bootstrapTable('destroy').bootstrapTable({
-	            url: portal.bp() + '/assess/queryAssessList',
+	            url: portal.bp() + './json/assess/queryAssessList.json',
 	            method: 'get',      //请求方式（*）
 	            striped: true,      //是否显示行间隔色
 	            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -786,7 +789,7 @@ function showIndexFPDetail(currentAssPropName,currentAssPropNum,flag){
         shadeClose:true,
         shade:0.8,
         area:['800px','620px'],
-        content:portal.bp() + '/assess/showIndexFPDetail?assPropNum='+currentAssPropNum+'&flag='+flag
+        content:portal.bp() + '/indexFPDetail.html?assPropNum='+currentAssPropNum+'&flag='+flag
     });
 }
 //指标详情
@@ -797,7 +800,7 @@ function showIndexDetail(currentAssPropName,currentAssPropNum,flag){
 		shadeClose:true,
 		shade:0.8,
 		area:['800px','620px'],
-		content:portal.bp() + '/assess/showIndexDetail?assPropNum='+currentAssPropNum+'&flag='+flag
+		content:portal.bp() + '/showIndexDetail.html?assPropNum='+currentAssPropNum+'&flag='+flag
 	});
 }
 //占比详情
@@ -808,7 +811,7 @@ function showZHDFDetail(currentAssPropName,currentAssPropNum,currentPkId,flag){
 		shadeClose:true,
 		shade:0.8,
 		area:['800px','620px'],
-		content:portal.bp() + '/assess/showZHDFDetail?assPropNum='+currentAssPropNum+'&basicInfoId='+currentPkId+'&flag='+flag
+		content:portal.bp() + '/showZHDFDetail.html?assPropNum='+currentAssPropNum+'&basicInfoId='+currentPkId+'&flag='+flag
 	});
 }
 
@@ -820,7 +823,7 @@ function objDetailClick(currentAssPropName,currentAssPropNum,flag) {
         shadeClose:true,
         shade:0.8,
         area:['800px','620px'],
-        content:portal.bp() + '/assess/showObjDetail?assPropNum='+currentAssPropNum+'&flag='+flag
+        content:portal.bp() + '/showObjDetail.html?assPropNum='+currentAssPropNum+'&flag='+flag
     });
 };
 
@@ -1014,7 +1017,7 @@ var showApproveModal = {
 	            ];
 	        $('#approvetable').bootstrapTable("destroy");
 	        $('#approvetable').bootstrapTable({
-	            url: portal.bp() + '/assess/workflow/mypageList',
+	            url: portal.bp() + './json/assess/workflow/mypageList.json',
 	            method: 'get',      //请求方式（*）
 	            striped: true,      //是否显示行间隔色
 	            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1057,7 +1060,7 @@ function assessDel(currentAssessPropNum){
 		}, function(){
 			var index;
 			$.ajax({
-				url : portal.bp() + '/assess/delAssess',
+				url : portal.bp() + './json/assess/delAssess.json',
 				dataType:'json',
 				cache:false,
 				data:{
@@ -1085,7 +1088,7 @@ function assessDel(currentAssessPropNum){
 }
 function assessEdit(currentAssessPropNum){
 	$.ajax({
-        url: portal.bp() + '/assess/queryBasicInfoMgmt?r='+Math.random(),
+        url: portal.bp() + './json/assess/queryBasicInfoMgmt.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{'assPropNum':currentAssessPropNum},
@@ -1095,7 +1098,7 @@ function assessEdit(currentAssessPropNum){
         	if(data.data!=null&&data.data.opeType=='0'){
         		layer.msg("该考核方案的删除已在审批流程中，不可修改",{icon:2});
         	}else{
-        		window.location.href=portal.bp() + '/assess/edit_1?assPropNum='+currentAssessPropNum+'&operateType=2';
+        		window.location.href=portal.bp() + '/edit_1.html?assPropNum='+currentAssessPropNum+'&operateType=2';
         	}
         }else{
         	layer.msg(data.message,{icon:2});

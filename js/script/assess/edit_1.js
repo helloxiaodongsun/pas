@@ -200,7 +200,7 @@ $(function(){
 });
 function initSuperOrgName(){
 	$.ajax({
-		url : portal.bp() + '/org/findSuperOrg',
+		url : portal.bp() + './json/org/findSuperOrg.json',
 		dataType:'json',
 		cache:false,
 		async: false,
@@ -267,7 +267,7 @@ function next(){
 		data.pkId = basicPkId;
 	}*/
     $.ajax({
-        url: portal.bp() + '/assess/saveBasicInfo?r='+Math.random(),
+        url: portal.bp() + './json/assess/saveBasicInfo.json?r='+Math.random(),
         type: 'post',
         async: false,
         data:data,
@@ -275,7 +275,7 @@ function next(){
     }).done(function (data) {
         if (data.code == '200') {
         	assPropNum = data.data;
-        	window.location.href=portal.bp()+"/assess/edit_2?assPropNum="+assPropNum+"&operateType="+operateType;
+        	window.location.href=portal.bp()+"/edit_2.html?assPropNum="+assPropNum+"&operateType="+operateType;
         }else{
         	layer.msg(data.message,{icon:2});
         }
@@ -285,14 +285,14 @@ function next(){
 function prev(){
 	if(operateType=='2'){
 		//修改
-		window.location.href=portal.bp()+ "/assess/index?mid=2100";
+		window.location.href=portal.bp()+ "/assess_index.html?mid=2100";
 	}else{
-		window.location.href=portal.bp()+ "/assess/edit_1?operateType=1";
+		window.location.href=portal.bp()+ "/edit_1.html?operateType=1";
 	}
 }
 function initprop_obj_list(){
 	$.ajax({
-        url: portal.bp() + '/assess/obj_prop_post_list?r='+Math.random(),
+        url: portal.bp() + './json/assess/obj_prop_post_list.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{},
@@ -329,7 +329,7 @@ function changeProp(prop){
 function initBelongOrgId(){
 	var html = "";
 	$.ajax({
-        url: portal.bp() + '/assess/belongorg?r='+Math.random(),
+        url: portal.bp() + './json/assess/belongorg.json?r='+Math.random(),
         type: 'get',
         async: false,
         async: false,
@@ -352,7 +352,7 @@ function initBelongOrgId(){
 function getassPropNumSeq(){
 	var temp = "";
 	$.ajax({
-        url: portal.bp() + '/assess/getAssId?r='+Math.random(),
+        url: portal.bp() + './json/assess/getAssId.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:{},
@@ -379,7 +379,7 @@ function checkAssName(name){
 		data.assPropNum = assPropNum;
 	}
 	$.ajax({
-        url: portal.bp() + '/assess/checkAssName?r='+Math.random(),
+        url: portal.bp() + './json/assess/checkAssName.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:data,
@@ -396,7 +396,7 @@ function checkAssName(name){
 function initBasicInfoMgmt(){
 	var data = {'assPropNum':assPropNum,'isValid':isValid};
 	$.ajax({
-        url: portal.bp() + '/assess/getBasicInfoMgmt?r='+Math.random(),
+        url: portal.bp() + './json/assess/getBasicInfoMgmt.json?r='+Math.random(),
         type: 'get',
         async: false,
         data:data,

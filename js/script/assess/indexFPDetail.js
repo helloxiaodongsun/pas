@@ -1,7 +1,7 @@
 $(function(){
 	queryDemoType();
 	$("#indexFPDetail_export").click(function(){
-		window.open(portal.bp() + '/assess/downloadAssessExcel?assPropNum='+currentAssPropNum+'&flag='+flag);
+		window.open(portal.bp() + './json/assess/downloadAssessExcel.json?assPropNum='+currentAssPropNum+'&flag='+flag);
 	});
 });
 var demoType = "";
@@ -10,7 +10,7 @@ var resultSearchSuccess=undefined;
 
 function queryDemoType(){
 	 $.ajax({
-        url : portal.bp() + '/assess/queryDemoType?r='+Math.random(),
+        url : portal.bp() + './json/assess/queryDemoType.json?r='+Math.random(),
         type:'get',
         cache:false,
         dataType: "json",
@@ -245,7 +245,7 @@ var indexFPDetailObj = {
 			}
 			
 			$('#indexFPDetailtable').bootstrapTable('destroy').bootstrapTable({
-				url: portal.bp() + '/assess/queryindexFPDetail',
+				url: portal.bp() + './json/assess/queryindexFPDetail.json',
 				method: 'get',      //请求方式（*）
 				striped: true,      //是否显示行间隔色
 				cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

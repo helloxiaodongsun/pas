@@ -25,109 +25,36 @@ var tableNameType = null;
 var comunsOrderInit = [
     [
         {
-            "tableHeaderId": null,
             "title": "考核对象编号",
-            "tableName": null,
             "rowNumber": 1,
             "colNumber": 1,
-            "rowspan": 2,
+            "rowspan": 1,
             "colspan": 1,
-            "tableType": null,
             "field": "assObjId",
             "align": "center",
-            "valign": "middle",
-            "sortable": null,
-            "mutipleOrg": null,
-            "titleCus": null,
-            "rowNumberCus": null,
-            "colNumberCus": null,
-            "rowspanCus": null,
-            "colspanCus": null,
-            "createTime": null,
-            "validTag": null,
-            "fieldCus": null,
-            "alignCus": null,
-            "valignCus": null,
-            "sortableCus": null,
-            "matrixingTag": null,
-            "matrixingTagCus": null,
-            "subTableName": null,
-            "subTableNameCus": null,
-            "mutipleOrgCus": null,
-            "remSensitiveType": null,
-            "remSensitiveTypeCus": null,
-            "aTableHeaderId": null
+            "valign": "middle"
         },
         {
-            "tableHeaderId": null,
             "title": "考核对象姓名",
-            "tableName": null,
             "rowNumber": 1,
             "colNumber": 2,
-            "rowspan": 2,
+            "rowspan": 1,
             "colspan": 1,
-            "tableType": null,
             "field": "assObjName",
             "align": "center",
-            "valign": "middle",
-            "sortable": null,
-            "mutipleOrg": null,
-            "titleCus": null,
-            "rowNumberCus": null,
-            "colNumberCus": null,
-            "rowspanCus": null,
-            "colspanCus": null,
-            "createTime": null,
-            "validTag": null,
-            "fieldCus": null,
-            "alignCus": null,
-            "valignCus": null,
-            "sortableCus": null,
-            "matrixingTag": null,
-            "matrixingTagCus": null,
-            "subTableName": null,
-            "subTableNameCus": null,
-            "mutipleOrgCus": null,
-            "remSensitiveType": null,
-            "remSensitiveTypeCus": null,
-            "aTableHeaderId": null
+            "valign": "middle"
         },
         {
-            "tableHeaderId": null,
             "title": "打分合计得分",
-            "tableName": null,
             "rowNumber": 1,
             "colNumber": 3,
-            "rowspan": 2,
+            "rowspan": 1,
             "colspan": 1,
-            "tableType": null,
             "field": "sumOfScoreSum",
             "align": "center",
-            "valign": "middle",
-            "sortable": null,
-            "mutipleOrg": null,
-            "titleCus": null,
-            "rowNumberCus": null,
-            "colNumberCus": null,
-            "rowspanCus": null,
-            "colspanCus": null,
-            "createTime": null,
-            "validTag": null,
-            "fieldCus": null,
-            "alignCus": null,
-            "valignCus": null,
-            "sortableCus": null,
-            "matrixingTag": null,
-            "matrixingTagCus": null,
-            "subTableName": null,
-            "subTableNameCus": null,
-            "mutipleOrgCus": null,
-            "remSensitiveType": null,
-            "remSensitiveTypeCus": null,
-            "aTableHeaderId": null
+            "valign": "middle"
         }
-    ],
-    []
+    ]
 ];
 
 var comunsOrder = comunsOrderInit;
@@ -162,9 +89,9 @@ $(function () {
     //考核业务类型
 
     $('#professionTypeCd').html("").append($.param.getSelectOptionOrder("PROFESSION_TYPE"));
-    $('#professionTypeCd').attr('disabled', 'disabled');
+    //$('#professionTypeCd').attr('disabled', 'disabled');
     $('#professionTypeCd').selectpicker('refresh');
-    $('#isComprehensiveScore').attr('disabled', 'disabled');
+    //$('#isComprehensiveScore').attr('disabled', 'disabled');
     $('#isComprehensiveScore').selectpicker('refresh');
 
   /*  $("#isComprehensiveScore").removeAttr('disabled');*/
@@ -175,9 +102,10 @@ $(function () {
     $(".mon").val(parseMon);
     //初始化查询
     TabObj.assessResultTable(true, '01');
+    TabObj.resultOrderTable(true);
     //setAsPropIdAndAssPropName(checkOrgId,parseMon);
 
-    $("#assPropOrgId").change(function () {
+   /* $("#assPropOrgId").change(function () {
         setAsPropIdAndAssPropName($('#assPropOrgId').val(),$('#assPropTypeCd').val(),$('#assObjTypeCd').val(),$('#effDt').val());
     });
     $("#assPropTypeCd").change(function () {
@@ -197,7 +125,7 @@ $(function () {
         $('#professionTypeCd').attr('disabled', 'disabled');
         $('#isComprehensiveScore').selectpicker('refresh');
         $('#professionTypeCd').selectpicker('refresh');
-        /* if (value != null && value != '' && value != undefined) {
+        /!* if (value != null && value != '' && value != undefined) {
              var assPropNameS = getAssPropNameByAssPropNum(value);
              if (assPropNameS != null
                  && assPropNameS != undefined
@@ -207,7 +135,7 @@ $(function () {
              }
          } else {
              $("#assPropName").val('');
-         }*/
+         }*!/
         if (value == null || value == '' || value == undefined) {
 
             $("#assPropName").selectpicker('val', '').selectpicker('refresh');
@@ -217,15 +145,15 @@ $(function () {
         //根据考核对象id,查询数据库，确定权限以及业务类型
         findPrvAndAssessResultType(value);
         vaildIsZHDF(assBasicInfoAndPrv);
-    });
+    });*/
 
-    $("#assPropName").change(function () {
+  /*  $("#assPropName").change(function () {
         var value = $(this).val();
         $('#isComprehensiveScore').attr('disabled', 'disabled');
         $('#professionTypeCd').attr('disabled', 'disabled');
         $('#isComprehensiveScore').selectpicker('refresh');
         $('#professionTypeCd').selectpicker('refresh');
-       /* if (value != null && value != '' && value != undefined) {
+       /!* if (value != null && value != '' && value != undefined) {
             var assPropNumS = getAssPropNumByAssPropName(value);
             if (assPropNumS != null
                 && assPropNumS != undefined
@@ -235,7 +163,7 @@ $(function () {
             }
         } else {
             $("#assPropId").val('');
-        }*/
+        }*!/
         if (value == null || value == '' || value == undefined) {
             $("#assPropId").selectpicker('val','').selectpicker('refresh');
             return;
@@ -245,28 +173,29 @@ $(function () {
     });
     $('#isComprehensiveScore').change(function () {
         validProfessionType();
-    });
-    setAsPropIdAndAssPropName($('#assPropOrgId').val(),$('#assPropTypeCd').val(),$('#assObjTypeCd').val(),$('#effDt').val());
-    TabObj.resultOrderTable(true);
+    });*/
+    //setAsPropIdAndAssPropName($('#assPropOrgId').val(),$('#assPropTypeCd').val(),$('#assObjTypeCd').val(),$('#effDt').val());
+
+    //TabObj.assessResultTable();
     layer.closeAll();
 });
 
 var TabObj = {
     assessResultTable: function (initFlag, cloumnType) {
-        var url = portal.bp() + '/assess/result/getResultByPage?r=' + Math.random();
-        if (initFlag) {
+        var url = portal.bp() + './json/assess/assess_result/getResultByPage.json?r=' + Math.random();
+       /* if (initFlag) {
             url = '';
-        }
+        }*/
         // 根据条件判断表名，创建表头
          tableNameType = validTableNameType(initFlag);
         if(tableNameType== null || tableNameType ==''){
-            layer.msg('校验表头类型失败',{icon: 2});
+            //('校验表头类型失败',{icon: 2});
             return;
         }
         var resultTableHeader = getResultTableHeader(tableNameType);
 
         if(resultTableHeader ==''|| resultTableHeader == undefined){
-            layer.msg('错误：表头查询失败', {icon:2});
+            //layer.msg('错误：表头查询失败', {icon:2});
             return;
         }
         $('#assessResultTable').bootstrapTable('destroy');
@@ -284,7 +213,7 @@ var TabObj = {
             contentType: "application/x-www-form-urlencoded",
             queryParams: function (params) {
                 return {
-                    'assPropOrgId':assPropOrgId,
+                  /*  'assPropOrgId':assPropOrgId,
                     'assPropTypeCd':assPropTypeCd,
                     'assObjTypeCd':assObjTypeCd,
                     'effDt':effDt,
@@ -296,7 +225,7 @@ var TabObj = {
                     'tableName':tableNameType,
                     'assObjIdList':assBasicInfoAndPrv == null || assBasicInfoAndPrv['assObjIdList'] == null?null:assBasicInfoAndPrv['assObjIdList'],
                     'pageSize': params.limit,
-                    'pageNum': (params.offset / params.limit) + 1
+                    'pageNum': (params.offset / params.limit) + 1*/
                   /*  'assPropOrgId': assPropOrgId,
                     'assPropId': assPropId,
                     'assPropName': assPropName,
@@ -316,7 +245,7 @@ var TabObj = {
             responseHandler: function (res) { //服务端返回数据
                 if (res.code == '200' && res.data != null) {
                     resultSearchSuccess = res.data.sameArray;
-                    return res.data.pageFinder;
+                    return res.data;
                 } else if (res.code == '200' && res.data == null) {
                     return {};
                 } else {
@@ -326,20 +255,20 @@ var TabObj = {
             },
             columns: resultTableHeader,
             onLoadSuccess: function (res) {
-                if (res.rows != null && res.rows != undefined && res.rows != '') {
+                /*if (res.rows != null && res.rows != undefined && res.rows != '') {
 
                     mergeCell(res.rows, 'key', 1, '#assessResultTable', resultSearchSuccess);
-                }
+                }*/
                 $("#assessResultTable").bootstrapTable("resetView", {height: getTableHeight(document)})
                 resizeTables();
             }
         });
     },
     resultOrderTable: function (initFlag) {
-        var url = portal.bp() + '/assess/result/getResultOrder?r=' + Math.random();
-        if (initFlag == true) {
+       var url = portal.bp() + './json/assess/assess_result/getResultOrder.json?r=' + Math.random();
+        comunsOrder = comunsOrderInit;
+      /*  if (initFlag == true) {
             url = '';
-            comunsOrder = comunsOrderInit;
         } else {
             var resultOrderHeader = getResultOrderHeader();
             if (resultOrderHeader == null || resultOrderHeader == undefined || resultOrderHeader == '') {
@@ -347,7 +276,7 @@ var TabObj = {
             } else {
                 comunsOrder = resultOrderHeader;
             }
-        }
+        }*/
         $('#assessResultOrderTable').bootstrapTable("destroy");
         $('#assessResultOrderTable').bootstrapTable({
             url: url,
@@ -420,14 +349,14 @@ function query(flag) {
 
     }
     if (assPropId == null || assPropId == '' || assPropId == undefined) {
-        layer.msg("方案编号必填", {icon: 2});
+        //layer.msg("方案编号必填", {icon: 2});
         return;
     }
 
 
 
     if (mon == null || mon == '' || mon == undefined) {
-        layer.msg("考核月份必填", {icon: 2});
+       // layer.msg("考核月份必填", {icon: 2});
         return;
     }
 
@@ -440,7 +369,7 @@ function query(flag) {
         && assBasicInfoAndPrv['scoreCalcRule'] != '') {
         assBasicInfoAndPrvCopy = JSON.parse(JSON.stringify(assBasicInfoAndPrv));
     } else {
-        layer.msg('未获得考核方案基本信息', {icon: 2});
+        //layer.msg('未获得考核方案基本信息', {icon: 2});
         return;
     }
 
@@ -453,14 +382,14 @@ function query(flag) {
 
 
         if ($('#isComprehensiveScore').val() == null || $('#isComprehensiveScore').val() == undefined || $('#isComprehensiveScore').val() == '') {
-            layer.msg("是否综合打分必填", {icon: 2});
+            //("是否综合打分必填", {icon: 2});
             return;
         }
         isComprehensiveScore = $('#isComprehensiveScore').val();
         if (isComprehensiveScore == '0') {
 
             if ($('#professionTypeCd').val() == null || $('#professionTypeCd').val() == undefined || $('#professionTypeCd').val() =='') {
-                layer.msg("考核业务类型必填", {icon: 2});
+                //layer.msg("考核业务类型必填", {icon: 2});
                 return;
             }
             professionTypeCd = $('#professionTypeCd').val();
@@ -485,8 +414,8 @@ function resetForm() {
     $('#assPropTypeCd').selectpicker('refresh');
     $('#isComprehensiveScore').selectpicker('refresh');
     $('#professionTypeCd').selectpicker('refresh');
-    $('#isComprehensiveScore').attr('disabled','disabled');
-    $('#professionTypeCd').attr('disabled','disabled');
+    //$('#isComprehensiveScore').attr('disabled','disabled');
+    //$('#professionTypeCd').attr('disabled','disabled');
     $('#isComprehensiveScore').selectpicker('refresh');
     $('#professionTypeCd').selectpicker('refresh');
 
@@ -497,7 +426,7 @@ function validTableNameType(initFlag) {
         return 'ASSESS_RESULT_JUST_ROLE_A';
     }
     if(assBasicInfoAndPrvCopy==null){
-        layer.msg('未获取到考核方案基本信息',{icon:2});
+        //('未获取到考核方案基本信息',{icon:2});
         return;
     }
 
@@ -507,7 +436,7 @@ function validTableNameType(initFlag) {
         || assBasicInfoAndPrvCopy['assObjTypeCd'] == ''
         || assBasicInfoAndPrvCopy['scoreCalcRule'] == null
         || assBasicInfoAndPrvCopy['scoreCalcRule'] == '' ){
-        layer.msg('考核方案基本信息有空值',{icon: 2});
+        //('考核方案基本信息有空值',{icon: 2});
         return;
     }
     var assPropTypeCd=assBasicInfoAndPrvCopy['assPropTypeCd'];
@@ -711,7 +640,7 @@ function getResultOrderHeader() {
 function getResultTableHeader(tableName) {
     var tableHeader = undefined;
     $.ajax({
-        url: portal.bp() + '/table/column/tableCus?r=' + Math.random(),
+        url: portal.bp() + './json/assess/assess_result/tableCus.json?r=' + Math.random(),
         type: 'post',
         async: false,
         data: {
@@ -733,11 +662,12 @@ function getResultTableHeader(tableName) {
 function initAuthOrgList() {
     var html;
     $.ajax({
-        url: portal.bp() + '/org/findAuthValidOrg234',
+        url: portal.bp() + './json/org/findAuthValidOrg234.json',
         type: "get",
         data: {'menuId': "2500"},
         async: false,
         cache: false,
+        dataType:'json',
         success: function (data) {
             var list = data.data;
             $.each(list, function (key, value) {
@@ -793,7 +723,7 @@ function setAsPropIdAndAssPropName(assPropOrgId, assPropTypeCd,assObjTypeCd,tjDa
     });
 
     if(res == undefined || res== null){
-        layer.msg("未获得考核方案信息", {icon: 2});
+        //layer.msg("未获得考核方案信息", {icon: 2});
         return ;
     }
     var assPropIdHtml = '';
@@ -811,7 +741,7 @@ function setAsPropIdAndAssPropName(assPropOrgId, assPropTypeCd,assObjTypeCd,tjDa
 function findPrvAndAssessResultType(assPropId) {
     assBasicInfoAndPrv = null;
     if(assPropId==null || assPropId== undefined || assPropId==''){
-        layer.msg('考核方案id不能为空',{icon: 2});
+        //('考核方案id不能为空',{icon: 2});
         return;
     }
     $.ajax({
@@ -824,7 +754,7 @@ function findPrvAndAssessResultType(assPropId) {
         dataType: "json"
     }).done(function (res) {
         if(res.code !='200' || res.data == null){
-            layer.msg('查询考核方案信息失败',{icon: 2});
+            //('查询考核方案信息失败',{icon: 2});
             return;
         }
         var result = res.data;
@@ -835,7 +765,7 @@ function findPrvAndAssessResultType(assPropId) {
             || result['assObjTypeCd'] == ''
             || result['scoreCalcRule'] == null
             || result['scoreCalcRule'] == ''){
-            layer.msg('考核方案基本信息有空值',{icon: 2});
+           // layer.msg('考核方案基本信息有空值',{icon: 2});
             return;
         }
         assBasicInfoAndPrv = result;

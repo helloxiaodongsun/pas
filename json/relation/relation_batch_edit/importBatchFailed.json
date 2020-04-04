@@ -1,0 +1,90 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": {
+    "sameArray": [
+      2
+    ],
+    "pageFinder": {
+      "pageSize": 10,
+      "rows": [
+        {
+          "cellStyleMap": {},
+          "key": "20000002171900019148218::20000002171900019148218",
+          "acctId": "2000000012",
+          "custId": "c2000000008",
+          "custName": "c2000000008",
+          "orgName": "测试机构_c2000000008",
+          "cerNum": "c2000000016",
+          "number": "1",
+          "empId": "110018",
+          "empName": "测试用户_110018",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "55",
+          "bizType": "公司存款",
+          "cerTypeDesc": "组织机构代码证",
+          "importRstDesc": "该账号数据已在审批流程中"
+        },
+        {
+          "cellStyleMap": {},
+          "key": "20000002171900019148218::20000002171900019148218",
+          "acctId": "2000000012",
+          "custId": "c2000000008",
+          "custName": "c2000000008",
+          "orgName": "测试机构_c2000000008",
+          "cerNum": "c2000000016",
+          "number": "1",
+          "empId": "110019",
+          "empName": "测试用户_110019",
+          "relaRoleDesc": "营销人",
+          "relaRatio": "77",
+          "bizType": "公司存款",
+          "cerTypeDesc": "组织机构代码证",
+          "importRstDesc": "该账号数据已在审批流程中"
+        }
+      ],
+      "total": 2,
+      "pageCount": 0,
+      "pageNo": 1,
+      "hasPrevious": false,
+      "hasNext": false,
+      "result": [
+        {
+          "cellStyleMap": {},
+          "key": "20000002171900019148218::20000002171900019148218",
+          "acctId": "2000000012",
+          "custId": "c2000000008",
+          "custName": "c2000000008",
+          "orgName": "测试机构_c2000000008",
+          "cerNum": "c2000000016",
+          "number": "1",
+          "empId": "110018",
+          "empName": "测试用户_110018",
+          "relaRoleDesc": "维护人",
+          "relaRatio": "55",
+          "bizType": "公司存款",
+          "cerTypeDesc": "组织机构代码证",
+          "importRstDesc": "该账号数据已在审批流程中"
+        },
+        {
+          "cellStyleMap": {},
+          "key": "20000002171900019148218::20000002171900019148218",
+          "acctId": "2000000012",
+          "custId": "c2000000008",
+          "custName": "c2000000008",
+          "orgName": "测试机构_c2000000008",
+          "cerNum": "c2000000016",
+          "number": "1",
+          "empId": "110019",
+          "empName": "测试用户_110019",
+          "relaRoleDesc": "营销人",
+          "relaRatio": "77",
+          "bizType": "公司存款",
+          "cerTypeDesc": "组织机构代码证",
+          "importRstDesc": "该账号数据已在审批流程中"
+        }
+      ],
+      "startOfPage": 0
+    }
+  }
+}

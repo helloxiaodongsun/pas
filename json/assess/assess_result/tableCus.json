@@ -1,0 +1,158 @@
+{
+  "code": "200",
+  "message": "SUCCESS",
+  "data": [
+    [
+      {
+        "title": "考核对象编号",
+        "rowNumber": 1,
+        "colNumber": 1,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "assobjid",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "考核对象名称",
+        "rowNumber": 1,
+        "colNumber": 2,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "assobjname",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "考核指标定位",
+        "rowNumber": 1,
+        "colNumber": 3,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "assindexorient",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "指标名称",
+        "rowNumber": 1,
+        "colNumber": 4,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "indexname",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "考核类别",
+        "rowNumber": 1,
+        "colNumber": 5,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "asscate",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "得分计算规则",
+        "rowNumber": 1,
+        "colNumber": 6,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "scorecalcrulecd",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "权重",
+        "rowNumber": 1,
+        "colNumber": 7,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "neguwei",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "指标上限（倍）",
+        "rowNumber": 1,
+        "colNumber": 8,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "indexceil",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "业绩",
+        "rowNumber": 1,
+        "colNumber": 9,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "per",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "必保指标值",
+        "rowNumber": 1,
+        "colNumber": 10,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "neguindexval",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "必保指标完成比(%)",
+        "rowNumber": 1,
+        "colNumber": 11,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "neguindexcmpltratio",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "必保指标得分",
+        "rowNumber": 1,
+        "colNumber": 12,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "neguscore",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "力争指标值",
+        "rowNumber": 1,
+        "colNumber": 13,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "whfindexval",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "力争指标完成比(%)",
+        "rowNumber": 1,
+        "colNumber": 14,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "whfindexcmpltratio",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "力争指标得分",
+        "rowNumber": 1,
+        "colNumber": 15,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "whfscore",
+        "align": "center",
+        "valign": "middle"
+      }
+    ]
+  ]
+}

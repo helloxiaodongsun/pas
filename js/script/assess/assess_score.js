@@ -14,7 +14,7 @@ var isEdit = false;
 var formSequence = undefined;
 var checkedKey = [];
 var scoreList = undefined;
-var updateCell = new Object();
+var updateCell = [];
 //操作状态
 var oprType = undefined;
 var vaildRes = '0';
@@ -47,7 +47,8 @@ $(function () {
     $('#state').selectpicker('val', '02').selectpicker('refresh');
     //初始化查询
     TabObj.aQlyvIndexScoreTable(true);
-
+    $("#assPropId").val("1000026");
+    $("#assPropName").val("考核方案1");
     $("#assPropId").change(function () {
         var value = $(this).val();
         if (value != null && value != '' && value != undefined) {
@@ -79,17 +80,17 @@ $(function () {
         }
         $("#assPropId").val('');
     });
-    $('#btn_commit').attr("style", "display:none");
-    $('#btn_save').attr("style", "display:none");
+    //$('#btn_commit').attr("style", "display:none");
+    //$('#btn_save').attr("style", "display:none");
     layer.closeAll();
 });
 
 var TabObj = {
     aQlyvIndexScoreTable: function (initFlag, validRes) {
-        var url = portal.bp() + '/assess/score/getAQlyvIndexScore';
-        if (initFlag == true) {
+        var url = portal.bp() + './json/assess/assess_score/getAQlyvIndexScore.json';
+       /* if (initFlag == true) {
             url = '';
-        }
+        }*/
 
         var columnsInfo = [
             {
@@ -217,12 +218,13 @@ var TabObj = {
             }
         ];
 
-        var columns = [];
+       /* var columns = [];
         if (state == '01' || validRes == '0' || validRes == null || validRes == undefined || validRes == '') {
             columns = columnsInfo;
         } else {
-            columns = columnsEdit;
-        }
+
+        }*/
+        columns = columnsEdit;
 
 
         $('#aQlyvIndexScoreTable').bootstrapTable('destroy').bootstrapTable({
@@ -439,13 +441,15 @@ function query() {
             break;
     }
     vaildRes = vaildEditable(assPropId,assMon);
-    if(state !='01' && vaildRes == '1'){
+    /*if(state !='01' && vaildRes == '1'){
         $('#btn_save').attr("style", "display:inline");
         $('#btn_commit').attr("style", "display:inline");
     }else{
         $('#btn_commit').attr("style", "display:none");
         $('#btn_save').attr("style", "display:none");
-    }
+    }*/
+    $('#btn_save').attr("style", "display:inline");
+    $('#btn_commit').attr("style", "display:inline");
 
 
 
@@ -550,7 +554,7 @@ function initBelongOrgId() {
     var html = "";
     var checkOrgId = '';
     $.ajax({
-        url: portal.bp() + '/assess/belongorg?r=' + Math.random(),
+        url: portal.bp() + './json/assess/belongorg.json?r=' + Math.random(),
         type: 'get',
         async: false,
         data: {},
@@ -658,7 +662,10 @@ function btn_commit() {
         layer.msg("至少选中一条数据", {icon: 2});
         return;
     }
-    switch (state) {
+    layer.msg("提交成功", {icon: 1});
+    TabObj.aQlyvIndexScoreTable(false, vaildRes);
+    checkedKey = [];
+    /*switch (state) {
         case '02':  //审批通过
         case '05':  //未打分
             var his = saveToHis(checkedKey, formSequence, "1");
@@ -678,7 +685,7 @@ function btn_commit() {
             }
             break;
 
-    }
+    }*/
 
     //获得当前页选中但是还未保存的数据
     /* var notSaveData = $('#aQlyvIndexScoreTable').bootstrapTable('getSelections');
@@ -760,12 +767,12 @@ function btn_save() {
 
      }*/
 
-    var his = saveToHis(checkedKey, formSequence, "0");
-    if (his) {
+    //var his = saveToHis(checkedKey, formSequence, "0");
+   /* if (his) {*/
         layer.msg("保存成功", {icon: 1});
         TabObj.aQlyvIndexScoreTable(false, vaildRes);
         checkedKey = [];
-    }
+    /*}*/
 
 
 }

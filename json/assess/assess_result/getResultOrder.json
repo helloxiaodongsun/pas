@@ -1,0 +1,92 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": {
+    "pageSize": 10,
+    "rows": [
+      {
+        "assObjId": "1001",
+        "assObjName": "测试1001",
+        "sumOfScoreSum": "30"
+      },
+      {
+        "assObjId": "1002",
+        "assObjName": "测试1002",
+        "sumOfScoreSum": "31"
+      },
+      {
+        "assObjId": "1003",
+        "assObjName": "测试1003",
+        "sumOfScoreSum": "32"
+      },
+      {
+        "assObjId": "1004",
+        "assObjName": "测试1004",
+        "sumOfScoreSum": "33"
+      },
+      {
+        "assObjId": "1005",
+        "assObjName": "测试1005",
+        "sumOfScoreSum": "34"
+      }
+    ],
+    "total": 10,
+    "pageCount": 0,
+    "pageNo": 1,
+    "hasPrevious": false,
+    "hasNext": false,
+    "result": [
+      {
+        "assObjId": "1001",
+        "assObjName": "测试1001",
+        "sumOfScoreSum": "30"
+      },
+      {
+        "assObjId": "1002",
+        "assObjName": "测试1002",
+        "sumOfScoreSum": "31"
+      },
+      {
+        "assObjId": "1003",
+        "assObjName": "测试1003",
+        "sumOfScoreSum": "32"
+      },
+      {
+        "assObjId": "1004",
+        "assObjName": "测试1004",
+        "sumOfScoreSum": "33"
+      },
+      {
+        "assObjId": "1005",
+        "assObjName": "测试1005",
+        "sumOfScoreSum": "34"
+      },
+      {
+        "assObjId": "1006",
+        "assObjName": "测试1006",
+        "sumOfScoreSum": "35"
+      },
+      {
+        "assObjId": "1007",
+        "assObjName": "测试1007",
+        "sumOfScoreSum": "36"
+      },
+      {
+        "assObjId": "1008",
+        "assObjName": "测试1008",
+        "sumOfScoreSum": "37"
+      },
+      {
+        "assObjId": "1009",
+        "assObjName": "测试1009",
+        "sumOfScoreSum": "38"
+      },
+      {
+        "assObjId": "1010",
+        "assObjName": "测试1010",
+        "sumOfScoreSum": "39"
+      }
+    ],
+    "startOfPage": 0
+  }
+}

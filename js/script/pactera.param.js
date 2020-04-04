@@ -391,7 +391,7 @@ var tipsMap = {};
         getRelationStatusList: function () {
             var relaStatusList = "";
             $.ajax({
-                url: portal.bp() + '/relation/getRealStatusByUserRole?r='+Math.random(),
+                url: portal.bp() + './json/relation/relation_index/getRealStatusByUserRole.json?r='+Math.random(),
                 type: 'post',
                 async: false,
                 /*data: {
@@ -1069,7 +1069,7 @@ var tipsMap = {};
         validEmpNum:function(queryParam) {
         var res;
         $.ajax({
-            url: portal.bp() + '/relation/validOrgOfAcctAndEmpNum',
+            url: portal.bp() + './json/relation/relation_index/validOrgOfAcctAndEmpNum.json',
             type: 'post',
             async: false,
             contentType: "application./json;charset=UTF-8",

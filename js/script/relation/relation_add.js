@@ -25,7 +25,7 @@ $(function () {
     //$("#bizTypeCds").selectpicker('val', '33');
     document.getElementById('bizTypeCds').options.selectedIndex = '0';
     $('#bizTypeCds').selectpicker('refresh');
-    
+
     $("#bizTypeCds").on('changed.bs.select',function(a,b,c,d){
 		if(!$(this).selectpicker('val')){
 			//必选
@@ -45,19 +45,20 @@ $(function () {
         } else {
             //业绩分配
             //校验，选择的业务类型应属于同一类
-            var array = new Array();
+            var array = [];
             for (var i = 0; i < checklist.length; i++) {
                 array.push(checklist[i]['bizTypeCd']);
             }
 
             $.ajax({
-                url: portal.bp() + '/relation/validSelectedBizTypes',
-                type: 'post',
+                url: portal.bp() + './json/relation/relation_add/validSelectedBizTypes.json',
+                type: 'get',
                 async : false, // 同步 为全局变量赋值
                 cache:false,
-                data: {
+                /*data: {
                     'bizTypes': array
-                },
+                },*/
+                dataType:"json",
                 success: function (data) {
                     if (data.code != '200' || data.data == -1) {
                         layer.msg("选择的记录不属于同一类业务类型", {icon: 3});
@@ -148,7 +149,7 @@ $(function () {
         };
         var index;
         $.ajax({
-            url: portal.bp() + '/relation/todo',
+            url: portal.bp() + './json/ok.json',
             type: 'post',
             cache: false,
             contentType: "application/json;charset=UTF-8",
@@ -199,7 +200,7 @@ $(function () {
             object['acctData']=array;
             var index;
             $.ajax({
-                url: portal.bp() + '/relation/workflowPass',
+                url: portal.bp() + './json/ok.json',
                 type: 'post',
                 cache: false,
                 contentType: "application/json;charset=UTF-8",
@@ -235,11 +236,11 @@ $(function () {
 var TableObj = {
     //查询页表格
     relationAddTable: function (flag) {
-        var url=  portal.bp() + '/relation/selectByPage';
+        var url=  portal.bp() + './json/relation/relation_add/selectByPage.json';
 
-        if(flag){
+        /*if(flag){
             url=undefined;
-        }
+        }*/
 
         var columns = [
             {
@@ -350,7 +351,7 @@ var TableObj = {
                 editable: {
                     type: 'select',
                     title: '关联角色',
-                    source: $.param.getEditableJsonByParentIdByType(roleTypeCode),
+                    source: $.param.getEditableJsonByParentIdByType('AB0006'),
                     //mode: 'inline',
                     placement: 'top',
                     emptytext: "空",
@@ -600,7 +601,7 @@ var TableObj = {
         ];
 
         $('#relationApprovalAddTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/selectApprovalInfoByAcctIds',
+            url: portal.bp() + './json/relation/relation_add/selectApprovalInfoByAcctIds.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -679,7 +680,7 @@ function resetForm() {
 //初始化机构选择列表
 function getOrgList() {
     $.ajax({
-        url: portal.bp() + '/org/validOrgNotFFBSForGroup',
+        url: portal.bp() + './json/relation/relation_index/validOrgNotFFBSForGroup.json',
         type: "get",
         data:{'menuId':'1200'},
         cache: false,
@@ -761,7 +762,7 @@ function mergeTool(target, merIndex, filedNameArray, colspan, rowspan) {
 function getBizTypeCd() {
     var html = "";
     $.ajax({
-        url: portal.bp() + '/relation/getBizTypeCd?r='+Math.random(),
+        url: portal.bp() + './json/relation/relation_index/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

@@ -43,7 +43,7 @@ $(function () {
                 object['approvalFlag']='0';
                 var index;
                 $.ajax({
-                    url: portal.bp() + '/relation/workflowPass',
+                    url: portal.bp() + './json/ok.json',
                     type: 'post',
                     cache: false,
                     contentType: "application/json;charset=UTF-8",
@@ -51,7 +51,7 @@ $(function () {
                     data: JSON.stringify(object),
                     success: function (data) {
                         if (data.code == '200') {
-                            layer.msg("审批成功", {icon: 1});
+                            layer.msg("审批成功", {icon: 1,time:1000});
                             $('#relationApprovalInfoTable').bootstrapTable('refresh');
                         } else {
                             layer.msg(data.message, {icon: 2});
@@ -107,7 +107,7 @@ $(function () {
         object['rejectDesc']=$("#rejectDesc").val();
         var index;
         $.ajax({
-            url: portal.bp() + '/relation/workflowReject',
+            url: portal.bp() + './json/ok.json',
             type: 'post',
             cache: false,
             contentType: "application/json;charset=UTF-8",
@@ -116,7 +116,7 @@ $(function () {
             success: function (data) {
                 $("#rejectModel").modal("hide");
                 if (data.code == '200') {
-                    layer.msg("操作成功", {icon: 1});
+                    layer.msg("拒绝成功", {icon: 1,time:1000});
 
                     $('#relationApprovalInfoTable').bootstrapTable('refresh');
                 } else {
@@ -206,7 +206,7 @@ var TableObj = {
         ];
 
         $('#relationApprovalInfoTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/ownWorkflowList',
+            url: portal.bp() + './json/relation/relation_approval/ownWorkflowList.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）

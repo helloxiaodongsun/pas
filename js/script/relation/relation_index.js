@@ -991,7 +991,7 @@ function getOrgList() {
 function getBizTypeCd() {
     var bizTypeList = "";
     $.ajax({
-        url: portal.bp() + './json/relation/relation_index/getBizTypeCd.json?r=' + Math.random(),
+        url: portal.bp() + './json/relation/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

@@ -47,7 +47,7 @@ $(function () {
 var TableObj = {
     relationTransferFactory: function (flag) {
 
-        var url = portal.bp() + '/relation/selectAcctInfoFromRealInfo';
+        var url = portal.bp() + './json/relation/relation_transfer/selectAcctInfoFromRealInfo.json';
         if(flag){
             url=undefined;
         }
@@ -248,7 +248,7 @@ function transferSave(approvalFlag) {
     var paramStr = JSON.stringify(paramObj);
 
     $.ajax({
-        url: portal.bp() + '/relation/relationTransferSave',
+        url: portal.bp() + './json/ok.json',
         type: 'post',
         cache: false,
         contentType: "application/json;charset=UTF-8",
@@ -269,11 +269,12 @@ function transferSave(approvalFlag) {
 function selectEmpInfo(obj) {
     if (obj.value != null && obj.value != undefined && obj.value != '') {
         $.ajax({
-            url: portal.bp() + '/user/getEmpInfoByEmpNum',
-            type: 'post',
+            url: portal.bp() + './json/user/getEmpInfoByEmpNum.json',
+            type: 'get',
             cache: false,
             /* contentType: "application/json;charset=UTF-8",
              dataType: "json",*/
+            dataType: "json",
             data: {
                 'empId': obj.value
             },
@@ -352,7 +353,7 @@ function diffAndOpr(array, row, opr) {
 function getBizTypeCd() {
     var html = "";
     $.ajax({
-        url: portal.bp() + '/relation/getBizTypeCd?r='+Math.random(),
+        url: portal.bp() + './json/relation/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

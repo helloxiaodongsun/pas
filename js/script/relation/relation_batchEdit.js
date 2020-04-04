@@ -371,7 +371,7 @@ var TableObj = {
         });
     },
     relationBatchEditFactory: function (flag) {
-        var url = portal.bp() + '/relation/selectAcctInfoFromRealInfo';
+        var url = portal.bp() + './json/relation/relation_transfer/selectAcctInfoFromRealInfo';
 
         if (flag) {
             url = undefined;
@@ -767,7 +767,7 @@ $(document).on('ready', function () {
 function getBizTypeCd() {
     var html = "";
     $.ajax({
-        url: portal.bp() + '/relation/getBizTypeCd?r=' + Math.random(),
+        url: portal.bp() + './json/relation/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

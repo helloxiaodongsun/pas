@@ -19,7 +19,7 @@
             "pid": "1000",
             "id": "1200",
             "iconWay": null,
-            "url": "/relation/relation_addIndex.html"
+            "url": "/relation/relation_add.html"
           },
           {
             "code": "1300",
@@ -27,7 +27,7 @@
             "pid": "1000",
             "id": "1300",
             "iconWay": null,
-            "url": "/relation/relation_importIndex.html"
+            "url": "/relation/relation_import.html"
           },
           {
             "code": "1400",
@@ -35,7 +35,7 @@
             "pid": "1000",
             "id": "1400",
             "iconWay": null,
-            "url": "/relation/relation_editIndex.html"
+            "url": "/relation/relation_edit.html"
           },
           {
             "code": "1500",
@@ -43,7 +43,7 @@
             "pid": "1000",
             "id": "1500",
             "iconWay": null,
-            "url": "/relation/relation_batchEditIndex.html"
+            "url": "/relation/relation_batchEdit.html"
           },
           {
             "code": "1600",
@@ -51,7 +51,7 @@
             "pid": "1000",
             "id": "1600",
             "iconWay": null,
-            "url": "/relation/relation_transferIndex.html"
+            "url": "/relation/relation_transfer.html"
           },
           {
             "code": "1700",
@@ -59,7 +59,7 @@
             "pid": "1000",
             "id": "1700",
             "iconWay": null,
-            "url": "/relation/relation_approvalIndex.html"
+            "url": "/relation/relation_approval.html"
           }
         ],
         "name": "关联关系管理",

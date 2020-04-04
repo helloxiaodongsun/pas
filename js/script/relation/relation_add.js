@@ -762,7 +762,7 @@ function mergeTool(target, merIndex, filedNameArray, colspan, rowspan) {
 function getBizTypeCd() {
     var html = "";
     $.ajax({
-        url: portal.bp() + './json/relation/relation_index/getBizTypeCd.json?r=' + Math.random(),
+        url: portal.bp() + './json/relation/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

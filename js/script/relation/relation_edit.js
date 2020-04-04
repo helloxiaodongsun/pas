@@ -99,7 +99,7 @@ $(function () {
         };
         var index;
         $.ajax({
-            url: portal.bp() + '/relation/todo',
+            url: portal.bp() + './json/ok.json',
             type: 'post',
             cache: false,
             contentType: "application/json;charset=UTF-8",
@@ -147,7 +147,7 @@ $(function () {
             object['acctData']=array;
             var index;
             $.ajax({
-                url: portal.bp() + '/relation/workflowPass',
+                url: portal.bp() + './json/ok.json',
                 type: 'post',
                 cache: false,
                 contentType: "application/json;charset=UTF-8",
@@ -232,7 +232,7 @@ var TableObj = {
         ];
 
         $('#relationTable').bootstrapTable({
-            url: portal.bp() + '/relation/selectRelInoByPageNoBizType',
+            url: portal.bp() + './json/relation/relation_edit/selectRelInoByPageNoBizType.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -439,7 +439,7 @@ var TableObj = {
             }
         ];
         $('#relationMarkTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/selectAllAcctInfo',
+            url: portal.bp() + './json/relation/relation_index/selectAllAcctInfo.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -579,7 +579,7 @@ var TableObj = {
         ];
 
         $('#relationApprovalTable').bootstrapTable('destroy').bootstrapTable({
-            url: portal.bp() + '/relation/selectApprovalInfoByAcctIds',
+            url: portal.bp() + './json/relation/relation_add/selectApprovalInfoByAcctIds.json',
             method: 'post',      //请求方式（*）
             striped: true,      //是否显示行间隔色
             cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -637,10 +637,11 @@ window.operateEvents = {
         }
         var index;
         $.ajax({
-            url: portal.bp() + '/relation/selectRoleCusType',
+            url: portal.bp() + './json/relation/relation_index/selectRoleCusType.json',
             type: 'post',
             async: false,
             cache: false,
+            dataType:'json',
             data: {
                 'bizTypeCd': row.bizTypeCd
             },
@@ -766,7 +767,7 @@ function mergeTool(target, merIndex, filedNameArray, colspan, rowspan) {
 function getBizTypeCd() {
     var html = "";
     $.ajax({
-        url: portal.bp() + '/relation/getBizTypeCd?r='+Math.random(),
+        url: portal.bp() + './json/relation/getBizTypeCd.json?r=' + Math.random(),
         type: 'get',
         async: false,
         dataType: "json"

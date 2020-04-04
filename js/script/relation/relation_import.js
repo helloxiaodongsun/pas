@@ -40,7 +40,7 @@ $(function () {
 
 			var index;
 			$.ajax({
-				url: portal.bp() + '/relation/workflowPass',
+				url: portal.bp() + './json/ok.json',
 				type: 'post',
 				cache: false,
 				contentType: "application/json;charset=UTF-8",

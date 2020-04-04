@@ -1,1 +1,194 @@
-{"code":"200","message":"SUCCESS","data":{"pageSize":15,"rows":[{"menuId":"3320","menuDesc":"LS001_资金量报表_管辖行","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_CAPT_REP_REG_LINE-LS016","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":1,"checked":false,"isFavorite":"1"},{"menuId":"3330","menuDesc":"LS002_资金量报表_支行","menuLevel":"3","urlAddress":"/table/T05/index/A_REB_CAPT_REP_SUB_BRCH-LS017","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":2,"checked":false,"isFavorite":"0"},{"menuId":"3340","menuDesc":"LS003_储蓄报表_管辖行","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_DPST_REP_REG_LINE-LS018","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":3,"checked":false,"isFavorite":"0"},{"menuId":"3350","menuDesc":"LS004_储蓄报表_支行","menuLevel":"3","urlAddress":"/table/T05/index/A_REB_DPST_REP_SUB_BRCH-LS019","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":4,"checked":false,"isFavorite":"0"},{"menuId":"3360","menuDesc":"LS005_个贷规模战报时点余额查询","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS034","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":5,"checked":false,"isFavorite":"0"},{"menuId":"3370","menuDesc":"LS006_个贷规模战报日均余额查询","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS035","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":6,"checked":false,"isFavorite":"0"},{"menuId":"3380","menuDesc":"LS007_个贷规模战报任意时点日均余额查询","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS036","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":7,"checked":false,"isFavorite":"0"},{"menuId":"33260","menuDesc":"LS008_各层级客户结构","menuLevel":"3","urlAddress":"/table/T09/index/A_REB_HIRCHY_CUST_STRU-LS026","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":8,"checked":false,"isFavorite":"0"},{"menuId":"3310","menuDesc":"LS009_个人理财统计表","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_FINANC_STAT_TAB-LS048","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":9,"checked":false,"isFavorite":"0"},{"menuId":"33620","menuDesc":"LS010_持有产品报表_汇总表","menuLevel":"3","urlAddress":"/table/T11/index/A_REB_HOLD_PROD_SUM_REP-LS062","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":10,"checked":false,"isFavorite":"0"},{"menuId":"33560","menuDesc":"LS011_持有产品报表_明细表","menuLevel":"3","urlAddress":"/table/T11/index/A_REB_HOLD_PROD_DTL_REP-LS056","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":11,"checked":false,"isFavorite":"0"},{"menuId":"33220","menuDesc":"LS012_代发工资客户持有产品汇总","menuLevel":"3","urlAddress":"/table/T01/index/A_REB_PAY_AGEN_CUST_PROD_SUM-LS004","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":12,"checked":false,"isFavorite":"0"},{"menuId":"33230","menuDesc":"LS013_代发工资客户持有产品明细","menuLevel":"3","urlAddress":"/table/T01/index/A_PAYROLL_AGEN_CUST_HOLD_PROD_DTL-LS003","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":13,"checked":false,"isFavorite":"0"},{"menuId":"33110","menuDesc":"LS014_定期到期","menuLevel":"3","urlAddress":"/table/T07/index/A_REB_TIME_MATURE-LS010","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":14,"checked":false,"isFavorite":"0"},{"menuId":"33120","menuDesc":"LS015_结构性存款到期","menuLevel":"3","urlAddress":"/table/T07/index/A_REB_STDP_MATURE-LS011","fatherNode":"3300","menuType":"1","isActive":"1","menuNo":15,"checked":false,"isFavorite":"0"}],"total":34,"pageCount":0,"pageNo":1,"hasPrevious":false,"hasNext":false}}
+{
+    "code": "200",
+    "message": "SUCCESS",
+    "data": {
+      "pageSize": 15,
+      "rows": [
+        {
+          "menuId": "3320",
+          "menuDesc": "LS001_资金量报表_管辖行",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_CAPT_REP_REG_LINE-LS016",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 1,
+          "checked": false,
+          "isFavorite": "1"
+        },
+        {
+          "menuId": "3330",
+          "menuDesc": "LS002_资金量报表_支行",
+          "menuLevel": "3",
+          "urlAddress": "/table/T05/index/A_REB_CAPT_REP_SUB_BRCH-LS017",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 2,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "3340",
+          "menuDesc": "LS003_储蓄报表_管辖行",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_DPST_REP_REG_LINE-LS018",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 3,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "3350",
+          "menuDesc": "LS004_储蓄报表_支行",
+          "menuLevel": "3",
+          "urlAddress": "/table/T05/index/A_REB_DPST_REP_SUB_BRCH-LS019",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 4,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "3360",
+          "menuDesc": "LS005_个贷规模战报时点余额查询",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS034",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 5,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "3370",
+          "menuDesc": "LS006_个贷规模战报日均余额查询",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS035",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 6,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "3380",
+          "menuDesc": "LS007_个贷规模战报任意时点日均余额查询",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_LOAN_SIZE_SITU_TAB-LS036",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 7,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33260",
+          "menuDesc": "LS008_各层级客户结构",
+          "menuLevel": "3",
+          "urlAddress": "/table/T09/index/A_REB_HIRCHY_CUST_STRU-LS026",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 8,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "3310",
+          "menuDesc": "LS009_个人理财统计表",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_FINANC_STAT_TAB-LS048",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 9,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33620",
+          "menuDesc": "LS010_持有产品报表_汇总表",
+          "menuLevel": "3",
+          "urlAddress": "/table/T11/index/A_REB_HOLD_PROD_SUM_REP-LS062",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 10,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33560",
+          "menuDesc": "LS011_持有产品报表_明细表",
+          "menuLevel": "3",
+          "urlAddress": "/table/T11/index/A_REB_HOLD_PROD_DTL_REP-LS056",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 11,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33220",
+          "menuDesc": "LS012_代发工资客户持有产品汇总",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_REB_PAY_AGEN_CUST_PROD_SUM-LS004",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 12,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33230",
+          "menuDesc": "LS013_代发工资客户持有产品明细",
+          "menuLevel": "3",
+          "urlAddress": "/table/T01/index/A_PAYROLL_AGEN_CUST_HOLD_PROD_DTL-LS003",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 13,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33110",
+          "menuDesc": "LS014_定期到期",
+          "menuLevel": "3",
+          "urlAddress": "/table/T07/index/A_REB_TIME_MATURE-LS010",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 14,
+          "checked": false,
+          "isFavorite": "0"
+        },
+        {
+          "menuId": "33120",
+          "menuDesc": "LS015_结构性存款到期",
+          "menuLevel": "3",
+          "urlAddress": "/table/T07/index/A_REB_STDP_MATURE-LS011",
+          "fatherNode": "3300",
+          "menuType": "1",
+          "isActive": "1",
+          "menuNo": 15,
+          "checked": false,
+          "isFavorite": "0"
+        }
+      ],
+      "total": 34,
+      "pageCount": 0,
+      "pageNo": 1,
+      "hasPrevious": false,
+      "hasNext": false
+    }
+  }

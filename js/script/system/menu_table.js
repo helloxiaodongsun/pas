@@ -52,8 +52,21 @@ var TableObj={
                       && row['urlAddress'] !=''
                       && row['urlAddress'] !=null
                       && row['urlAddress'] !== undefined) {
-                      html='<a href="#" data-url="'+url_suffix+
-                          row['urlAddress']+'?menuId='+row['menuId']+'&mid='+
+                        var dataurl;  
+                        if(menuId=='3400'){
+                            //公司报表
+                            dataurl = 'reportingService/GS010.html';
+                          }else if(menuId=='3300'){
+                            //零售报表
+                            dataurl = 'reportingService/LS022.html';
+                          }else if(menuId=='3800'){
+                            //综合报表
+                            dataurl = 'reportingService/ZH001.html';
+                          }
+                        
+
+                      html='<a href="#" data-url="'+dataurl+
+                          '?menuId='+row['menuId']+'&mid='+
                           row['menuId']+'" id="'+url_suffix+row['urlAddress']+
                           '?menuId='+row['menuId']+'&mid='+row['menuId']+
                           '" data-index="'+row['menuId']+'" onclick="tab1(this)">'+row['menuDesc']+

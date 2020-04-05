@@ -39,6 +39,10 @@ $(function () {
         }
     });
     layer.closeAll('loading');
+    total = document.documentElement.clientHeight;
+    colHeight = total-200-document.getElementById("tableSearch").offsetTop;
+    document.getElementById("tableSearch").style.height=colHeight+"px";
+    document.getElementById("tableEmp").style.height=colHeight+"px";
 
 });
 
@@ -124,7 +128,7 @@ var TableObj = {
             sortOrder: "desc",     //排序方式
             singleSelect: false,    //是否单选，true时没有全选按钮
             "queryParamsType": "limit",
-            height: 380,
+           // height: 'auto',
             contentType: "application/json;charset=UTF-8",
             queryParams: function (params) {
                 var acctInfoObj = new Object();

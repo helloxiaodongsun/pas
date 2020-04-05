@@ -1,0 +1,31 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "ORDER_NO": 1,
+      "ENCODE": "1",
+      "NAME": "分行+管理部"
+    },
+    {
+      "ORDER_NO": 2,
+      "ENCODE": "2",
+      "NAME": "分行"
+    },
+    {
+      "ORDER_NO": 3,
+      "ENCODE": "3",
+      "NAME": "主管行"
+    },
+    {
+      "ORDER_NO": 4,
+      "ENCODE": "4",
+      "NAME": "管辖行"
+    },
+    {
+      "ORDER_NO": 5,
+      "ENCODE": "5",
+      "NAME": "支行"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "SUPER_ORG_HIRCHY",
+    "nameCn": "机构层级",
+    "formType": "2",
+    "codeParent": "TB0056",
+    "sortable": 1,
+    "iswhere": "1",
+    "isCheck": "4",
+    "isOrderBy": "0",
+    "dataBaseUser": "PAS_ADM"
+  },
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "SUPER_ORG_NUM",
+    "nameCn": "机构名称",
+    "formType": "2",
+    "codeParent": "ORG_REPORT",
+    "sortable": 2,
+    "iswhere": "1",
+    "isOrderBy": "1",
+    "dataBaseUser": "PAS_ADM",
+    "orderByType": "asc"
+  },
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "DW",
+    "nameCn": "单位",
+    "formType": "2",
+    "codeParent": "MONETARY_UNIT",
+    "sortable": 3,
+    "iswhere": "0",
+    "isCheck": "02",
+    "isOrderBy": "0",
+    "dataBaseUser": "PAS_ADM"
+  },
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "DATA_DT",
+    "nameCn": "统计日期",
+    "formType": "3",
+    "sortable": 4,
+    "iswhere": "1",
+    "isOrderBy": "0",
+    "dataBaseUser": "PAS_ADM"
+  },
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "TJKJ",
+    "nameCn": "统计口径",
+    "formType": "2",
+    "codeParent": "STATISTICAL_CALIBER_TIME_POINT",
+    "sortable": 5,
+    "iswhere": "0",
+    "isCheck": "YEAR",
+    "isOrderBy": "0",
+    "dataBaseUser": "PAS_ADM"
+  },
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "SEQ_NUM",
+    "nameCn": "序号",
+    "sortable": 6,
+    "iswhere": "0",
+    "isOrderBy": "2",
+    "dataBaseUser": "PAS_ADM",
+    "orderByType": "asc"
+  },
+  {
+    "tableName": "A_PLF_CUST_DPSIT_TAB-JC001",
+    "tableNameCn": "客户存款时点余额及增量情况一览表",
+    "nameEn": "ORG_NUM",
+    "nameCn": "机构号",
+    "sortable": 7,
+    "iswhere": "0",
+    "isOrderBy": "3",
+    "dataBaseUser": "PAS_ADM",
+    "orderByType": "asc"
+  }
+]

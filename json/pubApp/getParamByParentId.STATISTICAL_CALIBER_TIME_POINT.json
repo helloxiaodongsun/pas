@@ -1,0 +1,34 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "encode": "YEAR",
+      "parentId": "STATISTICAL_CALIBER_TIME_POINT",
+      "name": "较年初",
+      "isStartUse": "1",
+      "orderNo": 1
+    },
+    {
+      "encode": "QUARTER",
+      "parentId": "STATISTICAL_CALIBER_TIME_POINT",
+      "name": "较季初",
+      "isStartUse": "1",
+      "orderNo": 2
+    },
+    {
+      "encode": "MONTH",
+      "parentId": "STATISTICAL_CALIBER_TIME_POINT",
+      "name": "较月初",
+      "isStartUse": "1",
+      "orderNo": 3
+    },
+    {
+      "encode": "DAY",
+      "parentId": "STATISTICAL_CALIBER_TIME_POINT",
+      "name": "较上日",
+      "isStartUse": "1",
+      "orderNo": 4
+    }
+  ]
+}

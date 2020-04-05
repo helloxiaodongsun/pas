@@ -1,0 +1,27 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "encode": "01",
+      "parentId": "CURR_CD",
+      "name": "人民币",
+      "isStartUse": "1",
+      "orderNo": 1
+    },
+    {
+      "encode": "02",
+      "parentId": "CURR_CD",
+      "name": "外折人",
+      "isStartUse": "1",
+      "orderNo": 2
+    },
+    {
+      "encode": "03",
+      "parentId": "CURR_CD",
+      "name": "本外币",
+      "isStartUse": "1",
+      "orderNo": 3
+    }
+  ]
+}

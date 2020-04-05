@@ -4,7 +4,7 @@ var selectFromFavorites='02';
 var menuId = getUrlParam("menuId");
 $(function(){
 	document.onkeydown=kewDownSearch;
-	
+
     TableObj.menuTable();
     /*$('#add_favorites').attr("style", "display:inline");
     $('#remove_favorites').attr("style", "display:none");
@@ -52,7 +52,7 @@ var TableObj={
                       && row['urlAddress'] !=''
                       && row['urlAddress'] !=null
                       && row['urlAddress'] !== undefined) {
-                        var dataurl;  
+                        var dataurl;
                         if(menuId=='3400'){
                             //公司报表
                             dataurl = 'reportingService/GS010.html';
@@ -62,8 +62,17 @@ var TableObj={
                           }else if(menuId=='3800'){
                             //综合报表
                             dataurl = 'reportingService/ZH001.html';
-                          }
-                        
+                          }else if(menuId=='3500'){
+                            //市场报表
+                            dataurl='reportingService/SC020.html';
+                        }else if(menuId=='3600'){
+                            //计财报表
+                            dataurl='reportingService/productT01.html';
+                        }else if(menuId=='3900'){
+                            //补录报表
+                            dataurl='reportingService/GS026_BL.html';
+                        }
+
 
                       html='<a href="#" data-url="'+dataurl+
                           '?menuId='+row['menuId']+'&mid='+
@@ -136,7 +145,7 @@ var TableObj={
 };
 //查询
 function menu_query() {
-   var menuDescTmp= $('#menuDesc').val()
+   var menuDescTmp= $('#menuDesc').val();
     if(menuDescTmp !='' || menuDescTmp !=null || menuDescTmp != undefined) {
         menuDesc = $.trim(menuDescTmp);
     }else {

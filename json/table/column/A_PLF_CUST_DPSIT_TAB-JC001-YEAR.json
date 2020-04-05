@@ -1,0 +1,212 @@
+{
+  "code": "200",
+  "message": "SUCCESS",
+  "data": [
+    [
+      {
+        "title": "序号",
+        "rowNumber": 1,
+        "colNumber": 1,
+        "rowspan": 2,
+        "colspan": 1,
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "经营单位编号",
+        "rowNumber": 1,
+        "colNumber": 2,
+        "rowspan": 2,
+        "colspan": 1,
+        "field": "org_num",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "经营单位名称",
+        "rowNumber": 1,
+        "colNumber": 3,
+        "rowspan": 2,
+        "colspan": 1,
+        "field": "org_name",
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "时点余额",
+        "rowNumber": 1,
+        "colNumber": 4,
+        "rowspan": 1,
+        "colspan": 7,
+        "align": "center",
+        "valign": "middle"
+      },
+      {
+        "title": "较年初增量",
+        "rowNumber": 1,
+        "colNumber": 5,
+        "rowspan": 1,
+        "colspan": 7,
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      }
+    ],
+    [
+      {
+        "title": "本外币客户",
+        "rowNumber": 2,
+        "colNumber": 4,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_wcurr_cust",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "本外币公司",
+        "rowNumber": 2,
+        "colNumber": 5,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_wcurr_corp",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "人民币公司",
+        "rowNumber": 2,
+        "colNumber": 6,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_cny_corp",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "外币公司",
+        "rowNumber": 2,
+        "colNumber": 7,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_fcurr_corp",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "本外币个人",
+        "rowNumber": 2,
+        "colNumber": 8,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_wcurr_indv",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "人民币个人",
+        "rowNumber": 2,
+        "colNumber": 9,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_cny_indv",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "外币个人",
+        "rowNumber": 2,
+        "colNumber": 10,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "pnt_bal_fcurr_indv",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "本外币客户",
+        "rowNumber": 2,
+        "colNumber": 11,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_wcurr_cust",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "本外币公司",
+        "rowNumber": 2,
+        "colNumber": 12,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_wcurr_corp",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "人民币公司",
+        "rowNumber": 2,
+        "colNumber": 13,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_cny_corp",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "外币公司",
+        "rowNumber": 2,
+        "colNumber": 14,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_fcurr_corp",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "本外币个人",
+        "rowNumber": 2,
+        "colNumber": 15,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_wcurr_indv",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "人民币个人",
+        "rowNumber": 2,
+        "colNumber": 16,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_cny_indv",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      },
+      {
+        "title": "外币个人",
+        "rowNumber": 2,
+        "colNumber": 17,
+        "rowspan": 1,
+        "colspan": 1,
+        "field": "yb_incremt_fcurr_indv",
+        "align": "center",
+        "valign": "middle",
+        "matrixingTag": "1"
+      }
+    ]
+  ]
+}

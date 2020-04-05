@@ -1,10 +1,14 @@
 //删除id数组
 var deleteIds = [];
-var date = $.param.getEtlDate();
+var date = new Date().Format("yyyy-mm-dd");
+var empName = 'admin';
+var empNum = 'admin';
 $(function(){
 	 //$("#url").attr("href",portal.bp()+"/table/T01/index/A_REB_CAPT_REP_SUB_BRCH-LS017?mid=3330");
 	//初始化报表说明(备注)
-    $.ajax({
+	var trHtml = "<tr><td>暂无报表说明!</td></tr>";
+	$("#noteList").append(trHtml);
+    /*$.ajax({
            url: portal.bp() + '/table/queryNote',
            type: "get",
            async: false, // 同步 为全局变量赋值
@@ -25,35 +29,35 @@ $(function(){
 	            	}
 	            	$("#noteList .no-records-found").hide();
            	}
-           	
-           	
-           	
-              
+
+
+
+
            }
-   });
-	
+   });*/
+
     //新增行
     $("#btn_add").click(function(){
     	var length = $("#table1").bootstrapTable("getData").length;
-        var addtRcrdDt = getSystemDate("yyyy-MM-dd HH:mm:ss");
+        var addtRcrdDts = getSystemDate("yyyy-MM-dd HH:mm:ss");
     	$("#table1").bootstrapTable("insertRow",{
             index:length,
             row:{
-            	isAdd : true,          	
+            	isAdd : true,
             	guarCorpName	:'',
-            	addtRcrdDt	:addtRcrdDt,
-            	addtRcrdPersonEmpno	:empNum            	           	
+            	addtRcrdDt	:addtRcrdDts,
+            	addtRcrdPersonEmpno	:empNum
             }
         });
     	//更新表中修改过字段的颜色
-    	updateCellDataClass($("#table1"));
+    	//updateCellDataClass($("#table1"));
     });
     //删除行
 	$("#btn_del").click(function(){
         var length = $("#table1").bootstrapTable("getData").length;
         var checklist = $('#table1').bootstrapTable('getSelections');
 		var ids=[];
-		
+
 		$.each(checklist,function(index,item){
 			ids.push(item.number);
 			if(item.addtRcrdId!=undefined&&item.addtRcrdId!=null&&item.addtRcrdId!=''){
@@ -65,7 +69,7 @@ $(function(){
             values:ids
         });
       //更新表中修改过字段的颜色
-        updateCellDataClass($("#table1"));	
+        updateCellDataClass($("#table1"));
 
 	});
 	//保存
@@ -102,7 +106,7 @@ $(function(){
   		};
 		var index;
   		$.ajax({
-  			url:portal.bp() + '/table/addRecord/GS026_BLsaveAll',  			
+  			url:portal.bp() + './json/ok.json',
   			type:'post',
   			cache:false,
             contentType: "application/json;charset=UTF-8",
@@ -122,10 +126,10 @@ $(function(){
 			},
 			complete:function(XMLHttpRequest){
 				layerClose(index);
-			} 
+			}
   		});
-		
-		
+
+
 	});
 	query();
 });
@@ -142,7 +146,7 @@ function query() {
 var oldTable;
 var TableObjPage = {
 		table1: function () {
-	        var columns = 
+	        var columns =
 	              [
 	               {
 	            	   field:'check',
@@ -175,7 +179,7 @@ var TableObjPage = {
 			                    	}
 			                    }
 			                }
-					 },					 
+					 },
 					 {
 						 field:'addtRcrdDt',
 						 title:'补录时间',
@@ -188,7 +192,7 @@ var TableObjPage = {
 						 align: "center",
 						 valign: "middle",
 					 },
-	                
+
 	        ];
 	        $('#table1').bootstrapTable('destroy').bootstrapTable({
 	            url: portal.bp() + '/table/addRecord/GS026_BLquery',
@@ -204,7 +208,7 @@ var TableObjPage = {
 	            queryParams: function (params) {
 	                return {
 	                	'pageSize': params.limit,
-	                    'pageNum': (params.offset / params.limit) + 1,	                	
+	                    'pageNum': (params.offset / params.limit) + 1,
 	                };
 	            },
 	            sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
@@ -265,7 +269,7 @@ var TableObjPage = {
 							}
 						});
 					}
-					
+
 				},
 	            columns: columns,
 	        });
@@ -275,8 +279,8 @@ var TableObjPage = {
 
 var TableObjPageHistory = {
 		table2: function () {
-		    var columns = 
-		          [		           
+		    var columns =
+		          [
 					{
 						  field:'number',
 						  title:'序号',
@@ -292,8 +296,8 @@ var TableObjPageHistory = {
 						 title:'政策性担保公司名称',
 						 align: "center",
 						 valign: "middle",
-	
-					 },					 			 
+
+					 },
 					 {
 						 field:'addtRcrdDt',
 						 title:'补录时间',
@@ -312,7 +316,7 @@ var TableObjPageHistory = {
 						 align: "center",
 						 valign: "middle",
 					 },
-		            
+
 		    ];
 		    $('#table2').bootstrapTable('destroy').bootstrapTable({
 		        url: portal.bp() + '/table/addRecord/GS026_BLqueryAll',
@@ -328,7 +332,7 @@ var TableObjPageHistory = {
 		        queryParams: function (params) {
 		            return {
 		            	'pageSize': params.limit,
-		                'pageNum': (params.offset / params.limit) + 1,	                	
+		                'pageNum': (params.offset / params.limit) + 1,
 		            };
 		        },
 		        sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
@@ -364,11 +368,11 @@ var TableObjPageHistory = {
 		        onLoadSuccess: function (data) {
 		        	resizeTables();
 		        },
-		       
+
 		        columns: columns
-		
+
 		    });
 		}
 }
 
-		
+

@@ -330,6 +330,18 @@ var tipsMap = {};
             });
             return result;
         },
+        getWhereList: function (mid) {
+            var result = "";
+            $.ajax({
+                url: portal.bp() + './json/table/whereList'+ '/whereList_mid_' + mid + '.json?r=' + Math.random(),
+                type: 'get',
+                async: false,
+                dataType: "json"
+            }).done(function (data) {
+                    result = data;
+            });
+            return result;
+        },
         getCustByCerNum:function(cerType,cerNum){
         	var custName ="";
         	$.ajax({
@@ -426,6 +438,46 @@ var tipsMap = {};
             var columns = "";
             $.ajax({
                 url: portal.bp() + '/table/column?r='+Math.random(),
+                type: 'get',
+                async: false,
+                data: {
+                    "tableType": tableType
+                },
+                dataType: "json",
+            }).done(function (data) {
+                if (data.code == '200') {
+                    columns = data.data;
+                    $.each(columns, function (index, item) {
+                        $.each(item, function (subIndex, subItem) {
+
+                            if (subItem.subTableName != undefined && subItem.subTableName != null) {
+                                var increaseIndex = function index(value, row, index) {
+                                    var html = '';
+                                    html += '<a href="javascript:void(0)" id="showModel" '+'colName="'+subItem.field+'"' +
+                                        'subTableName="' + subItem.subTableName + '" >' + value + '</a>';
+                                    return html;
+                                }
+                                subItem.events = operateEvents;
+                                subItem.formatter = increaseIndex;
+                            }
+
+                            if (subItem.title === '序号') {
+                                var increaseIndex = function index(value, row, index) {
+                                    return index + 1;
+                                }
+                                subItem.formatter = increaseIndex;
+                            }
+                        });
+
+                    });
+                }
+            });
+            return columns;
+        },
+        getTableHeaderByTypeLoadLocal: function (tableType) {
+            var columns = "";
+            $.ajax({
+                url: portal.bp() + './json/table/column/'+tableType+'.json?r='+Math.random(),
                 type: 'get',
                 async: false,
                 data: {
@@ -938,7 +990,7 @@ var tipsMap = {};
         getOrgByLevel:function(level,mid){
         	var html = "";
             $.ajax({
-                url: portal.bp() + '/org/findOrgByLevel?r='+Math.random(),
+                url: portal.bp() + './json/org/findOrgByLevel.json?r='+Math.random(),
                 type: 'post',
                 async: false,
                 data: {

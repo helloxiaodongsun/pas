@@ -1,0 +1,27 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "encode": "01",
+      "parentId": "MONETARY_UNIT",
+      "name": "元",
+      "isStartUse": "1",
+      "orderNo": 1
+    },
+    {
+      "encode": "02",
+      "parentId": "MONETARY_UNIT",
+      "name": "万元",
+      "isStartUse": "1",
+      "orderNo": 2
+    },
+    {
+      "encode": "03",
+      "parentId": "MONETARY_UNIT",
+      "name": "亿元",
+      "isStartUse": "1",
+      "orderNo": 3
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-var date = $.param.getEtlDate();
+var date =  new Date().Format("yyyy-MM-dd");
 var mid = getUrlParam('mid');
 var result;
 var lastQueryParams = {};
@@ -11,38 +11,41 @@ $(function(){
 		todayBtn:true,
 		clearBtn:false,
 	});
-    
+
 	$("#DATA_DT").val(date);
 	//result = $.param.getOrgByLevels("LV5",mid);
 	$("#ORG_HIRCHY").html("").append(
 			$.param.getSelectOptionOrder("TB0056"))
 			.selectpicker('refresh').selectpicker('val', "5");
-	/*$("#ORG_NUM").html("").append($.param.getOrgByLevel("LV5",mid))
+	//var selectOptionOrder = $.param.getSelectOptionOrder("TB0056");
+	//var orgByLevelInit = $.param.getOrgByLevel("LV5", mid);
+	/*$("#ORG_NUM").html("").append(orgByLevelInit)
 			.selectpicker('refresh').selectpicker('val', result[0].orgNum);*/
-	
+
     $("#CURR_CD").html("").append(
 			$.param.getSelectOptionOrder("CURR_CD"))
 			.selectpicker('refresh').selectpicker('val', "03");
     $("#DW").html("").append(
     		$.param.getSelectOptionOrder("MONETARY_UNIT"))
     		.selectpicker('refresh').selectpicker('val', "02");
-    
+
     $("#DATA_DT").change(function(){
         var dateDt = $(this).val();
         if(dateDt ==""){
             $("#DATA_DT").val(date);
         }
     });
-    
+/*
     var html="";
     var level="";
     $.ajax({
-		url : portal.bp() + '/org/findAuthOrgHirchy',
+		url : portal.bp() + './json/org/findAuthOrgHirchy.json',
 		type : "get",
 		async : false, // 同步 为全局变量赋值
 		data : {
 			'mid':mid
 		},
+		dataType:'json',
 		cache : false,
 		success : function(data) {
 			if(data.code=='200'){
@@ -60,9 +63,9 @@ $(function(){
 					firstValue == '5';
 				}
 				$("#ORG_HIRCHY").empty().append(html);
-				
+
 				$("#ORG_HIRCHY").selectpicker('refresh').selectpicker('val',firstValue).change();
-				
+
 				if(firstValue=="1"){
 					level="LV1";
 				}else if(firstValue=="2"){
@@ -80,13 +83,13 @@ $(function(){
 			}
 		}
 	});
-    
+
     $("#ORG_HIRCHY").change(function(){
-        var levels = $(this).val();       
+        var levels = $(this).val();
         levels = "LV"+levels;
-        var results = $.param.getOrgByLevels(levels,mid);      
+        var results = $.param.getOrgByLevels(levels,mid);
         if(results.length>0){
-        	
+
         	$("#ORG_NUM").html("").append($.param.getOrgByLevel(levels,mid))
         	.selectpicker('refresh').selectpicker('val', results[0].orgNum);
         	//$("#ORG_NUM").selectpicker('refresh').selectpicker('val', results[0].orgNum).change();
@@ -94,7 +97,7 @@ $(function(){
         	$("#ORG_NUM").html("").append($.param.getOrgByLevel(levels,mid))
         	.selectpicker('refresh');
         }
-     
+
     });
     var tipsindex;
 	$("#ORG_NUM").parent().on('mouseover','.dropdown-menu ul li',function(){
@@ -108,11 +111,11 @@ $(function(){
 	});
 	$("#ORG_NUM").parent().on('mouseout','.dropdown-menu ul li',function(){
 		layer.close(tipsindex);
-	});
-    
-    
-    
-    $("#query").click(function(){
+	});*/
+
+
+
+/*    $("#query").click(function(){
     	var orgNum = $("#ORG_NUM").val();
     	if(orgNum==""||orgNum==null){
     		layer.msg("机构必选",{icon:3});
@@ -121,13 +124,16 @@ $(function(){
     	query();
     });
     query();
-    
+
     $("#tab1").click(function(){
     	TableObjNotPage.table1();
-    });
-    
+    });*/
+
+	TableObjNotPage.table1();
+	var trHtml = "<tr><td>暂无报表说明!</td></tr>";
+	$("#noteList").append(trHtml);
     //初始化报表说明(备注)
-    $.ajax({
+/*    $.ajax({
            url: portal.bp() + '/table/queryNote',
            type: "get",
            async: false, // 同步 为全局变量赋值
@@ -149,7 +155,7 @@ $(function(){
 	            	$("#noteList .no-records-found").hide();
            	}
            }
-   });
+   });*/
 });
 function exportCurrentPageExcel(){
 	var columns = $("#table1").bootstrapTable('getOptions').columns;
@@ -170,23 +176,23 @@ function exportAllDataExcel(){
 //查询
 function query() {
 	if($("#ORG_NUM").length>0){
-		if($("#ORG_NUM").val()==undefined||$("#ORG_NUM").val()==null||$("#ORG_NUM").val()==null){
+		if($("#ORG_NUM").val()==undefined ||$("#ORG_NUM").val()==null){
 			layer.msg("机构必选",{icon:3});
 			return;
 		}
 	}
 	if($("#SUPER_ORG_NUM").length>0){
-		if($("#SUPER_ORG_NUM").val()==undefined||$("#SUPER_ORG_NUM").val()==null||$("#SUPER_ORG_NUM").val()==null){
+		if($("#SUPER_ORG_NUM").val()==undefined ||$("#SUPER_ORG_NUM").val()==null){
 			layer.msg("机构必选",{icon:3});
 			return;
 		}
 	}
     TableObjNotPage.table1();
-    
+
 }
 function initTable(tableId,columns){
 	$('#'+tableId).bootstrapTable('destroy').bootstrapTable({
-        url: portal.bp() + '/table/SC020/'+tableId,
+        url: 'portal.bp()/table/SC020query',
         method: 'get',      //请求方式（*）
         striped: true,      //是否显示行间隔色
         cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -207,7 +213,7 @@ function initTable(tableId,columns){
             	'DW':$("#DW").selectpicker("val"),
             	'logTableName':'A_MKB_IBANK_MDL_BIZ_INCOM_PER-SC020',
             	'logMenuId':mid,
-        	}
+        	};
             return {
         		'pageSize': params.limit,
                 'pageNum': (params.offset / params.limit) + 1,
@@ -440,7 +446,7 @@ var TableObjNotPage = {
 	              ],
 	        ];
 	        initTable("table1",columns);
-	    },	    
+	    },
 	};
 //重置
 function resetForm() {
@@ -449,7 +455,7 @@ function resetForm() {
     $("#DATA_DT").val(date);
     $("#ORG_HIRCHY").selectpicker('refresh').selectpicker('val', "4").change();
     if($("#ORG_HIRCHY").val()=='4'){
-    	
+
     }else{
     	$("#ORG_HIRCHY").selectpicker('refresh').selectpicker('val', "5").change();
     }

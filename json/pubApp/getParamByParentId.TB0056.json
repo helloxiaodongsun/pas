@@ -1,0 +1,41 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "encode": "1",
+      "parentId": "TB0056",
+      "name": "分行+管理部",
+      "isStartUse": "1",
+      "orderNo": 1
+    },
+    {
+      "encode": "2",
+      "parentId": "TB0056",
+      "name": "分行",
+      "isStartUse": "1",
+      "orderNo": 2
+    },
+    {
+      "encode": "3",
+      "parentId": "TB0056",
+      "name": "主管行",
+      "isStartUse": "1",
+      "orderNo": 3
+    },
+    {
+      "encode": "4",
+      "parentId": "TB0056",
+      "name": "管辖行",
+      "isStartUse": "1",
+      "orderNo": 4
+    },
+    {
+      "encode": "5",
+      "parentId": "TB0056",
+      "name": "支行",
+      "isStartUse": "1",
+      "orderNo": 5
+    }
+  ]
+}

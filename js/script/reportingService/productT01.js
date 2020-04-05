@@ -2,14 +2,14 @@
 var orgMap = {
 		'ORG_NUM':'ORG_HIRCHY',
 		'SUPER_ORG_NUM':'SUPER_ORG_HIRCHY'
-}
+};
 //没有机构层级字段的对应表名和层级
 var tableHirchyRel={
 		'A_REB_CAPT_REP_REG_LINE-LS016':'4',
 		'A_REB_CAPT_REP_SUB_BRCH-LS017':'5',
 		'A_REB_DPST_REP_REG_LINE-LS018':'4',
 		'A_REB_DPST_REP_SUB_BRCH-LS019':'5'
-}
+};
 //默认机构全选
 var selectAllTables = ['A_REB_CAPT_REP_REG_LINE-LS016','A_REB_CAPT_REP_SUB_BRCH-LS017'
                        ,'A_REB_DPST_REP_REG_LINE-LS018','A_REB_DPST_REP_SUB_BRCH-LS019'];
@@ -34,13 +34,14 @@ var orderShowOrgNum = ['A_COB_IN_OFF_BAL_BIZ_SITU_TAB-GS015']
 var pageSizeMax = ['A_INS_Y_NEW_REB_CUST_PER_TAB-ZH006','A_INS_Y_NEW_COB_CUST_PER_TAB-ZH007','A_INS_ORG_REB_CUST_PER_TAB-ZH008'
                    ,'A_INS_ORG_COB_CUST_PER_TAB-ZH009','A_INS_EMP_CORP_PER_TAB_CUST-ZH010','A_COB_CUST_MGR_PER_RK_TAB-ZH012'
                    ,'A_REB_CUST_MGR_PER_RK_TAB-ZH013','A_COB_TEM_PER_RK_TAB-ZH014','A_REB_CUST_CONTR_RK_TAB-ZH015','A_COB_CUST_CONTR_RK_TAB-ZH016'];
-var date = $.param.getEtlDate();
+var date = new Date().Format("yyyy-mm-dd");
 //菜单id
 var mid = getUrlParam('mid');
 var href="";
 var levelorgcount=-1;
 var lastQueryParams;
 var isCustMgr = "";
+var whereList=$.param.getWhereList('3610');
 $(function () {
     $(function(){
         $(".date-dt").datetimepicker({
@@ -57,18 +58,19 @@ $(function () {
     $('#tableNameCn').text(whereList[0].tableNameCn);
 
     createHtml();
-    createJs();
-    if(whereList[0].tableName=="A_COB_CUST_PROD_DTL-GS013"){
+    //createJs();
+   /* if(whereList[0].tableName=="A_COB_CUST_PROD_DTL-GS013"){
         isCustMgr = $.param.getEmpRole(empNum,mid);
         if(isCustMgr=="1"){
             $("#EMP_NUM").val(empNum);
             $("#EMP_NUM").attr("disabled","true");
         }
-    }
+    }*/
     query();
-
+    var trHtml = "<tr><td>暂无报表说明!</td></tr>";
+    $("#noteList").append(trHtml);
    //初始化报表说明(备注)
-     $.ajax({
+/*     $.ajax({
             url: portal.bp() + '/table/queryNote',
             type: "get",
             async: false, // 同步 为全局变量赋值
@@ -88,12 +90,12 @@ $(function () {
 	            	}
 	            	$("#noteList .no-records-found").hide();
             	}
-            	
-            	
-            	
-               
+
+
+
+
             }
-    });
+    });*/
 
  /*   //初始化查询是否存在补录报表
     $.ajax({
@@ -109,7 +111,7 @@ $(function () {
             var s = data.data;
             if(s.length == 0){
                 $("#bulu").hide();
-               
+
             }else{
                 for(var i = 0;i<s.length;i++){
                     //console.log(s[i].replenUrl);
@@ -124,28 +126,28 @@ $(function () {
 
         }
     });*/
-    
+
     /*$("#urla").click(function(){
        window.location.href=href;
 	});*/
-    
-    
+
+
     $("input").focus(function(){
         $(this).parent().children(".input_clear").show();
  	});
-    
-    $("input").blur(function(){        
+
+    $("input").blur(function(){
         if($(this).val()==''){
         	$(this).parent().children(".input_clear").hide();
         }
  	});
-    
+
     $(".input_clear").click(function(){
     	$(this).parent().find("input").val('');
     	$(this).hide();
     });
-    
-    
+
+
 
 });
 
@@ -154,12 +156,13 @@ $(function () {
 function queryIsPageFinder(tableName) {
     var res;
     $.ajax({
-        url: portal.bp() + '/table/isPageFinder',
+        url: portal.bp() + './json/ok.json',
         type: "get",
         async: false, // 同步 为全局变量赋值
         data: {
             'tableName': tableName
         },
+        dataType:"json",
         cache: false,
         success: function (data) {
             res = data.data;
@@ -177,7 +180,7 @@ function createHtml() {
     	if(item==null || item ==undefined){
             return;
 	     }
-	
+
 	     if (item.formType == undefined || item.formType == null) {
 	         whereListCopy.splice(index,1);
 	     } else {
@@ -211,7 +214,7 @@ function createHtml() {
          	}else{
         		html += '<select class="selectpicker show-tick form-control" data-live-search="true" title="' + item.nameCn + '" id="' + item.nameEn + '" name="' + item.nameEn + '" ></select>';
         	}
-            
+
         } else if (item.formType == '3') {
 /*        	html += '<div style="position:absolute;right:16px;top:-2px;cursor:pointer;display:none;" class="input_clear"><button type="button" class="close" data-dismiss="modle" aria-hidden="true"><i class="fa fa-times-circle">x</i></button></div>';
 */
@@ -257,7 +260,7 @@ function createJs() {
             				$("#"+item.nameEn).siblings('button').attr('title','分行');
             			}
             		}
-            	})
+            	});
             	//防止没有机构层级
             	findOrgByLevel(item.nameEn,orgMap[item.nameEn]);
             	//机构层级联动机构
@@ -300,12 +303,13 @@ function findAuthOrgHirchy(eleId,isCheck){
 	var html = "";
 	var flag = false;
 	$.ajax({
-		url : portal.bp() + '/org/findAuthOrgHirchy',
+		url : portal.bp() + './json/org/findAuthOrgHirchy.json',
 		type : "get",
 		async : false, // 同步 为全局变量赋值
 		data : {
 			'mid':mid
 		},
+        dataType:"json",
 		cache : false,
 		success : function(data) {
 			if(data.code=='200'){
@@ -342,10 +346,11 @@ function findOrgByLevel(eleId,levelEleId){
 		level = tableHirchyRel[whereList[0].tableName];
 	}
 	level = "LV" + level;
-	
+
 	$.ajax({
-		url : portal.bp() + '/org/findAllOrgCountByLevel',
+		url : portal.bp() + './json/org/findAllOrgCountByLevel.json',
 		type : "get",
+        dataType:"json",
 		async : false, // 同步 为全局变量赋值
 		data : {
 			'level' : level,
@@ -357,10 +362,11 @@ function findOrgByLevel(eleId,levelEleId){
 			}
 		}
 	});
-	
+
 	$.ajax({
-		url : portal.bp() + '/org/findOrgByLevel',
+		url : portal.bp() + './json/org/findOrgByLevel.json',
 		type : "get",
+        dataType:'json',
 		async : false, // 同步 为全局变量赋值
 		data : {
 			'level' : level,
@@ -384,12 +390,12 @@ function findOrgByLevel(eleId,levelEleId){
 					//全选
 					$("#"+eleId).selectpicker('selectAll');
 				}
-				
+
 				if(level=='LV3'||level=='LV4'){
                 	//主管行和管辖行新增鼠标移入移出事件
                 	var tipsindex;
                 	$("#"+eleId).parent().find(".dropdown-menu ul li").on('mouseover',function(){
-                		
+
                 		var tipsMsg = eval("tipsMap."+$(this)[0].innerText.replace(/[\u0000-\u00FF]/g,""));
                 		if(tipsMsg!=null&&tipsMsg!='null'){
                 			tipsindex = layer.tips(eval("tipsMap."+$(this)[0].innerText.replace(/[\u0000-\u00FF]/g,"")),$(this));
@@ -432,11 +438,12 @@ function dealOrgWhere(arr,id){
 var TableObj = {
     oTableInit: function () {
         var tjkj = $("#TJKJ").val();
-        var tableType = whereList[0].tableName
+        var tableType = whereList[0].tableName;
         if (tjkj != undefined && tjkj != null && tjkj != '' && tjkj != 'undefined') {
             tableType += '-' + tjkj;
         }
-        var columns = $.param.getTableHeaderByType(tableType);
+
+        var columns = $.param.getTableHeaderByTypeLoadLocal("A_PLF_CUST_DPSIT_TAB-JC001-YEAR");
         var size,size1,size2;
         if(pageSizeMax.indexOf(whereList[0].tableName)>-1){
         	size = 50;
@@ -488,7 +495,7 @@ var TableObj = {
                 countFormat();
                 $('#queryTable').bootstrapTable('resetView',{
                     height:getTableHeight(document)
-                });              
+                });
                 resizeTables();
             },
             columns: columns,
@@ -506,7 +513,7 @@ var TableObjNotPage = {
             tableType += '-' + tjkj;
         }
 
-        var columns = $.param.getTableHeaderByType(tableType);
+        var columns = $.param.getTableHeaderByTypeLoadLocal("A_PLF_CUST_DPSIT_TAB-JC001-YEAR");
         $('#queryTable').bootstrapTable({
             url: portal.bp() + '/table/T01/queryNoPage',
             method: 'post',      //请求方式（*）
@@ -540,7 +547,7 @@ var TableObjNotPage = {
                     }
                 }*/
                 deal999999($("#queryTable"));
-                
+
                 countFormat();
                 resizeTables();
             },
@@ -580,10 +587,10 @@ function createQueryParams(params, columns) {
                 groupBy.push(res);
                 return false;
             }
-            
+
         });
         $.each(whereList, function (index, item) {
-            if (item.isOrderBy != undefined && item.isOrderBy != null && item.isOrderBy != 0) {                
+            if (item.isOrderBy != undefined && item.isOrderBy != null && item.isOrderBy != 0) {
             	if(item.nameEn.toUpperCase() == 'SEQ_NUM' && isSeq){
 
                 }else if(item.nameEn.toUpperCase() == 'ORG_NUM'||item.nameEn.toUpperCase() == 'SUPER_ORG_NUM'){
@@ -605,7 +612,7 @@ function createQueryParams(params, columns) {
             if(item.nameEn=='IS_Cntn_NP'){
             	isCntnNp = $("#" + item.nameEn).val();
             }
-            
+
         });
         $.each(columns, function (i, cols) {
             $.each(cols, function (index, item) {
@@ -635,29 +642,29 @@ function createQueryParams(params, columns) {
                 			if(item.field =='year_incremt_index' && whereList[0].tableName=='A_REB_CAPT_REP_REG_LINE-LS016'){//LS016
                     			res +=",  v.Y_NEGU_INDEX_VAL  as "+item.field;
                     		}else if(item.field =='mon_incremt_index' && whereList[0].tableName=='A_REB_CAPT_REP_REG_LINE-LS016'){//LS016
-                    			
+
                     			res +=",  v.NEGU_INDEX_VAL  as "+item.field;
-   
+
                     		}else if(item.field =='mon_index_diff' && whereList[0].tableName=='A_REB_CAPT_REP_REG_LINE-LS016'){//LS016
-                    			
+
                     			res +=", v.NEGU_INDEX_VAL -sum(A.MB_INCREMT_IN_TRANS) as "+item.field;
-                    	
+
                     		}else if(item.field =='year_incremt_index' && whereList[0].tableName=='A_REB_DPST_REP_REG_LINE-LS018'){//LS018
-                    			
+
                     			res +=",  v.Y_NEGU_INDEX_VAL  as "+item.field;
-                    			
+
                     		}else if(item.field =='mon_incremt_index' && whereList[0].tableName=='A_REB_DPST_REP_REG_LINE-LS018'){//LS018
-                    			
+
                     			res +=",  v.NEGU_INDEX_VAL  as "+item.field;
-                    			
+
                     		}else if(item.field =='mon_index_diff' && whereList[0].tableName=='A_REB_DPST_REP_REG_LINE-LS018'){//LS018
-                    			
+
                     			res +=",  v.NEGU_INDEX_VAL-sum(A.MB_INCREMT_IN_TRANS) as "+item.field;
-                    			
+
                     		}else if(item.field =='mon_target' && whereList[0].tableName=='A_REB_LOAN_SIZE_SITU_TAB-LS034'){//LS034
-                    			
+
                     			res +=",  v.NEGU_INDEX_VAL  as "+item.field;
-                    			
+
                     		}else{
 	                			res += ',A.' + item.field;
 	                			groupBy.push("A."+item.field);
@@ -665,17 +672,17 @@ function createQueryParams(params, columns) {
                     	}
                 	}else{
                 		if(item.field =='m_index_cmplt_ratio' && whereList[0].tableName=='A_REB_CAPT_REP_REG_LINE-LS016'){//LS016
-                			
+
                 				res +=",  v.NEGU_INDEX_CMPLT_ratio  as "+item.field;
-                			
+
                 		}else if(item.field =='m_index_cmplt_ratio' && whereList[0].tableName=='A_REB_DPST_REP_REG_LINE-LS018'){//LS018
-                			
+
                 				res +=",  v.NEGU_INDEX_CMPLT_ratio  as "+item.field;
-                			
+
                 		}else if(item.field =='target_rate' && whereList[0].tableName=='A_REB_LOAN_SIZE_SITU_TAB-LS034'){//LS034
-                			
+
                 				res +=",  v.NEGU_INDEX_CMPLT_ratio  as "+item.field;
-                			
+
                 		}else if(item.field =='index_val' && whereList[0].tableName=='A_REB_VIP_INDEX_REP_ORG-LS025'){//LS025
                 			res +=",  v.NEGU_INDEX_VAL  as "+item.field;
                 		}else if(item.field =='mon_index_diff' && whereList[0].tableName=='A_REB_VIP_INDEX_REP_ORG-LS025'){//LS025
@@ -690,8 +697,8 @@ function createQueryParams(params, columns) {
                             res += remSensitives(item);
                             groupBy.push("A."+item.field);
                 		}
-                		
-	                        
+
+
                 	}
                 }
             });
@@ -702,7 +709,7 @@ function createQueryParams(params, columns) {
     //是否转换
     queryParams.matrixingTagStr = function () {
         var res = "0"
-        	
+
     	$.each(whereList, function (index, item) {
         	if (item.isOrderBy != undefined && item.isOrderBy != null && item.isOrderBy != 0) {
             	if(item.nameEn.toUpperCase() == 'SEQ_NUM' && isSeq){
@@ -728,11 +735,11 @@ function createQueryParams(params, columns) {
         });
         return res;
     };
-   
+
     //表名
     queryParams.tableStr = function () {
        // return whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0];
-        
+
         var val = $("#DATA_DT").val();
     	var res = whereList[0].tableName;
     	if(val!=""&&val!=null){
@@ -740,22 +747,22 @@ function createQueryParams(params, columns) {
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 	    				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_num = v.org_num and v.org_hirchy in('2','4') and v.data_dt ='"+val+"' and v.ass_y = substr('"+val+"',1,4) and v.mon = substr('"+val+"',1,7) ";
 				groupBy.push('V.INDEX_NUM','v.Y_NEGU_INDEX_VAL','v.NEGU_INDEX_VAL','NEGU_INDEX_CMPLT_ratio','v.data_dt','v.ass_y');
-	
+
 	    	}else if(res=="A_REB_DPST_REP_REG_LINE-LS018"){//LS018
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 	    				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_num = v.org_num and v.org_hirchy in('2','4') and v.data_dt ='"+val+"' and v.ass_y = substr('"+val+"',1,4) and v.mon = substr('"+val+"',1,7) ";
 				groupBy.push('V.INDEX_NUM','v.Y_NEGU_INDEX_VAL','v.NEGU_INDEX_VAL','NEGU_INDEX_CMPLT_ratio','v.data_dt','v.ass_y');
-	
+
 	    	}else if(res=="A_REB_LOAN_SIZE_SITU_TAB-LS034"){//LS034
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 	    				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_id = v.org_id and v.data_dt ='"+val+"' and v.ass_y = substr('"+val+"',1,4) and v.mon = substr('"+val+"',1,7) ";
 				groupBy.push('V.INDEX_NUM','v.NEGU_INDEX_VAL','v.NEGU_INDEX_CMPLT_ratio','v.data_dt','v.ass_y');
-	
+
 	    	}else if(res=="A_REB_VIP_INDEX_REP_ORG-LS025"){//LS025
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_id = v.org_id and v.data_dt ='"+val+"' and v.ass_y = substr('"+val+"',1,4) and v.mon = substr('"+val+"',1,7) ";
 				groupBy.push('V.INDEX_NUM','v.NEGU_INDEX_VAL','v.NEGU_INDEX_CMPLT_ratio','v.data_dt','v.ass_y');
-		
+
 			}else{
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+" A";
 	    	}
@@ -764,22 +771,22 @@ function createQueryParams(params, columns) {
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 	    				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_num = v.org_num and v.org_hirchy in('2','4')  ";
 				groupBy.push('V.INDEX_NUM','v.Y_NEGU_INDEX_VAL','v.NEGU_INDEX_VAL','NEGU_INDEX_CMPLT_ratio');
-	
+
 	    	}else if(res=="A_REB_DPST_REP_REG_LINE-LS018"){//LS018
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 	    				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_num = v.org_num and v.org_hirchy in('2','4')  ";
 				groupBy.push('V.INDEX_NUM','v.Y_NEGU_INDEX_VAL','v.NEGU_INDEX_VAL','NEGU_INDEX_CMPLT_ratio');
-	
+
 	    	}else if(res=="A_REB_LOAN_SIZE_SITU_TAB-LS034"){//LS034
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 	    				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_id = v.org_id  ";
 				groupBy.push('V.INDEX_NUM','v.NEGU_INDEX_VAL','v.NEGU_INDEX_CMPLT_ratio');
-	
+
 	    	}else if(res=="A_REB_VIP_INDEX_REP_ORG-LS025"){//LS025
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+
 				" A left join "+whereList[0].dataBaseUser+".A_ORG_CONVT_RATIO_V V on A.org_id = v.org_id ";
 				groupBy.push('V.INDEX_NUM','v.NEGU_INDEX_VAL','v.NEGU_INDEX_CMPLT_ratio','v.data_dt','v.ass_y');
-		
+
 			}else{
 	    		res = whereList[0].dataBaseUser+'.'+whereList[0].tableName.split('-')[0]+" A";
 	    	}
@@ -828,7 +835,7 @@ function createQueryParams(params, columns) {
             if (item.isOrderBy != undefined && item.isOrderBy != null && item.isOrderBy != 0) {
                 flag = false;
                 if(ORG_SEARCH != null && ORG_SEARCH != undefined){
-                	
+
                     if (item.nameEn.toUpperCase() == 'ORG_NUM'
                         || item.nameEn.toUpperCase() == 'SUPER_ORG_NUM'
                         || item.nameEn.toUpperCase() == 'SUPER_ORG_HIRCHY') {
@@ -856,7 +863,7 @@ function createQueryParams(params, columns) {
                     }
 
                 }else{
-                	
+
                     orderFieldIndex.push(item.isOrderBy);
                     var orderTmp = new Array();
                     orderTmp.push(item.nameEn);
@@ -875,26 +882,26 @@ function createQueryParams(params, columns) {
 
 
         });
-        
-        if(orderOrgNum.indexOf(whereList[0].tableName)>-1){       	      
+
+        if(orderOrgNum.indexOf(whereList[0].tableName)>-1){
 	        res = ' order by A.lev4_org_num,A.lev5_org_num '
         }else{
         	if (flag) {
 	            res = '';
 	        }else {
 	            var orderArray = orderFun(orderFieldIndex);
-	
+
 	            for(var i=0;i<orderArray.length;i++){
 	                var orderFieldElement = orderField[orderArray[i]];
-	
+
 	                if(i==0){
-	
+
 	                    res += "A."+orderFieldElement[0]+' '+ orderFieldElement[1];
 	                }else{
 	                    res += ',A.'+ orderFieldElement[0]+' '+ orderFieldElement[1];
 	                }
 	            }
-	
+
 	            res=resPrefix +res;
 	        }
         }
@@ -915,24 +922,24 @@ function createQueryParams(params, columns) {
         if(whereList[0].tableName == 'A_INDV_LOAN_CUST_LOAN_DTL-LS033'){
             res  = ' order by A.lev4_org_num,A.lev5_org_num,A.contr_agt_id,A.agt_id asc'
         }
-        
+
         if(whereList[0].tableName == 'A_REB_FIN_ASSET_STAT_TAB-LS047'){
             res  = ' order by A.lev4_org_num,A.lev5_org_num,A.EMP_NUM '
         }
-        
+
         if(whereList[0].tableName == 'A_MKB_IBANK_DPST_PAY_INT_CAL-SC027'
         	||whereList[0].tableName == 'A_MKB_IBANK_LOAN_INT_SET_CAL-SC025'){
             res  = ' order by A.lev5_org_num,A.DPST_BAL '
         }
-        
+
         if(whereList[0].tableName =="A_COB_GUAR_CORP_DATA_CHECK-GS026" ){
         	res = ' order by A.lev4_org_num,A.lev5_org_num,A.GUAR_CORP_ID,A.NEW_CORP_SIZE_CD '
         }
-        
+
         /*if(whereList[0].tableName =="A_COB_CNY_CORP_CAPT_QTTY_DTL-GS021" ){
         	res = ' order by A.SUPER_ORG_NUM,A.SEQ_NUM,A.ORG_NUM '
         }*/
-        
+
         return res;
     }
 
@@ -947,7 +954,7 @@ function createQueryParams(params, columns) {
             flag = true;
             var val = $("#" + item.nameEn).val();
             if ((val != null && val != undefined && val != '')||item.nameEn=='SUPER_ORG_NUM'||item.nameEn=='ORG_NUM') {
-                if (item.nameEn.toUpperCase() == 'CURR_CD') {//币种特殊处理                	
+                if (item.nameEn.toUpperCase() == 'CURR_CD') {//币种特殊处理
                 	if(whereList[0].tableName=='A_COB_CUST_PROD_DTL-GS013'||whereList[0].tableName=="A_REB_ST_ACCT_DTL-LS015"){
         				 if (val == '01') {//人民币
                              res += " and A.CURR_CD='01'";
@@ -957,7 +964,7 @@ function createQueryParams(params, columns) {
 
                          }
         			}
-                   
+
                 }else if(item.nameEn.toUpperCase() == 'ROLE_CD'){
                 	if(val=='001'){//统计业绩关联口径
                 		res += " and A.ROLE_CD in ('001','999') "
@@ -1016,7 +1023,7 @@ function createQueryParams(params, columns) {
                                     		res += " and A." + org_num_field.name + " in (" + dealOrgWhere(org_num,item.nameEn) + ")";
                                     	}
                                     }
-                                
+
 
                             }else{
 
@@ -1039,7 +1046,7 @@ function createQueryParams(params, columns) {
                                 }
                             }
                         }else {
-                     
+
                         	if(orgMap.hasOwnProperty(item.nameEn.toUpperCase())
                         			&&item.codeParent!=null&&item.codeParent.toUpperCase()=='ORG_REPORT') {
                             	if('A_COB_IN_OFF_BAL_BIZ_SITU_TAB-GS015'==whereList[0].tableName){
@@ -1078,15 +1085,15 @@ function createQueryParams(params, columns) {
         	res+="and A.PNT_BAL = 0 "
         }else if(isDisplayPntBal=='1'){
         	res+="and A.PNT_BAL <> 0 "
-        }else{        	
+        }else{
         }
         //是否包含不良
         if(isCntnNp =='0'){
         	res+="and A.IS_Cntn_NP = 0 "
         }else if(isCntnNp=='1'){
-       
+
         }
-        
+
         //去重
         dateSection = uniq(dateSection);
         //时间区间情况
@@ -1118,7 +1125,7 @@ function createQueryParams(params, columns) {
         	}else{
         		res += groupBy[i]+',';
         	}
-        	
+
         }
         if(whereList[0].tableName == 'A_PAYROLL_AGEN_CUST_HOLD_PROD_DTL-LS003'){
              res+=',A.cust_id';
@@ -1135,7 +1142,7 @@ function createQueryParams(params, columns) {
 
 //查询
 function query() {
-	if($("#ORG_NUM").length>0){
+	/*if($("#ORG_NUM").length>0){
 		if($("#ORG_NUM").val()==undefined||$("#ORG_NUM").val()==null||$("#ORG_NUM").val()==""){
 			layer.msg("机构必选",{icon:3});
 			return;
@@ -1146,7 +1153,7 @@ function query() {
 			layer.msg("机构必选",{icon:3});
 			return;
 		}
-	}
+	}*/
     $('#queryTable').bootstrapTable('destroy');
     if (queryIsPageFinder(whereList[0].tableName)) {
         TableObj.oTableInit();
@@ -1165,7 +1172,7 @@ function resetForm() {
             	if (item.isCheck != undefined && item.isCheck != null) {
             		$("#" + item.nameEn).selectpicker('val', item.isCheck).change();
             	}
-            	
+
             	if(tableHirchyRel.hasOwnProperty(whereList[0].tableName)){
             		if(selectAllTables.indexOf(whereList[0].tableName)>-1){
     					//全选

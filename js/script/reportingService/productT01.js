@@ -34,7 +34,7 @@ var orderShowOrgNum = ['A_COB_IN_OFF_BAL_BIZ_SITU_TAB-GS015']
 var pageSizeMax = ['A_INS_Y_NEW_REB_CUST_PER_TAB-ZH006','A_INS_Y_NEW_COB_CUST_PER_TAB-ZH007','A_INS_ORG_REB_CUST_PER_TAB-ZH008'
                    ,'A_INS_ORG_COB_CUST_PER_TAB-ZH009','A_INS_EMP_CORP_PER_TAB_CUST-ZH010','A_COB_CUST_MGR_PER_RK_TAB-ZH012'
                    ,'A_REB_CUST_MGR_PER_RK_TAB-ZH013','A_COB_TEM_PER_RK_TAB-ZH014','A_REB_CUST_CONTR_RK_TAB-ZH015','A_COB_CUST_CONTR_RK_TAB-ZH016'];
-var date = new Date().Format("yyyy-mm-dd");
+var date = new Date().Format("yyyy-MM-dd");
 //菜单id
 var mid = getUrlParam('mid');
 var href="";
@@ -58,7 +58,7 @@ $(function () {
     $('#tableNameCn').text(whereList[0].tableNameCn);
 
     createHtml();
-    //createJs();
+    createJs();
    /* if(whereList[0].tableName=="A_COB_CUST_PROD_DTL-GS013"){
         isCustMgr = $.param.getEmpRole(empNum,mid);
         if(isCustMgr=="1"){
@@ -364,7 +364,7 @@ function findOrgByLevel(eleId,levelEleId){
 	});
 
 	$.ajax({
-		url : portal.bp() + './json/org/findOrgByLevel.json',
+		url : portal.bp() + './json/org/findOrgByLevel_bl.json',
 		type : "get",
         dataType:'json',
 		async : false, // 同步 为全局变量赋值

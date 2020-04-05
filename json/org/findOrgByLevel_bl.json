@@ -1,0 +1,284 @@
+{
+  "code": "200",
+  "message": "成功",
+  "data": [
+    {
+      "orgId": "IOODSZ5000417",
+      "orgNum": 7001,
+      "orgName": "7001-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034801",
+      "superOrgNum": 2301,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000418",
+      "orgNum": 7101,
+      "orgName": "7101-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034803",
+      "superOrgNum": 2303,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000419",
+      "orgNum": 7201,
+      "orgName": "7201-xxxx直属行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034804",
+      "superOrgNum": 2304,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx直属行"
+    },
+    {
+      "orgId": "IOODSZ5000420",
+      "orgNum": 7301,
+      "orgName": "7301-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034802",
+      "superOrgNum": 2302,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000421",
+      "orgNum": 7501,
+      "orgName": "7501-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034806",
+      "superOrgNum": 2306,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000422",
+      "orgNum": 7801,
+      "orgName": "7801-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034806",
+      "superOrgNum": 2306,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000423",
+      "orgNum": 7901,
+      "orgName": "7901-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034802",
+      "superOrgNum": 2302,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000424",
+      "orgNum": 8701,
+      "orgName": "8701-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034801",
+      "superOrgNum": 2301,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000425",
+      "orgNum": 8901,
+      "orgName": "8901-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034804",
+      "superOrgNum": 2304,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000404",
+      "orgNum": 10101,
+      "orgName": "10101-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034803",
+      "superOrgNum": 2303,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000405",
+      "orgNum": 10601,
+      "orgName": "10601-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034806",
+      "superOrgNum": 2306,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000406",
+      "orgNum": 10701,
+      "orgName": "10701-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034801",
+      "superOrgNum": 2301,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000407",
+      "orgNum": 10801,
+      "orgName": "10801-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034803",
+      "superOrgNum": 2303,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000408",
+      "orgNum": 11801,
+      "orgName": "11801-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034804",
+      "superOrgNum": 2304,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000402",
+      "orgNum": 12001,
+      "orgName": "12001-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "IOODSZ4000347",
+      "superOrgNum": 28,
+      "superOrgName": "xxxx管理部",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行\u003cbr/>xx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000403",
+      "orgNum": 15301,
+      "orgName": "15301-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "IOODSZ4000347",
+      "superOrgNum": 28,
+      "superOrgName": "xxxx管理部",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000409",
+      "orgNum": 15801,
+      "orgName": "15801-xxxx直属行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034802",
+      "superOrgNum": 2302,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx直属行"
+    },
+    {
+      "orgId": "IOODSZ5000410",
+      "orgNum": 17201,
+      "orgName": "17201-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034801",
+      "superOrgNum": 2301,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000411",
+      "orgNum": 18801,
+      "orgName": "18801-xxx营业部",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034805",
+      "superOrgNum": 2305,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxx营业部"
+    },
+    {
+      "orgId": "IOODSZ5000606",
+      "orgNum": 18901,
+      "orgName": "18901-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "IOODSZ4000347",
+      "superOrgNum": 28,
+      "superOrgName": "xxxx管理部",
+      "childOrgNames": "xxxx直属行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000413",
+      "orgNum": 19051,
+      "orgName": "19051-xxxx直属行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034803",
+      "superOrgNum": 2303,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx直属行"
+    },
+    {
+      "orgId": "IOODSZ5000414",
+      "orgNum": 19111,
+      "orgName": "19111-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034806",
+      "superOrgNum": 2306,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xx支行"
+    },
+    {
+      "orgId": "IOODSZ5000415",
+      "orgNum": 19181,
+      "orgName": "19181-xxxx直属行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034802",
+      "superOrgNum": 2302,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx直属行"
+    },
+    {
+      "orgId": "IOODSZ5000416",
+      "orgNum": 19251,
+      "orgName": "19251-xxxx直属行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034804",
+      "superOrgNum": 2304,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx直属行"
+    },
+    {
+      "orgId": "IOODSZ5000604",
+      "orgNum": 19421,
+      "orgName": "19421-xxx管辖行",
+      "orgHirchy": "LV4",
+      "orgHirchyName": "xxx管辖行",
+      "superOrgId": "DUM400034803",
+      "superOrgNum": 2303,
+      "superOrgName": "xxxx主管行",
+      "childOrgNames": "xxxx支行\u003cbr/>xxx支行"
+    }
+  ]
+}
+
+
+

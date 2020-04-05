@@ -36,9 +36,9 @@ $(function(){
 		}
 	});
 	//初始化机构
-	initOrgNum = $.param.getOrgByLevels('LV5',mid);
-	$("#ORG_NUM").html("").append($.param.getOrgByLevel('LV5',mid))
-	.selectpicker('refresh').selectpicker('val', initOrgNum[0].orgNum);
+	// initOrgNum = $.param.getOrgByLevels('LV5',mid);
+	// $("#ORG_NUM").html("").append($.param.getOrgByLevel('LV5',mid))
+	// .selectpicker('refresh').selectpicker('val', initOrgNum[0].orgNum);
 	
     $("#CURR_CD").html("").append(
 			$.param.getSelectOptionOrder("CURR_CD"))

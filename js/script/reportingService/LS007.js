@@ -29,9 +29,9 @@ $(function(){
     });
 
     //初始化机构
-    initOrgNum = $.param.getOrgByLevels('LV4',mid);
-    $("#ORG_NUM").html("").append($.param.getOrgByLevel('LV4',mid))
-        .selectpicker('refresh').selectpicker('val', initOrgNum[0].orgNum);
+    // initOrgNum = $.param.getOrgByLevels('LV4',mid);
+    // $("#ORG_NUM").html("").append($.param.getOrgByLevel('LV4',mid))
+    //     .selectpicker('refresh').selectpicker('val', initOrgNum[0].orgNum);
 
     $("#DW").html("").append(
         $.param.getSelectOptionOrder("MONETARY_UNIT"))

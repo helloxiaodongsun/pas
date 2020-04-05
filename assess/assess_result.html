@@ -127,15 +127,14 @@
                                 data-live-search="false">
                         </select>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-1 col-md-push-5 ">
+                    <div class="col-md-1 "></div>
+                    <div class="col-md-1 ">
                         <button onclick="query('0');" type="button" class="btn btn-primary">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                             查询
                         </button>
                     </div>
-                    <div class="col-md-1 col-md-push-5">
+                    <div class="col-md-1 ">
                         <button onclick="resetForm();" type="button" class="btn btn-primary">
                             <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                             重置
@@ -176,7 +175,7 @@
 
                 <div class="tab-pane" id="resultOrderTable" role="tabpanel">
                     <div class="row">
-                        <div class="ibox float-e-margins">
+                        <div class="ibox float-e-margins" style="overflow-y: hidden">
                             <div class="ibox-title">
                                 <!--<div class="per-bar">
                                     <button id="btn_save" style="outline:none;" type="button" class="btn btn-sm btn-link"><span
@@ -186,7 +185,7 @@
                                 </div>-->
                             </div>
                             <div class="ibox-content" style="padding: 0px;">
-                                <div class="table-responsive" style="overflow-y: hidden">
+                                <div class="table-responsive">
                                     <table class="table" id="assessResultOrderTable"
                                            data-mobile-responsive="true"></table>
                                 </div>
